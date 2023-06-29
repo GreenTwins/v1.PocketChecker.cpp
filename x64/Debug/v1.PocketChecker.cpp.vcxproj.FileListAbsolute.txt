@@ -1,0 +1,6 @@
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\x64\Debug\v1.PocketChecker.cpp.vcxproj.AssemblyReference.cache
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\x64\Debug\v1.PocketChecker.cpp.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\x64\Debug\v1PocketCheckercpp.DashBoard.resources
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\x64\Debug\v1PocketCheckercpp.LoginForm.resources
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\x64\Debug\v1PocketCheckercpp.RegisterForm.resources
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\x64\Debug\v1.PocketChecker.cpp.vcxproj.GenerateResource.cache
