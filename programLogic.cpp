@@ -19,10 +19,6 @@ void main(array<String^>^ args) {
 			//show the register form
 			v1PocketCheckercpp::RegisterForm registerForm;
 			registerForm.ShowDialog();
-<<<<<<< Updated upstream
-=======
-			
->>>>>>> Stashed changes
 
 			if (registerForm.switchtoLogin) {
 				continue;
