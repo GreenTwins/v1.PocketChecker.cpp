@@ -727,6 +727,7 @@ namespace v1PocketCheckercpp {
 			  int numIncomemorebtnClick = 0;
 			  int weeksdebtamtbtnclick = 0;
 			  int numofItems = 0;
+			  int itemuniqueID = 0;
 	public: void grabUserID() {
 		String^ currentUsername = currentuser->getUsername();
 		try {
@@ -763,7 +764,7 @@ namespace v1PocketCheckercpp {
 			SqlConnection reloadConn(connString);
 			reloadConn.Open();
 
-			String^ Query = "SELECT FROM ";//this is where you will get the vaultID for the item 
+			String^ Query = "SELECT * FROM ";//this is where you will get the vaultID for the item 
 			//then you will take that vaultID and see if it exists in the list
 			//if it exists then go to the next item that has the same userID but different vaultID
 			//if it doesnt exist then add it to the list and gather the data
@@ -790,7 +791,7 @@ namespace v1PocketCheckercpp {
 			if (reader->Read()) {
 				numofItems = System::Convert::ToInt32(reader["VaultId"]);
 				//int foundID = System::Convert::ToInt32(ID);
-				MessageBox::Show(" " + numofItems);//works! data is read
+				//MessageBox::Show(" " + numofItems);//works! data is read
 			}
 			else {
 				MessageBox::Show("didnt get userID");
@@ -803,9 +804,9 @@ namespace v1PocketCheckercpp {
 	}
 
 	public: void loaddBData() {
-		List<int> container;
+
 		try {
-			for (int i = 0; i < numofItems; i++) {//we need to make "already have this data move to the next instance" array or function
+			//we need to make "already have this data move to the next instance" array or function
 				//what would we use thats unique to each of these bits of data? since we're using the ID to find them
 				//we'll use their vaultID
 				String^ connString = "Data Source=localhost\\sqlexpress;Integrated Security=True";
@@ -820,41 +821,47 @@ namespace v1PocketCheckercpp {
 				//SqlCommand command(sqlQuery, % newsqlConn);
 
 				SqlDataReader^ reader = newdBConn.ExecuteReader();
-				if (reader->Read()) {
-					//MessageBox::Show("Started the read");
-					newItem = gcnew Item;
 
+				int currentDataReadNum = 0;
+				MessageBox::Show("Num of items:" + numofItems);
+				while (currentDataReadNum < numofItems) {
+					if (reader->Read()) {
+						//MessageBox::Show("Started the read");
+						newItem = gcnew Item;
 
-					newItem->set_type((String^)reader["itemType"]);
-					newItem->set_name((String^)reader["itemName"]);
-					//MessageBox::Show("got the name and type");
-					newItem->set_totalamt((int)reader["itemtotalamount"]);
-					MessageBox::Show(""+newItem->gettotal());
-					newItem->set_payment((int)reader["itemcurrentpayment"]);
-					MessageBox::Show(""+newItem->getpayment());
-					newItem->set_frequency((int)reader["itempaymentoccurance"]);
-					MessageBox::Show(""+newItem->getfrequency());
-					//container->Add(newItem);
-					if (newItem->get_type() == "I") {
-						currentuser->addIncomeItem(newItem);
-					}
-					else if (newItem->get_type() == "B") {
-						currentuser->addbillItem(newItem);
-					}
-					else if (newItem->get_type() == "D") {
-						currentuser->adddebtItem(newItem);
+						itemuniqueID = ((int)reader["vaultId"]);
+						MessageBox::Show("" + itemuniqueID);
+						newItem->set_type((String^)reader["itemType"]);
+						newItem->set_name((String^)reader["itemName"]);
+						//MessageBox::Show("got the name and type");
+						newItem->set_totalamt((int)reader["itemtotalamount"]);
+						//MessageBox::Show("" + newItem->gettotal());
+						newItem->set_payment((int)reader["itemcurrentpayment"]);
+						//MessageBox::Show("" + newItem->getpayment());
+						newItem->set_frequency((int)reader["itempaymentoccurance"]);
+						//MessageBox::Show("" + newItem->getfrequency());
+						//container->Add(newItem);
+						if (newItem->get_type() == "I") {
+							currentuser->addIncomeItem(newItem);
+						}
+						else if (newItem->get_type() == "B") {
+							currentuser->addbillItem(newItem);
+						}
+						else if (newItem->get_type() == "D") {
+							currentuser->adddebtItem(newItem);
+						}
+						else {
+							MessageBox::Show("Unable to configure itemObj for storage.Retry");
+						}
+						++currentDataReadNum;
 					}
 					else {
-						MessageBox::Show("Unable to configure itemObj for storage.Retry");
+						//MessageBox::Show("didnt get userID. Terminating Program");
+						this->Close();
 					}
-					
 				}
-				else {
-					//MessageBox::Show("didnt get userID. Terminating Program");
-					this->Close();
-				}
+				
 			}
-		}
 			
 		catch (Exception^ ex) {
 			MessageBox::Show("" + ex->Message);
@@ -868,7 +875,6 @@ namespace v1PocketCheckercpp {
 		float billtotal = 0;
 		float spendable = 0;
 		int ID = 0;
-		int itemsUniqueID = 0;
 		userDashlbl->Text = "Welcome back " +
 			currentuser->getfullName();
 
@@ -878,7 +884,7 @@ namespace v1PocketCheckercpp {
 		checkInventory();
 		if (numofItems > 0) {
 			//newInsert
-			UniqueExists();
+			//UniqueExists();
 			loaddBData();
 		}
 		

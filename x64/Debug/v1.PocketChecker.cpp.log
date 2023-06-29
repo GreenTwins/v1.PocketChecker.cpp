@@ -1,8 +1,13 @@
-﻿  programLogic.cpp
+﻿  DashBoard.cpp
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(36,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(42,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(48,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  programLogic.cpp
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(36,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(42,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(48,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\RegisterForm.h(340,21): warning C4101: 'ex': unreferenced local variable
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\programLogic.cpp(9,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  Generating Code...
   DashBoard.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   v1.PocketChecker.cpp.vcxproj -> C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\x64\Debug\v1.PocketChecker.cpp.exe
