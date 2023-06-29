@@ -828,7 +828,8 @@ namespace v1PocketCheckercpp {
 					if (reader->Read()) {
 						//MessageBox::Show("Started the read");
 						newItem = gcnew Item;
-
+						//6/28 OK so the issue is we now need to redo some of the Item in user.h to represent payment (income), amount due (debt/bills), givenAmount(if you arent paying the amount due exacttly)
+						//if its income then amount due should be 0 as well as givenAmount and VICE VERSA
 						itemuniqueID = ((int)reader["vaultId"]);
 						MessageBox::Show("" + itemuniqueID);
 						newItem->set_type((String^)reader["itemType"]);
@@ -888,8 +889,8 @@ namespace v1PocketCheckercpp {
 			loaddBData();
 		}
 		
-		if (currentuser->incomeItems->Count > 0) {
-			for (int i = 0; i < currentuser->incomeItems->Count; i++) {
+		if (currentuser->get_incomesize() > 0) {
+			for (int i = 0; i < currentuser->get_incomesize(); i++) {
 				incometotal += currentuser->incomeItems[i]->getpayment();
 			}
 		}
@@ -897,8 +898,9 @@ namespace v1PocketCheckercpp {
 			incometotal = 0.00;
 		}
 		//debt
-		if (currentuser->debtItems->Count >0) {
-			for (int i = 0; i < currentuser->debtItems->Count; i++) {
+		if (currentuser->get_debtsize() >0) {
+			MessageBox::Show("We have debt");
+			for (int i = 0; i < currentuser->get_debtsize(); i++) {
 				debttotal += currentuser->debtItems[i]->getpayment();
 			}
 		}
