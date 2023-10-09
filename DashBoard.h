@@ -1,5 +1,7 @@
 #pragma once
 #include "User.h"
+
+
 namespace v1PocketCheckercpp {
 
 	using namespace System;
@@ -9,6 +11,8 @@ namespace v1PocketCheckercpp {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
+	using namespace System::Threading::Tasks;
+	using namespace System::Threading;
 
 	/// <summary>
 	/// Summary for DashBoard
@@ -87,6 +91,11 @@ namespace v1PocketCheckercpp {
 	private: System::Windows::Forms::Button^ Closebtn;
 	private: System::Windows::Forms::Label^ userDashlbl;
 	private: System::Windows::Forms::Label^ Title;
+	private: System::Windows::Forms::Panel^ removePanel;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::ComboBox^ removeComboBox;
+
 
 	private:
 		/// <summary>
@@ -145,6 +154,10 @@ namespace v1PocketCheckercpp {
 			this->Updatecancelbtn = (gcnew System::Windows::Forms::Button());
 			this->Updateenterbtn = (gcnew System::Windows::Forms::Button());
 			this->Title = (gcnew System::Windows::Forms::Label());
+			this->removePanel = (gcnew System::Windows::Forms::Panel());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->panelDesktop->SuspendLayout();
 			this->panelTitle->SuspendLayout();
 			this->billbtnspanel->SuspendLayout();
@@ -156,6 +169,7 @@ namespace v1PocketCheckercpp {
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
 			this->Updateboard->SuspendLayout();
+			this->removePanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelDesktop
@@ -163,8 +177,8 @@ namespace v1PocketCheckercpp {
 			this->panelDesktop->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(231)),
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panelDesktop->Controls->Add(this->removePanel);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
-			this->panelDesktop->Controls->Add(this->Updateboard);
 			this->panelDesktop->Controls->Add(this->panelTitle);
 			this->panelDesktop->Controls->Add(this->billbtnspanel);
 			this->panelDesktop->Controls->Add(this->debtbtnspanel);
@@ -404,9 +418,10 @@ namespace v1PocketCheckercpp {
 			// 
 			this->panel2->BackColor = System::Drawing::Color::White;
 			this->panel2->Controls->Add(this->planslbl);
+			this->panel2->Controls->Add(this->Updateboard);
 			this->panel2->Location = System::Drawing::Point(41, 144);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(396, 226);
+			this->panel2->Size = System::Drawing::Size(357, 226);
 			this->panel2->TabIndex = 4;
 			// 
 			// planslbl
@@ -603,7 +618,7 @@ namespace v1PocketCheckercpp {
 			this->Updateboard->Controls->Add(this->Updateboardnametb);
 			this->Updateboard->Controls->Add(this->Updatecancelbtn);
 			this->Updateboard->Controls->Add(this->Updateenterbtn);
-			this->Updateboard->Location = System::Drawing::Point(445, 181);
+			this->Updateboard->Location = System::Drawing::Point(15, 98);
 			this->Updateboard->Name = L"Updateboard";
 			this->Updateboard->Size = System::Drawing::Size(338, 189);
 			this->Updateboard->TabIndex = 8;
@@ -681,6 +696,46 @@ namespace v1PocketCheckercpp {
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
+			// removePanel
+			// 
+			this->removePanel->BackColor = System::Drawing::Color::White;
+			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->removePanel->Controls->Add(this->removeComboBox);
+			this->removePanel->Controls->Add(this->button2);
+			this->removePanel->Controls->Add(this->button3);
+			this->removePanel->Location = System::Drawing::Point(405, 193);
+			this->removePanel->Name = L"removePanel";
+			this->removePanel->Size = System::Drawing::Size(338, 189);
+			this->removePanel->TabIndex = 9;
+			this->removePanel->Visible = false;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(189, 164);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(52, 20);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Cancel";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(119, 164);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(52, 20);
+			this->button3->TabIndex = 1;
+			this->button3->Text = L"Enter";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
+			// removeComboBox
+			// 
+			this->removeComboBox->FormattingEnabled = true;
+			this->removeComboBox->Location = System::Drawing::Point(18, 29);
+			this->removeComboBox->Name = L"removeComboBox";
+			this->removeComboBox->Size = System::Drawing::Size(121, 21);
+			this->removeComboBox->TabIndex = 3;
+			this->removeComboBox->Click += gcnew System::EventHandler(this, &DashBoard::removeCB_click);
+			// 
 			// DashBoard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -712,6 +767,7 @@ namespace v1PocketCheckercpp {
 			this->currentDebtShow->PerformLayout();
 			this->Updateboard->ResumeLayout(false);
 			this->Updateboard->PerformLayout();
+			this->removePanel->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -965,6 +1021,7 @@ namespace v1PocketCheckercpp {
 			}
 		}
 private: System::Void AddbtnIncome_Click(System::Object^ sender, System::EventArgs^ e) {
+	Updateboard->Location = Point(280, 162);
 	incomebtnspanel->Visible = false;
 	currentUpdateClicked = "Income";
 	PopulateUpdateBoard(1, currentUpdateClicked, 1);
@@ -1071,6 +1128,11 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 	DashBoard_Load(currentuser);
 	
 }
+	   //--------BACKGROUND THREADS------------//
+public:
+	void gatherItemsThread() {
+		Thread ^t1 = Thread::CurrentThread;
+	 }
 
 	   //--------BUTTON CLICK EVENTS-----------//
 private: System::Void Updatecancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1203,6 +1265,9 @@ private: System::Void updateboardcycletb_KeyDown(System::Object^ sender, System:
 	if (e->KeyValue == (int)Keys::Enter) {
 		Updateenterbtn->PerformClick();
 	}
+}
+private: System::Void removeCB_click(System::Object^ sender, System::EventArgs^ e) {
+	
 }
 };
 }
