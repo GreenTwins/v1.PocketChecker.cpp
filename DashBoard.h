@@ -164,6 +164,7 @@ namespace v1PocketCheckercpp {
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
+			this->panelDesktop->Controls->Add(this->Updateboard);
 			this->panelDesktop->Controls->Add(this->panelTitle);
 			this->panelDesktop->Controls->Add(this->billbtnspanel);
 			this->panelDesktop->Controls->Add(this->debtbtnspanel);
@@ -602,7 +603,7 @@ namespace v1PocketCheckercpp {
 			this->Updateboard->Controls->Add(this->Updateboardnametb);
 			this->Updateboard->Controls->Add(this->Updatecancelbtn);
 			this->Updateboard->Controls->Add(this->Updateenterbtn);
-			this->Updateboard->Location = System::Drawing::Point(280, 162);
+			this->Updateboard->Location = System::Drawing::Point(445, 181);
 			this->Updateboard->Name = L"Updateboard";
 			this->Updateboard->Size = System::Drawing::Size(338, 189);
 			this->Updateboard->TabIndex = 8;
@@ -687,7 +688,6 @@ namespace v1PocketCheckercpp {
 			this->BackColor = System::Drawing::Color::BlueViolet;
 			this->ClientSize = System::Drawing::Size(826, 444);
 			this->Controls->Add(this->Title);
-			this->Controls->Add(this->Updateboard);
 			this->Controls->Add(this->panelDesktop);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"DashBoard";
@@ -823,7 +823,7 @@ namespace v1PocketCheckercpp {
 				SqlDataReader^ reader = newdBConn.ExecuteReader();
 
 				int currentDataReadNum = 0;
-				MessageBox::Show("Num of items:" + numofItems);
+				//MessageBox::Show("Num of items:" + numofItems);
 				while (currentDataReadNum < numofItems) {
 					if (reader->Read()) {
 						//MessageBox::Show("Started the read");
@@ -831,7 +831,7 @@ namespace v1PocketCheckercpp {
 						//6/28 OK so the issue is we now need to redo some of the Item in user.h to represent payment (income), amount due (debt/bills), givenAmount(if you arent paying the amount due exacttly)
 						//if its income then amount due should be 0 as well as givenAmount and VICE VERSA
 						itemuniqueID = ((int)reader["vaultId"]);
-						MessageBox::Show("" + itemuniqueID);
+						//MessageBox::Show("" + itemuniqueID);
 						newItem->set_type((String^)reader["itemType"]);
 						newItem->set_name((String^)reader["itemName"]);
 						//MessageBox::Show("got the name and type");
@@ -843,12 +843,17 @@ namespace v1PocketCheckercpp {
 						//MessageBox::Show("" + newItem->getfrequency());
 						//container->Add(newItem);
 						if (newItem->get_type() == "I") {
+							//MessageBox::Show("income added");
 							currentuser->addIncomeItem(newItem);
+							//MessageBox::Show("inc curr size: " + currentuser->get_incomesize());
 						}
 						else if (newItem->get_type() == "B") {
+							//MessageBox::Show("bill added");
 							currentuser->addbillItem(newItem);
+							//MessageBox::Show("bill curr size: " + currentuser->get_billsize());
 						}
 						else if (newItem->get_type() == "D") {
+							//MessageBox::Show("income debt");
 							currentuser->adddebtItem(newItem);
 						}
 						else {
@@ -887,38 +892,48 @@ namespace v1PocketCheckercpp {
 			//newInsert
 			//UniqueExists();
 			loaddBData();
+			
 		}
 		
 		if (currentuser->get_incomesize() > 0) {
+			//MessageBox::Show("We have income");
+			//MessageBox::Show(currentuser->get_incomesize() + " :size");
 			for (int i = 0; i < currentuser->get_incomesize(); i++) {
 				incometotal += currentuser->incomeItems[i]->getpayment();
 			}
+			//MessageBox::Show(incometotal + " inc total");
 		}
 		else {
 			incometotal = 0.00;
 		}
 		//debt
 		if (currentuser->get_debtsize() >0) {
-			MessageBox::Show("We have debt");
-			for (int i = 0; i < currentuser->get_debtsize(); i++) {
+			//MessageBox::Show("We have debt");
+			//MessageBox::Show(currentuser->get_debtsize() + " :size");
+			for (int i = 0; i < currentuser->get_debtsize(); ++i) {
+				//MessageBox::Show("current i: " + i);
 				debttotal += currentuser->debtItems[i]->getpayment();
 			}
+			//MessageBox::Show(debttotal + " debt total");
 		}
 		else {
 			debttotal = 0.00;
 		}
 
 		//bill
-		if (currentuser->billItems->Count >0) {
+		if (currentuser->get_billsize() >0) {
+			//MessageBox::Show("We have bills");
+			//MessageBox::Show(currentuser->get_billsize() + " :size");
 			for (int i = 0; i < currentuser->billItems->Count; i++) {
 				billtotal += currentuser->billItems[i]->getpayment();
 			}
+			//MessageBox::Show(billtotal + " debt total");
 		}
 		else {
 			billtotal = 0.00;
 		}
 
-		spendable = incometotal - (billtotal + debttotal);
+		spendable = ((incometotal) - (billtotal + debttotal));
 		incomeamtlbl->Text = "$ " + incometotal;
 		billamt->Text = "$ " + billtotal;
 		debtamtlbl->Text = "$ " + debttotal;

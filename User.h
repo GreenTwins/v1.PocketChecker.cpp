@@ -124,10 +124,10 @@ public:
 		incomeItems->Add(income);
 	}
 	void adddebtItem(Item^ debt) {
-		incomeItems->Add(debt);
+		debtItems->Add(debt);
 	}
 	void addbillItem(Item^ bill) {
-		incomeItems->Add(bill);
+		billItems->Add(bill);
 	}
 	void set_userID(int n) {
 		ID = n;
@@ -136,13 +136,13 @@ public:
 		return ID;
 	}
 	int get_incomesize() {
-		return ((sizeof(incomeItems) / sizeof(incomeItems[0])));
+		return incomeItems->Count;
 	}
 	int get_debtsize() {
-		return ((sizeof(debtItems) / sizeof(debtItems[0])));
+		return debtItems->Count;//((sizeof(debtItems) / sizeof(debtItems[0])));
 	}
 	int get_billsize() {
-		return ((sizeof(billItems) / sizeof(billItems[0])));
+		return billItems->Count;
 	}
 
 	/*
