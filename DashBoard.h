@@ -1,5 +1,6 @@
 #pragma once
 #include "User.h"
+#include <stdio.h>
 
 
 namespace v1PocketCheckercpp {
@@ -13,6 +14,7 @@ namespace v1PocketCheckercpp {
 	using namespace System::Data::SqlClient;
 	using namespace System::Threading::Tasks;
 	using namespace System::Threading;
+	using namespace System::Windows;
 
 	/// <summary>
 	/// Summary for DashBoard
@@ -92,9 +94,15 @@ namespace v1PocketCheckercpp {
 	private: System::Windows::Forms::Label^ userDashlbl;
 	private: System::Windows::Forms::Label^ Title;
 	private: System::Windows::Forms::Panel^ removePanel;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ removeDonebtn;
+	private: System::Windows::Forms::Button^ removeRemovebtn;
+
+
 	private: System::Windows::Forms::ComboBox^ removeComboBox;
+	private: System::Windows::Forms::Label^ RemovePromptlbl;
+	private: System::Windows::Forms::Label^ currentDTlbl;
+
+
 
 
 	private:
@@ -113,6 +121,7 @@ namespace v1PocketCheckercpp {
 			this->panelDesktop = (gcnew System::Windows::Forms::Panel());
 			this->Dashboardlbl = (gcnew System::Windows::Forms::Label());
 			this->panelTitle = (gcnew System::Windows::Forms::Panel());
+			this->currentDTlbl = (gcnew System::Windows::Forms::Label());
 			this->Downsizebtn = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Closebtn = (gcnew System::Windows::Forms::Button());
@@ -146,6 +155,11 @@ namespace v1PocketCheckercpp {
 			this->weeksdebtamtbtn = (gcnew System::Windows::Forms::Button());
 			this->debtamtlbl = (gcnew System::Windows::Forms::Label());
 			this->weeksdbtlbl = (gcnew System::Windows::Forms::Label());
+			this->removePanel = (gcnew System::Windows::Forms::Panel());
+			this->RemovePromptlbl = (gcnew System::Windows::Forms::Label());
+			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
+			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
 			this->Updateboard = (gcnew System::Windows::Forms::Panel());
 			this->Updateboardtotalamttb = (gcnew System::Windows::Forms::TextBox());
 			this->Updateboardamounttb = (gcnew System::Windows::Forms::TextBox());
@@ -154,10 +168,6 @@ namespace v1PocketCheckercpp {
 			this->Updatecancelbtn = (gcnew System::Windows::Forms::Button());
 			this->Updateenterbtn = (gcnew System::Windows::Forms::Button());
 			this->Title = (gcnew System::Windows::Forms::Label());
-			this->removePanel = (gcnew System::Windows::Forms::Panel());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->panelDesktop->SuspendLayout();
 			this->panelTitle->SuspendLayout();
 			this->billbtnspanel->SuspendLayout();
@@ -168,8 +178,8 @@ namespace v1PocketCheckercpp {
 			this->currentBillShow->SuspendLayout();
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
-			this->Updateboard->SuspendLayout();
 			this->removePanel->SuspendLayout();
+			this->Updateboard->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelDesktop
@@ -177,9 +187,9 @@ namespace v1PocketCheckercpp {
 			this->panelDesktop->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(231)),
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panelDesktop->Controls->Add(this->removePanel);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
 			this->panelDesktop->Controls->Add(this->panelTitle);
+			this->panelDesktop->Controls->Add(this->Updateboard);
 			this->panelDesktop->Controls->Add(this->billbtnspanel);
 			this->panelDesktop->Controls->Add(this->debtbtnspanel);
 			this->panelDesktop->Controls->Add(this->incomebtnspanel);
@@ -209,6 +219,7 @@ namespace v1PocketCheckercpp {
 			// 
 			this->panelTitle->BackColor = System::Drawing::Color::SlateBlue;
 			this->panelTitle->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panelTitle->Controls->Add(this->currentDTlbl);
 			this->panelTitle->Controls->Add(this->Downsizebtn);
 			this->panelTitle->Controls->Add(this->button1);
 			this->panelTitle->Controls->Add(this->Closebtn);
@@ -218,6 +229,17 @@ namespace v1PocketCheckercpp {
 			this->panelTitle->Name = L"panelTitle";
 			this->panelTitle->Size = System::Drawing::Size(824, 22);
 			this->panelTitle->TabIndex = 8;
+			// 
+			// currentDTlbl
+			// 
+			this->currentDTlbl->AutoSize = true;
+			this->currentDTlbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->currentDTlbl->ForeColor = System::Drawing::Color::White;
+			this->currentDTlbl->Location = System::Drawing::Point(515, 4);
+			this->currentDTlbl->Name = L"currentDTlbl";
+			this->currentDTlbl->Size = System::Drawing::Size(0, 13);
+			this->currentDTlbl->TabIndex = 10;
 			// 
 			// Downsizebtn
 			// 
@@ -418,7 +440,6 @@ namespace v1PocketCheckercpp {
 			// 
 			this->panel2->BackColor = System::Drawing::Color::White;
 			this->panel2->Controls->Add(this->planslbl);
-			this->panel2->Controls->Add(this->Updateboard);
 			this->panel2->Location = System::Drawing::Point(41, 144);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(357, 226);
@@ -608,6 +629,57 @@ namespace v1PocketCheckercpp {
 			this->weeksdbtlbl->TabIndex = 0;
 			this->weeksdbtlbl->Text = L"Weeks\' Debt";
 			// 
+			// removePanel
+			// 
+			this->removePanel->BackColor = System::Drawing::Color::White;
+			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->removePanel->Controls->Add(this->RemovePromptlbl);
+			this->removePanel->Controls->Add(this->removeComboBox);
+			this->removePanel->Controls->Add(this->removeDonebtn);
+			this->removePanel->Controls->Add(this->removeRemovebtn);
+			this->removePanel->Location = System::Drawing::Point(0, 0);
+			this->removePanel->Name = L"removePanel";
+			this->removePanel->Size = System::Drawing::Size(338, 189);
+			this->removePanel->TabIndex = 9;
+			this->removePanel->Visible = false;
+			// 
+			// RemovePromptlbl
+			// 
+			this->RemovePromptlbl->AutoSize = true;
+			this->RemovePromptlbl->Location = System::Drawing::Point(112, 66);
+			this->RemovePromptlbl->Name = L"RemovePromptlbl";
+			this->RemovePromptlbl->Size = System::Drawing::Size(150, 13);
+			this->RemovePromptlbl->TabIndex = 4;
+			this->RemovePromptlbl->Text = L"What do you want to remove\?";
+			// 
+			// removeComboBox
+			// 
+			this->removeComboBox->FormattingEnabled = true;
+			this->removeComboBox->Location = System::Drawing::Point(119, 82);
+			this->removeComboBox->Name = L"removeComboBox";
+			this->removeComboBox->Size = System::Drawing::Size(121, 21);
+			this->removeComboBox->TabIndex = 3;
+			// 
+			// removeDonebtn
+			// 
+			this->removeDonebtn->Location = System::Drawing::Point(189, 164);
+			this->removeDonebtn->Name = L"removeDonebtn";
+			this->removeDonebtn->Size = System::Drawing::Size(52, 20);
+			this->removeDonebtn->TabIndex = 2;
+			this->removeDonebtn->Text = L"Done";
+			this->removeDonebtn->UseVisualStyleBackColor = true;
+			this->removeDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeDonebtn_Click);
+			// 
+			// removeRemovebtn
+			// 
+			this->removeRemovebtn->Location = System::Drawing::Point(119, 164);
+			this->removeRemovebtn->Name = L"removeRemovebtn";
+			this->removeRemovebtn->Size = System::Drawing::Size(58, 20);
+			this->removeRemovebtn->TabIndex = 1;
+			this->removeRemovebtn->Text = L"Remove";
+			this->removeRemovebtn->UseVisualStyleBackColor = true;
+			this->removeRemovebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeRemovebtn_Click);
+			// 
 			// Updateboard
 			// 
 			this->Updateboard->BackColor = System::Drawing::Color::White;
@@ -618,7 +690,7 @@ namespace v1PocketCheckercpp {
 			this->Updateboard->Controls->Add(this->Updateboardnametb);
 			this->Updateboard->Controls->Add(this->Updatecancelbtn);
 			this->Updateboard->Controls->Add(this->Updateenterbtn);
-			this->Updateboard->Location = System::Drawing::Point(15, 98);
+			this->Updateboard->Location = System::Drawing::Point(445, 233);
 			this->Updateboard->Name = L"Updateboard";
 			this->Updateboard->Size = System::Drawing::Size(338, 189);
 			this->Updateboard->TabIndex = 8;
@@ -696,46 +768,6 @@ namespace v1PocketCheckercpp {
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// removePanel
-			// 
-			this->removePanel->BackColor = System::Drawing::Color::White;
-			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->removePanel->Controls->Add(this->removeComboBox);
-			this->removePanel->Controls->Add(this->button2);
-			this->removePanel->Controls->Add(this->button3);
-			this->removePanel->Location = System::Drawing::Point(405, 193);
-			this->removePanel->Name = L"removePanel";
-			this->removePanel->Size = System::Drawing::Size(338, 189);
-			this->removePanel->TabIndex = 9;
-			this->removePanel->Visible = false;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(189, 164);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(52, 20);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Cancel";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(119, 164);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(52, 20);
-			this->button3->TabIndex = 1;
-			this->button3->Text = L"Enter";
-			this->button3->UseVisualStyleBackColor = true;
-			// 
-			// removeComboBox
-			// 
-			this->removeComboBox->FormattingEnabled = true;
-			this->removeComboBox->Location = System::Drawing::Point(18, 29);
-			this->removeComboBox->Name = L"removeComboBox";
-			this->removeComboBox->Size = System::Drawing::Size(121, 21);
-			this->removeComboBox->TabIndex = 3;
-			this->removeComboBox->Click += gcnew System::EventHandler(this, &DashBoard::removeCB_click);
-			// 
 			// DashBoard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -743,6 +775,7 @@ namespace v1PocketCheckercpp {
 			this->BackColor = System::Drawing::Color::BlueViolet;
 			this->ClientSize = System::Drawing::Size(826, 444);
 			this->Controls->Add(this->Title);
+			this->Controls->Add(this->removePanel);
 			this->Controls->Add(this->panelDesktop);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"DashBoard";
@@ -765,9 +798,10 @@ namespace v1PocketCheckercpp {
 			this->currentIncomeShow->PerformLayout();
 			this->currentDebtShow->ResumeLayout(false);
 			this->currentDebtShow->PerformLayout();
+			this->removePanel->ResumeLayout(false);
+			this->removePanel->PerformLayout();
 			this->Updateboard->ResumeLayout(false);
 			this->Updateboard->PerformLayout();
-			this->removePanel->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -936,11 +970,20 @@ namespace v1PocketCheckercpp {
 		float debttotal = 0;
 		float billtotal = 0;
 		float spendable = 0;
+		
+		DateTime^ dt = gcnew DateTime();
+
+		String^ mth = dt->Now.Month.ToString();
+		String^ day = dt->Now.Day.ToString();
+		String^ yr = dt->Now.Year.ToString();
+		
+		String^ currDate = mth + "/" + day + "/" + yr;
 		int ID = 0;
 		userDashlbl->Text = "Welcome back " +
 			currentuser->getfullName();
 
-		
+
+		currentDTlbl->Text = currDate;
 
 		//load any items for user thats in dB
 		checkInventory();
@@ -999,6 +1042,41 @@ namespace v1PocketCheckercpp {
 	private: System::Void Closebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 			Application::Exit();
 	}
+	public: System::Void PopulateRemovePanel(String^ destination, int reciever) {
+		removePanel->Visible = true;
+		removePanel->Location = Point(260, 160);
+		removePanel->Location.X = 0;
+		removePanel->Location.Y = 0;
+		currentTab = reciever;
+		Title->Text = "Remove " + destination;
+		
+		switch (currentTab) {
+		case 1: 
+			{
+				for (int i = 0; i < currentuser->get_incomesize(); i++) {
+				removeComboBox->Items->Add("" + currentuser->incomeItems[i]->getName());
+				}
+			}
+			break;
+		case 2:
+			{
+				for (int i = 0; i < currentuser->get_billsize(); ++i) {
+				removeComboBox->Items->Add("" + currentuser->billItems[i]->getName());
+				}
+			}
+			break;
+		case 3: 
+			{
+				for (int i = 0; i < currentuser->get_debtsize(); i++) {
+				removeComboBox->Items->Add("" + currentuser->debtItems[i]->getName());
+				}
+			}
+			break;
+		default:
+			MessageBox::Show("Info not loaded, please try again");
+			break;
+		}
+	}
 	public: System::Void PopulateUpdateBoard(int tag, String^ destination, int reciever) {//IBD
 			Updateboard->Location.X = 0;
 			Updateboard->Location.Y = 0;
@@ -1020,14 +1098,15 @@ namespace v1PocketCheckercpp {
 				break;
 			}
 		}
-private: System::Void AddbtnIncome_Click(System::Object^ sender, System::EventArgs^ e) {
-	Updateboard->Location = Point(280, 162);
-	incomebtnspanel->Visible = false;
-	currentUpdateClicked = "Income";
-	PopulateUpdateBoard(1, currentUpdateClicked, 1);
-	Incomemorebtn->Text = "+";
-	numIncomemorebtnClick = 0;
-}
+
+	   //--------BACKGROUND THREADS------------//
+public:
+	void gatherItemsThread() {
+		Thread ^t1 = Thread::CurrentThread;
+	 }
+
+	   //--------BUTTON CLICK EVENTS-----------//
+
 
 private: System::Void Updateenterbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	int itempaymentoccurance;
@@ -1057,15 +1136,15 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 	else {
 		itemType = "D";
 	}
-	
+
 
 	//for sql
-	
+
 
 	usersID = currentuser->get_userID();
 	//MessageBox::Show(sqlColumnName);
 	//update sql
-	
+
 	try {
 		String^ connString = "Data Source=localhost\\sqlexpress;Integrated Security=True";
 		SqlConnection newsqlConn(connString);
@@ -1089,10 +1168,10 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 		command.Parameters->AddWithValue("@itempaymentoccurance", itempaymentoccurance);
 		command.Parameters->AddWithValue("@usersID", usersID);
 
-		
 
-		
-		
+
+
+
 		command.ExecuteNonQuery();
 		//MessageBox::Show("Executed");
 		newItem = gcnew Item;
@@ -1112,29 +1191,29 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 		else {
 			currentuser->debtItems->Add(newItem);
 		}
-		
-		
+
+
 		Updateboard->Visible = false;
 		Title->Text = "";
 
-		
+
 	}
 
 	catch (Exception^ x) {
-		MessageBox::Show("Failed to register new item "+x->Message);
+		MessageBox::Show("Failed to register new item " + x->Message);
 		Updatecancelbtn_Click(this, e);
 
 	}
-	DashBoard_Load(currentuser);
-	
-}
-	   //--------BACKGROUND THREADS------------//
-public:
-	void gatherItemsThread() {
-		Thread ^t1 = Thread::CurrentThread;
-	 }
+	//reset textboxes
 
-	   //--------BUTTON CLICK EVENTS-----------//
+	Updateboardnametb->Text = "Name";
+	Updateboardtotalamttb->Text = "Total Amount";
+	Updateboardamounttb->Text = "Amount per cycle";
+	updateboardcycletb->Text = "Pick Cycle";
+	localReload();
+	//DashBoard_Load(currentuser);
+
+}
 private: System::Void Updatecancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Updateboard->Visible = false;
 	Title->Text = "";
@@ -1148,20 +1227,31 @@ private: System::Void Updateboardtotalamttb_TextChanged(System::Object^ sender, 
 private: System::Void Updateboardamounttb_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	Updateboardamounttb->Text = " ";
 }
+private: System::Void AddbtnIncome_Click(System::Object^ sender, System::EventArgs^ e) {
+			Updateboard->Location = Point(260, 150);
+			incomebtnspanel->Visible = false;
+			currentUpdateClicked = "Income";
+			PopulateUpdateBoard(1, currentUpdateClicked, 1);
+			Incomemorebtn->Text = "+";
+			numIncomemorebtnClick = 0;
+		}
 private: System::Void RemovebtnIncome_Click(System::Object^ sender, System::EventArgs^ e) {
 	incomebtnspanel->Visible = false;
-	PopulateUpdateBoard(3, "Income", 1);
+	Updateboard->Location = Point(260, 150);
+	PopulateRemovePanel("Income", 1);
 	Incomemorebtn->Text = "+";
 	numIncomemorebtnClick = 0;
 }
 private: System::Void EditbtnIncome_Click(System::Object^ sender, System::EventArgs^ e) {
 	incomebtnspanel->Visible = false;
+	Updateboard->Location = Point(260, 150);
 	PopulateUpdateBoard(2, "Income", 1);
 	Incomemorebtn->Text = "+";
 	numIncomemorebtnClick = 0;
 }
 private: System::Void Addbtnbill_Click(System::Object^ sender, System::EventArgs^ e) {
 	billbtnspanel->Visible = false;
+	Updateboard->Location = Point(260, 150);
 	currentUpdateClicked = "Bills";
 	PopulateUpdateBoard(1, currentUpdateClicked, 2);
 	billmorebtn->Text = "+";
@@ -1169,18 +1259,21 @@ private: System::Void Addbtnbill_Click(System::Object^ sender, System::EventArgs
 }
 private: System::Void Removebtnbill_Click(System::Object^ sender, System::EventArgs^ e) {
 	billbtnspanel->Visible = false;
-	PopulateUpdateBoard(3, "Bill", 2);
+	Updateboard->Location = Point(260, 150);
+	PopulateRemovePanel("Bill", 2);
 	billmorebtn->Text = "+";
 	billmorebtnClick = 0;
 }
 private: System::Void Editbtnbill_Click(System::Object^ sender, System::EventArgs^ e) {
 	billbtnspanel->Visible = false;
+	Updateboard->Location = Point(260, 150);
 	PopulateUpdateBoard(2, "Bill", 2);
 	billmorebtn->Text = "+";
 	billmorebtnClick = 0;
 }
 private: System::Void Addbtndebt_Click(System::Object^ sender, System::EventArgs^ e) {
 	debtbtnspanel->Visible = false;
+	Updateboard->Location = Point(260, 150);
 	currentUpdateClicked = "Debt";
 	PopulateUpdateBoard(1, currentUpdateClicked, 3);
 	weeksdebtamtbtn->Text = "+";
@@ -1188,12 +1281,14 @@ private: System::Void Addbtndebt_Click(System::Object^ sender, System::EventArgs
 }
 private: System::Void Removebtndebt_Click(System::Object^ sender, System::EventArgs^ e) {
 	debtbtnspanel->Visible = false;
-	PopulateUpdateBoard(3, "Debt", 3);
+	Updateboard->Location = Point(260, 150);
+	PopulateRemovePanel("Debt", 3);
 	weeksdebtamtbtn->Text = "+";
 	weeksdebtamtbtnclick = 0;
 }
 private: System::Void Editbtndebt_Click(System::Object^ sender, System::EventArgs^ e) {
 	debtbtnspanel->Visible = false;
+	Updateboard->Location = Point(260, 150);
 	PopulateUpdateBoard(2, "Debt", 3);
 	weeksdebtamtbtn->Text = "+";
 	weeksdebtamtbtnclick = 0;
@@ -1266,8 +1361,85 @@ private: System::Void updateboardcycletb_KeyDown(System::Object^ sender, System:
 		Updateenterbtn->PerformClick();
 	}
 }
-private: System::Void removeCB_click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void removeDonebtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	removePanel->Visible = false;
+	Title->Visible = false;
+	removeComboBox->Items->Clear();
+}
+private: System::Void removeRemovebtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (removeComboBox->Text == "") {
+		MessageBox::Show("Nothing selected");
+		return;
+	}
 	
+	String^ removeItem = removeComboBox->Text;
+	
+	try {
+		String^ connString = "Data Source=localhost\\sqlexpress;Integrated Security=True";
+		SqlConnection loadConn(connString);
+		loadConn.Open();
+
+		String^ query = "DELETE FROM Vault WHERE itemName=@removeItem";
+		SqlCommand anotherConn(query, % loadConn);
+		anotherConn.Parameters->AddWithValue("@removeItem", removeItem);
+
+		anotherConn.ExecuteNonQuery();
+		loadConn.Close();
+
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show("" + ex->Message);
+	}
+	//delete data from local class
+	if (Title->Text == "Remove Income") {
+		for (int i = 0; i < currentuser->get_incomesize(); ++i) {
+			if (currentuser->incomeItems[i]->getName() == removeItem) {
+				currentuser->incomeItems->Remove(currentuser->incomeItems[i]);
+			}
+		}
+	}
+	else if (Title->Text == "Remove Bill") {
+		for (int i = 0; i < currentuser->get_billsize(); ++i) {
+			if (currentuser->billItems[i]->getName() == removeItem) {
+				currentuser->billItems->Remove(currentuser->billItems[i]);
+			}
+		}
+	}
+	else if (Title->Text == "Remove Debt") {
+		for (int i = 0; i < currentuser->get_debtsize(); ++i) {
+			if (currentuser->debtItems[i]->getName() == removeItem) {
+				currentuser->debtItems->Remove(currentuser->debtItems[i]);
+			}
+		} 
+	}
+	else {
+		MessageBox::Show("Internal Error");
+		return;
+	}
+	//then reload with local class
+	localReload();
+}
+public: Void localReload() {
+	//go through all items and update totals
+	float newweeklyincometotal = 0.0;
+	float newbilltotal = 0.0;
+	float newdebttotal = 0.0;
+	for (int i = 0; i < currentuser->get_incomesize(); ++i) {
+		newweeklyincometotal += currentuser->incomeItems[i]->getpayment();
+	}
+	incomeamtlbl->Text = newweeklyincometotal.ToString();
+
+	for (int i = 0; i < currentuser->get_billsize(); ++i) {
+		newbilltotal += currentuser->billItems[i]->getpayment();
+	}
+	billamt->Text = newbilltotal.ToString();
+
+	for (int i = 0; i < currentuser->get_debtsize(); ++i) {
+		newdebttotal += currentuser->debtItems[i]->getpayment();
+	}
+	debtamtlbl->Text = newdebttotal.ToString();
+
+	spendableamtlbl->Text = (newweeklyincometotal - (newbilltotal + newdebttotal)).ToString();
 }
 };
 }
