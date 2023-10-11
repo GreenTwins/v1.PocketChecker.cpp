@@ -101,6 +101,18 @@ namespace v1PocketCheckercpp {
 	private: System::Windows::Forms::ComboBox^ removeComboBox;
 	private: System::Windows::Forms::Label^ RemovePromptlbl;
 	private: System::Windows::Forms::Label^ currentDTlbl;
+	private: System::Windows::Forms::Panel^ editpanel;
+	private: System::Windows::Forms::TextBox^ editcycletb;
+
+	private: System::Windows::Forms::TextBox^ removepanelAmnttb;
+	private: System::Windows::Forms::Label^ editpromptlbl;
+
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::Button^ editcancelbtn;
+	private: System::Windows::Forms::Button^ editEditbtn;
+
+
+	private: System::Windows::Forms::TextBox^ editpercycletb;
 
 
 
@@ -126,6 +138,13 @@ namespace v1PocketCheckercpp {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Closebtn = (gcnew System::Windows::Forms::Button());
 			this->userDashlbl = (gcnew System::Windows::Forms::Label());
+			this->Updateboard = (gcnew System::Windows::Forms::Panel());
+			this->Updateboardtotalamttb = (gcnew System::Windows::Forms::TextBox());
+			this->Updateboardamounttb = (gcnew System::Windows::Forms::TextBox());
+			this->updateboardcycletb = (gcnew System::Windows::Forms::ComboBox());
+			this->Updateboardnametb = (gcnew System::Windows::Forms::TextBox());
+			this->Updatecancelbtn = (gcnew System::Windows::Forms::Button());
+			this->Updateenterbtn = (gcnew System::Windows::Forms::Button());
 			this->billbtnspanel = (gcnew System::Windows::Forms::Panel());
 			this->Editbtnbill = (gcnew System::Windows::Forms::Button());
 			this->Removebtnbill = (gcnew System::Windows::Forms::Button());
@@ -160,16 +179,18 @@ namespace v1PocketCheckercpp {
 			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
 			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
-			this->Updateboard = (gcnew System::Windows::Forms::Panel());
-			this->Updateboardtotalamttb = (gcnew System::Windows::Forms::TextBox());
-			this->Updateboardamounttb = (gcnew System::Windows::Forms::TextBox());
-			this->updateboardcycletb = (gcnew System::Windows::Forms::ComboBox());
-			this->Updateboardnametb = (gcnew System::Windows::Forms::TextBox());
-			this->Updatecancelbtn = (gcnew System::Windows::Forms::Button());
-			this->Updateenterbtn = (gcnew System::Windows::Forms::Button());
 			this->Title = (gcnew System::Windows::Forms::Label());
+			this->editpanel = (gcnew System::Windows::Forms::Panel());
+			this->editpromptlbl = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
+			this->editEditbtn = (gcnew System::Windows::Forms::Button());
+			this->removepanelAmnttb = (gcnew System::Windows::Forms::TextBox());
+			this->editcycletb = (gcnew System::Windows::Forms::TextBox());
+			this->editpercycletb = (gcnew System::Windows::Forms::TextBox());
 			this->panelDesktop->SuspendLayout();
 			this->panelTitle->SuspendLayout();
+			this->Updateboard->SuspendLayout();
 			this->billbtnspanel->SuspendLayout();
 			this->debtbtnspanel->SuspendLayout();
 			this->incomebtnspanel->SuspendLayout();
@@ -179,7 +200,7 @@ namespace v1PocketCheckercpp {
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
 			this->removePanel->SuspendLayout();
-			this->Updateboard->SuspendLayout();
+			this->editpanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelDesktop
@@ -187,6 +208,7 @@ namespace v1PocketCheckercpp {
 			this->panelDesktop->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(231)),
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panelDesktop->Controls->Add(this->editpanel);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
 			this->panelDesktop->Controls->Add(this->panelTitle);
 			this->panelDesktop->Controls->Add(this->Updateboard);
@@ -306,6 +328,83 @@ namespace v1PocketCheckercpp {
 			this->userDashlbl->Name = L"userDashlbl";
 			this->userDashlbl->Size = System::Drawing::Size(0, 13);
 			this->userDashlbl->TabIndex = 0;
+			// 
+			// Updateboard
+			// 
+			this->Updateboard->BackColor = System::Drawing::Color::White;
+			this->Updateboard->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Updateboard->Controls->Add(this->Updateboardtotalamttb);
+			this->Updateboard->Controls->Add(this->Updateboardamounttb);
+			this->Updateboard->Controls->Add(this->updateboardcycletb);
+			this->Updateboard->Controls->Add(this->Updateboardnametb);
+			this->Updateboard->Controls->Add(this->Updatecancelbtn);
+			this->Updateboard->Controls->Add(this->Updateenterbtn);
+			this->Updateboard->Location = System::Drawing::Point(445, 233);
+			this->Updateboard->Name = L"Updateboard";
+			this->Updateboard->Size = System::Drawing::Size(338, 189);
+			this->Updateboard->TabIndex = 8;
+			this->Updateboard->Visible = false;
+			// 
+			// Updateboardtotalamttb
+			// 
+			this->Updateboardtotalamttb->Location = System::Drawing::Point(223, 51);
+			this->Updateboardtotalamttb->Name = L"Updateboardtotalamttb";
+			this->Updateboardtotalamttb->Size = System::Drawing::Size(97, 20);
+			this->Updateboardtotalamttb->TabIndex = 9;
+			this->Updateboardtotalamttb->Text = L"Total Amount";
+			this->Updateboardtotalamttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardtotalamttb_Click);
+			this->Updateboardtotalamttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardtotalamttb_KeyDown);
+			// 
+			// Updateboardamounttb
+			// 
+			this->Updateboardamounttb->Location = System::Drawing::Point(27, 90);
+			this->Updateboardamounttb->Name = L"Updateboardamounttb";
+			this->Updateboardamounttb->Size = System::Drawing::Size(97, 20);
+			this->Updateboardamounttb->TabIndex = 8;
+			this->Updateboardamounttb->Text = L"Amount per Cycle";
+			this->Updateboardamounttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardamounttb_Click);
+			this->Updateboardamounttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardamounttb_KeyDown);
+			// 
+			// updateboardcycletb
+			// 
+			this->updateboardcycletb->FormattingEnabled = true;
+			this->updateboardcycletb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
+			this->updateboardcycletb->Location = System::Drawing::Point(223, 90);
+			this->updateboardcycletb->Name = L"updateboardcycletb";
+			this->updateboardcycletb->Size = System::Drawing::Size(97, 21);
+			this->updateboardcycletb->TabIndex = 7;
+			this->updateboardcycletb->Text = L"Pick Cycle";
+			this->updateboardcycletb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::updateboardcycletb_KeyDown);
+			// 
+			// Updateboardnametb
+			// 
+			this->Updateboardnametb->Location = System::Drawing::Point(27, 51);
+			this->Updateboardnametb->Name = L"Updateboardnametb";
+			this->Updateboardnametb->Size = System::Drawing::Size(97, 20);
+			this->Updateboardnametb->TabIndex = 6;
+			this->Updateboardnametb->Text = L"Name";
+			this->Updateboardnametb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardnametb_Click);
+			this->Updateboardnametb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardnametb_KeyDown);
+			// 
+			// Updatecancelbtn
+			// 
+			this->Updatecancelbtn->Location = System::Drawing::Point(189, 164);
+			this->Updatecancelbtn->Name = L"Updatecancelbtn";
+			this->Updatecancelbtn->Size = System::Drawing::Size(52, 20);
+			this->Updatecancelbtn->TabIndex = 2;
+			this->Updatecancelbtn->Text = L"Cancel";
+			this->Updatecancelbtn->UseVisualStyleBackColor = true;
+			this->Updatecancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updatecancelbtn_Click);
+			// 
+			// Updateenterbtn
+			// 
+			this->Updateenterbtn->Location = System::Drawing::Point(119, 164);
+			this->Updateenterbtn->Name = L"Updateenterbtn";
+			this->Updateenterbtn->Size = System::Drawing::Size(52, 20);
+			this->Updateenterbtn->TabIndex = 1;
+			this->Updateenterbtn->Text = L"Enter";
+			this->Updateenterbtn->UseVisualStyleBackColor = true;
+			this->Updateenterbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updateenterbtn_Click);
 			// 
 			// billbtnspanel
 			// 
@@ -680,83 +779,6 @@ namespace v1PocketCheckercpp {
 			this->removeRemovebtn->UseVisualStyleBackColor = true;
 			this->removeRemovebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeRemovebtn_Click);
 			// 
-			// Updateboard
-			// 
-			this->Updateboard->BackColor = System::Drawing::Color::White;
-			this->Updateboard->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->Updateboard->Controls->Add(this->Updateboardtotalamttb);
-			this->Updateboard->Controls->Add(this->Updateboardamounttb);
-			this->Updateboard->Controls->Add(this->updateboardcycletb);
-			this->Updateboard->Controls->Add(this->Updateboardnametb);
-			this->Updateboard->Controls->Add(this->Updatecancelbtn);
-			this->Updateboard->Controls->Add(this->Updateenterbtn);
-			this->Updateboard->Location = System::Drawing::Point(445, 233);
-			this->Updateboard->Name = L"Updateboard";
-			this->Updateboard->Size = System::Drawing::Size(338, 189);
-			this->Updateboard->TabIndex = 8;
-			this->Updateboard->Visible = false;
-			// 
-			// Updateboardtotalamttb
-			// 
-			this->Updateboardtotalamttb->Location = System::Drawing::Point(223, 51);
-			this->Updateboardtotalamttb->Name = L"Updateboardtotalamttb";
-			this->Updateboardtotalamttb->Size = System::Drawing::Size(97, 20);
-			this->Updateboardtotalamttb->TabIndex = 9;
-			this->Updateboardtotalamttb->Text = L"Total Amount";
-			this->Updateboardtotalamttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardtotalamttb_Click);
-			this->Updateboardtotalamttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardtotalamttb_KeyDown);
-			// 
-			// Updateboardamounttb
-			// 
-			this->Updateboardamounttb->Location = System::Drawing::Point(27, 90);
-			this->Updateboardamounttb->Name = L"Updateboardamounttb";
-			this->Updateboardamounttb->Size = System::Drawing::Size(97, 20);
-			this->Updateboardamounttb->TabIndex = 8;
-			this->Updateboardamounttb->Text = L"Amount per Cycle";
-			this->Updateboardamounttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardamounttb_Click);
-			this->Updateboardamounttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardamounttb_KeyDown);
-			// 
-			// updateboardcycletb
-			// 
-			this->updateboardcycletb->FormattingEnabled = true;
-			this->updateboardcycletb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
-			this->updateboardcycletb->Location = System::Drawing::Point(223, 90);
-			this->updateboardcycletb->Name = L"updateboardcycletb";
-			this->updateboardcycletb->Size = System::Drawing::Size(97, 21);
-			this->updateboardcycletb->TabIndex = 7;
-			this->updateboardcycletb->Text = L"Pick Cycle";
-			this->updateboardcycletb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::updateboardcycletb_KeyDown);
-			// 
-			// Updateboardnametb
-			// 
-			this->Updateboardnametb->Location = System::Drawing::Point(27, 51);
-			this->Updateboardnametb->Name = L"Updateboardnametb";
-			this->Updateboardnametb->Size = System::Drawing::Size(97, 20);
-			this->Updateboardnametb->TabIndex = 6;
-			this->Updateboardnametb->Text = L"Name";
-			this->Updateboardnametb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardnametb_Click);
-			this->Updateboardnametb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardnametb_KeyDown);
-			// 
-			// Updatecancelbtn
-			// 
-			this->Updatecancelbtn->Location = System::Drawing::Point(189, 164);
-			this->Updatecancelbtn->Name = L"Updatecancelbtn";
-			this->Updatecancelbtn->Size = System::Drawing::Size(52, 20);
-			this->Updatecancelbtn->TabIndex = 2;
-			this->Updatecancelbtn->Text = L"Cancel";
-			this->Updatecancelbtn->UseVisualStyleBackColor = true;
-			this->Updatecancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updatecancelbtn_Click);
-			// 
-			// Updateenterbtn
-			// 
-			this->Updateenterbtn->Location = System::Drawing::Point(119, 164);
-			this->Updateenterbtn->Name = L"Updateenterbtn";
-			this->Updateenterbtn->Size = System::Drawing::Size(52, 20);
-			this->Updateenterbtn->TabIndex = 1;
-			this->Updateenterbtn->Text = L"Enter";
-			this->Updateenterbtn->UseVisualStyleBackColor = true;
-			this->Updateenterbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updateenterbtn_Click);
-			// 
 			// Title
 			// 
 			this->Title->AutoSize = true;
@@ -767,6 +789,82 @@ namespace v1PocketCheckercpp {
 			this->Title->Size = System::Drawing::Size(0, 20);
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// editpanel
+			// 
+			this->editpanel->BackColor = System::Drawing::Color::White;
+			this->editpanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->editpanel->Controls->Add(this->editpercycletb);
+			this->editpanel->Controls->Add(this->editcycletb);
+			this->editpanel->Controls->Add(this->removepanelAmnttb);
+			this->editpanel->Controls->Add(this->editpromptlbl);
+			this->editpanel->Controls->Add(this->comboBox1);
+			this->editpanel->Controls->Add(this->editcancelbtn);
+			this->editpanel->Controls->Add(this->editEditbtn);
+			this->editpanel->Location = System::Drawing::Point(375, 38);
+			this->editpanel->Name = L"editpanel";
+			this->editpanel->Size = System::Drawing::Size(338, 189);
+			this->editpanel->TabIndex = 10;
+			this->editpanel->Visible = false;
+			// 
+			// editpromptlbl
+			// 
+			this->editpromptlbl->AutoSize = true;
+			this->editpromptlbl->Location = System::Drawing::Point(8, 62);
+			this->editpromptlbl->Name = L"editpromptlbl";
+			this->editpromptlbl->Size = System::Drawing::Size(132, 13);
+			this->editpromptlbl->TabIndex = 4;
+			this->editpromptlbl->Text = L"What do you want to edit\?";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(13, 82);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->TabIndex = 3;
+			// 
+			// editcancelbtn
+			// 
+			this->editcancelbtn->Location = System::Drawing::Point(189, 164);
+			this->editcancelbtn->Name = L"editcancelbtn";
+			this->editcancelbtn->Size = System::Drawing::Size(52, 20);
+			this->editcancelbtn->TabIndex = 2;
+			this->editcancelbtn->Text = L"Cancel";
+			this->editcancelbtn->UseVisualStyleBackColor = true;
+			// 
+			// editEditbtn
+			// 
+			this->editEditbtn->Location = System::Drawing::Point(119, 164);
+			this->editEditbtn->Name = L"editEditbtn";
+			this->editEditbtn->Size = System::Drawing::Size(58, 20);
+			this->editEditbtn->TabIndex = 1;
+			this->editEditbtn->Text = L"Edit";
+			this->editEditbtn->UseVisualStyleBackColor = true;
+			// 
+			// removepanelAmnttb
+			// 
+			this->removepanelAmnttb->Location = System::Drawing::Point(219, 83);
+			this->removepanelAmnttb->Name = L"removepanelAmnttb";
+			this->removepanelAmnttb->Size = System::Drawing::Size(97, 20);
+			this->removepanelAmnttb->TabIndex = 7;
+			this->removepanelAmnttb->Visible = false;
+			// 
+			// editcycletb
+			// 
+			this->editcycletb->Location = System::Drawing::Point(219, 116);
+			this->editcycletb->Name = L"editcycletb";
+			this->editcycletb->Size = System::Drawing::Size(97, 20);
+			this->editcycletb->TabIndex = 8;
+			this->editcycletb->Visible = false;
+			// 
+			// editpercycletb
+			// 
+			this->editpercycletb->Location = System::Drawing::Point(13, 116);
+			this->editpercycletb->Name = L"editpercycletb";
+			this->editpercycletb->Size = System::Drawing::Size(97, 20);
+			this->editpercycletb->TabIndex = 9;
+			this->editpercycletb->Visible = false;
 			// 
 			// DashBoard
 			// 
@@ -785,6 +883,8 @@ namespace v1PocketCheckercpp {
 			this->panelDesktop->PerformLayout();
 			this->panelTitle->ResumeLayout(false);
 			this->panelTitle->PerformLayout();
+			this->Updateboard->ResumeLayout(false);
+			this->Updateboard->PerformLayout();
 			this->billbtnspanel->ResumeLayout(false);
 			this->debtbtnspanel->ResumeLayout(false);
 			this->incomebtnspanel->ResumeLayout(false);
@@ -800,8 +900,8 @@ namespace v1PocketCheckercpp {
 			this->currentDebtShow->PerformLayout();
 			this->removePanel->ResumeLayout(false);
 			this->removePanel->PerformLayout();
-			this->Updateboard->ResumeLayout(false);
-			this->Updateboard->PerformLayout();
+			this->editpanel->ResumeLayout(false);
+			this->editpanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1042,6 +1142,9 @@ namespace v1PocketCheckercpp {
 	private: System::Void Closebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 			Application::Exit();
 	}
+	public: System::Void PopulateEditPanel(String^ destination,int reciever) {
+
+	}
 	public: System::Void PopulateRemovePanel(String^ destination, int reciever) {
 		removePanel->Visible = true;
 		removePanel->Location = Point(260, 160);
@@ -1267,7 +1370,7 @@ private: System::Void Removebtnbill_Click(System::Object^ sender, System::EventA
 private: System::Void Editbtnbill_Click(System::Object^ sender, System::EventArgs^ e) {
 	billbtnspanel->Visible = false;
 	Updateboard->Location = Point(260, 150);
-	PopulateUpdateBoard(2, "Bill", 2);
+	PopulateEditPanel("Bill", 2);
 	billmorebtn->Text = "+";
 	billmorebtnClick = 0;
 }
