@@ -102,17 +102,22 @@ namespace v1PocketCheckercpp {
 	private: System::Windows::Forms::Label^ RemovePromptlbl;
 	private: System::Windows::Forms::Label^ currentDTlbl;
 	private: System::Windows::Forms::Panel^ editpanel;
-	private: System::Windows::Forms::TextBox^ editcycletb;
 
-	private: System::Windows::Forms::TextBox^ removepanelAmnttb;
+	private: System::Windows::Forms::TextBox^ editpanelAmnttb;
+
+
 	private: System::Windows::Forms::Label^ editpromptlbl;
+	private: System::Windows::Forms::ComboBox^ editComboBox;
 
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+
 	private: System::Windows::Forms::Button^ editcancelbtn;
 	private: System::Windows::Forms::Button^ editEditbtn;
 
 
 	private: System::Windows::Forms::TextBox^ editpercycletb;
+	private: System::Windows::Forms::ComboBox^ editcyclecb;
+	private: System::Windows::Forms::Button^ editDonebtn;
+
 
 
 
@@ -131,6 +136,15 @@ namespace v1PocketCheckercpp {
 		void InitializeComponent(void)
 		{
 			this->panelDesktop = (gcnew System::Windows::Forms::Panel());
+			this->editpanel = (gcnew System::Windows::Forms::Panel());
+			this->editDonebtn = (gcnew System::Windows::Forms::Button());
+			this->editcyclecb = (gcnew System::Windows::Forms::ComboBox());
+			this->editpercycletb = (gcnew System::Windows::Forms::TextBox());
+			this->editpanelAmnttb = (gcnew System::Windows::Forms::TextBox());
+			this->editpromptlbl = (gcnew System::Windows::Forms::Label());
+			this->editComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
+			this->editEditbtn = (gcnew System::Windows::Forms::Button());
 			this->Dashboardlbl = (gcnew System::Windows::Forms::Label());
 			this->panelTitle = (gcnew System::Windows::Forms::Panel());
 			this->currentDTlbl = (gcnew System::Windows::Forms::Label());
@@ -180,15 +194,8 @@ namespace v1PocketCheckercpp {
 			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
 			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
 			this->Title = (gcnew System::Windows::Forms::Label());
-			this->editpanel = (gcnew System::Windows::Forms::Panel());
-			this->editpromptlbl = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
-			this->editEditbtn = (gcnew System::Windows::Forms::Button());
-			this->removepanelAmnttb = (gcnew System::Windows::Forms::TextBox());
-			this->editcycletb = (gcnew System::Windows::Forms::TextBox());
-			this->editpercycletb = (gcnew System::Windows::Forms::TextBox());
 			this->panelDesktop->SuspendLayout();
+			this->editpanel->SuspendLayout();
 			this->panelTitle->SuspendLayout();
 			this->Updateboard->SuspendLayout();
 			this->billbtnspanel->SuspendLayout();
@@ -200,7 +207,6 @@ namespace v1PocketCheckercpp {
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
 			this->removePanel->SuspendLayout();
-			this->editpanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelDesktop
@@ -225,6 +231,98 @@ namespace v1PocketCheckercpp {
 			this->panelDesktop->Name = L"panelDesktop";
 			this->panelDesktop->Size = System::Drawing::Size(826, 444);
 			this->panelDesktop->TabIndex = 3;
+			// 
+			// editpanel
+			// 
+			this->editpanel->BackColor = System::Drawing::Color::White;
+			this->editpanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->editpanel->Controls->Add(this->editDonebtn);
+			this->editpanel->Controls->Add(this->editcyclecb);
+			this->editpanel->Controls->Add(this->editpercycletb);
+			this->editpanel->Controls->Add(this->editpanelAmnttb);
+			this->editpanel->Controls->Add(this->editpromptlbl);
+			this->editpanel->Controls->Add(this->editComboBox);
+			this->editpanel->Controls->Add(this->editcancelbtn);
+			this->editpanel->Controls->Add(this->editEditbtn);
+			this->editpanel->Location = System::Drawing::Point(375, 38);
+			this->editpanel->Name = L"editpanel";
+			this->editpanel->Size = System::Drawing::Size(338, 189);
+			this->editpanel->TabIndex = 10;
+			this->editpanel->Visible = false;
+			// 
+			// editDonebtn
+			// 
+			this->editDonebtn->Location = System::Drawing::Point(221, 164);
+			this->editDonebtn->Name = L"editDonebtn";
+			this->editDonebtn->Size = System::Drawing::Size(58, 20);
+			this->editDonebtn->TabIndex = 11;
+			this->editDonebtn->Text = L"Done";
+			this->editDonebtn->UseVisualStyleBackColor = true;
+			this->editDonebtn->Visible = false;
+			this->editDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::editDonebtn_Click);
+			// 
+			// editcyclecb
+			// 
+			this->editcyclecb->FormattingEnabled = true;
+			this->editcyclecb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
+			this->editcyclecb->Location = System::Drawing::Point(219, 116);
+			this->editcyclecb->Name = L"editcyclecb";
+			this->editcyclecb->Size = System::Drawing::Size(97, 21);
+			this->editcyclecb->TabIndex = 10;
+			this->editcyclecb->Visible = false;
+			// 
+			// editpercycletb
+			// 
+			this->editpercycletb->Location = System::Drawing::Point(13, 116);
+			this->editpercycletb->Name = L"editpercycletb";
+			this->editpercycletb->Size = System::Drawing::Size(97, 20);
+			this->editpercycletb->TabIndex = 9;
+			this->editpercycletb->Visible = false;
+			// 
+			// editpanelAmnttb
+			// 
+			this->editpanelAmnttb->Location = System::Drawing::Point(219, 83);
+			this->editpanelAmnttb->Name = L"editpanelAmnttb";
+			this->editpanelAmnttb->Size = System::Drawing::Size(97, 20);
+			this->editpanelAmnttb->TabIndex = 7;
+			this->editpanelAmnttb->Visible = false;
+			// 
+			// editpromptlbl
+			// 
+			this->editpromptlbl->AutoSize = true;
+			this->editpromptlbl->Location = System::Drawing::Point(8, 62);
+			this->editpromptlbl->Name = L"editpromptlbl";
+			this->editpromptlbl->Size = System::Drawing::Size(132, 13);
+			this->editpromptlbl->TabIndex = 4;
+			this->editpromptlbl->Text = L"What do you want to edit\?";
+			// 
+			// editComboBox
+			// 
+			this->editComboBox->FormattingEnabled = true;
+			this->editComboBox->Location = System::Drawing::Point(13, 82);
+			this->editComboBox->Name = L"editComboBox";
+			this->editComboBox->Size = System::Drawing::Size(121, 21);
+			this->editComboBox->TabIndex = 3;
+			// 
+			// editcancelbtn
+			// 
+			this->editcancelbtn->Location = System::Drawing::Point(152, 164);
+			this->editcancelbtn->Name = L"editcancelbtn";
+			this->editcancelbtn->Size = System::Drawing::Size(52, 20);
+			this->editcancelbtn->TabIndex = 2;
+			this->editcancelbtn->Text = L"Cancel";
+			this->editcancelbtn->UseVisualStyleBackColor = true;
+			this->editcancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::editcancelbtn_Click);
+			// 
+			// editEditbtn
+			// 
+			this->editEditbtn->Location = System::Drawing::Point(76, 164);
+			this->editEditbtn->Name = L"editEditbtn";
+			this->editEditbtn->Size = System::Drawing::Size(58, 20);
+			this->editEditbtn->TabIndex = 1;
+			this->editEditbtn->Text = L"Edit";
+			this->editEditbtn->UseVisualStyleBackColor = true;
+			this->editEditbtn->Click += gcnew System::EventHandler(this, &DashBoard::editEditbtn_Click);
 			// 
 			// Dashboardlbl
 			// 
@@ -790,82 +888,6 @@ namespace v1PocketCheckercpp {
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// editpanel
-			// 
-			this->editpanel->BackColor = System::Drawing::Color::White;
-			this->editpanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->editpanel->Controls->Add(this->editpercycletb);
-			this->editpanel->Controls->Add(this->editcycletb);
-			this->editpanel->Controls->Add(this->removepanelAmnttb);
-			this->editpanel->Controls->Add(this->editpromptlbl);
-			this->editpanel->Controls->Add(this->comboBox1);
-			this->editpanel->Controls->Add(this->editcancelbtn);
-			this->editpanel->Controls->Add(this->editEditbtn);
-			this->editpanel->Location = System::Drawing::Point(375, 38);
-			this->editpanel->Name = L"editpanel";
-			this->editpanel->Size = System::Drawing::Size(338, 189);
-			this->editpanel->TabIndex = 10;
-			this->editpanel->Visible = false;
-			// 
-			// editpromptlbl
-			// 
-			this->editpromptlbl->AutoSize = true;
-			this->editpromptlbl->Location = System::Drawing::Point(8, 62);
-			this->editpromptlbl->Name = L"editpromptlbl";
-			this->editpromptlbl->Size = System::Drawing::Size(132, 13);
-			this->editpromptlbl->TabIndex = 4;
-			this->editpromptlbl->Text = L"What do you want to edit\?";
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(13, 82);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
-			this->comboBox1->TabIndex = 3;
-			// 
-			// editcancelbtn
-			// 
-			this->editcancelbtn->Location = System::Drawing::Point(189, 164);
-			this->editcancelbtn->Name = L"editcancelbtn";
-			this->editcancelbtn->Size = System::Drawing::Size(52, 20);
-			this->editcancelbtn->TabIndex = 2;
-			this->editcancelbtn->Text = L"Cancel";
-			this->editcancelbtn->UseVisualStyleBackColor = true;
-			// 
-			// editEditbtn
-			// 
-			this->editEditbtn->Location = System::Drawing::Point(119, 164);
-			this->editEditbtn->Name = L"editEditbtn";
-			this->editEditbtn->Size = System::Drawing::Size(58, 20);
-			this->editEditbtn->TabIndex = 1;
-			this->editEditbtn->Text = L"Edit";
-			this->editEditbtn->UseVisualStyleBackColor = true;
-			// 
-			// removepanelAmnttb
-			// 
-			this->removepanelAmnttb->Location = System::Drawing::Point(219, 83);
-			this->removepanelAmnttb->Name = L"removepanelAmnttb";
-			this->removepanelAmnttb->Size = System::Drawing::Size(97, 20);
-			this->removepanelAmnttb->TabIndex = 7;
-			this->removepanelAmnttb->Visible = false;
-			// 
-			// editcycletb
-			// 
-			this->editcycletb->Location = System::Drawing::Point(219, 116);
-			this->editcycletb->Name = L"editcycletb";
-			this->editcycletb->Size = System::Drawing::Size(97, 20);
-			this->editcycletb->TabIndex = 8;
-			this->editcycletb->Visible = false;
-			// 
-			// editpercycletb
-			// 
-			this->editpercycletb->Location = System::Drawing::Point(13, 116);
-			this->editpercycletb->Name = L"editpercycletb";
-			this->editpercycletb->Size = System::Drawing::Size(97, 20);
-			this->editpercycletb->TabIndex = 9;
-			this->editpercycletb->Visible = false;
-			// 
 			// DashBoard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -881,6 +903,8 @@ namespace v1PocketCheckercpp {
 			this->Text = L"DashBoard";
 			this->panelDesktop->ResumeLayout(false);
 			this->panelDesktop->PerformLayout();
+			this->editpanel->ResumeLayout(false);
+			this->editpanel->PerformLayout();
 			this->panelTitle->ResumeLayout(false);
 			this->panelTitle->PerformLayout();
 			this->Updateboard->ResumeLayout(false);
@@ -900,8 +924,6 @@ namespace v1PocketCheckercpp {
 			this->currentDebtShow->PerformLayout();
 			this->removePanel->ResumeLayout(false);
 			this->removePanel->PerformLayout();
-			this->editpanel->ResumeLayout(false);
-			this->editpanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1143,7 +1165,39 @@ namespace v1PocketCheckercpp {
 			Application::Exit();
 	}
 	public: System::Void PopulateEditPanel(String^ destination,int reciever) {
+		editpanel->Visible = true;
+		editpanel->Location = Point(260, 160);
+		editpanel->Location.X = 0;
+		editpanel->Location.Y = 0;
+		currentTab = reciever;
+		Title->Text = "Edit " + destination;
 
+		switch (currentTab) {
+		case 1:
+		{
+			for (int i = 0; i < currentuser->get_incomesize(); i++) {
+				editComboBox->Items->Add("" + currentuser->incomeItems[i]->getName());
+			}
+		}
+		break;
+		case 2:
+		{
+			for (int i = 0; i < currentuser->get_billsize(); ++i) {
+				editComboBox->Items->Add("" + currentuser->billItems[i]->getName());
+			}
+		}
+		break;
+		case 3:
+		{
+			for (int i = 0; i < currentuser->get_debtsize(); i++) {
+				editComboBox->Items->Add("" + currentuser->debtItems[i]->getName());
+			}
+		}
+		break;
+		default:
+			MessageBox::Show("Info not loaded, please try again");
+			break;
+		}
 	}
 	public: System::Void PopulateRemovePanel(String^ destination, int reciever) {
 		removePanel->Visible = true;
@@ -1543,6 +1597,111 @@ public: Void localReload() {
 	debtamtlbl->Text = newdebttotal.ToString();
 
 	spendableamtlbl->Text = (newweeklyincometotal - (newbilltotal + newdebttotal)).ToString();
+}
+private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	editcyclecb->Visible = true;
+	editpercycletb->Visible = true;
+	editpanelAmnttb->Visible = true;
+	editDonebtn->Visible = true;
+
+	switch (currentTab) {
+	case 1:
+		{
+			for (int i = 0; i < currentuser->get_incomesize(); ++i) {
+				if (currentuser->incomeItems[i]->getName() == editComboBox->Text) {
+				//load the data into panels
+				editpanelAmnttb->Text = (currentuser->incomeItems[i]->gettotal()).ToString();
+				editpercycletb->Text = (currentuser->incomeItems[i]->getpayment()).ToString();
+				
+				}
+			}
+		}
+		break;
+	case 2:
+	{
+		for (int i = 0; i < currentuser->get_billsize(); ++i) {
+			if (currentuser->billItems[i]->getName() == editComboBox->Text) {
+				//load the data into panels
+				editpanelAmnttb->Text = (currentuser->billItems[i]->gettotal()).ToString();
+				editpercycletb->Text = (currentuser->billItems[i]->getpayment()).ToString();
+
+			}
+		}
+	}
+	break;
+	case 3:
+	{
+		for (int i = 0; i < currentuser->get_debtsize(); ++i) {
+			if (currentuser->debtItems[i]->getName() == editComboBox->Text) {
+				//load the data into panels
+				editpanelAmnttb->Text = (currentuser->debtItems[i]->gettotal()).ToString();
+				editpercycletb->Text = (currentuser->debtItems[i]->getpayment()).ToString();
+
+			}
+		}
+	}
+	break;
+	default:
+		MessageBox::Show("Internal error while loading editing features. Please try again");
+		break;
+	}
+	
+}
+private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	//load data back to local user but its NOT saved to the DB until the save button is hit
+	editcyclecb->Text = " ";
+	editpercycletb->Text = " ";
+	editpanelAmnttb->Text = " ";
+	
+	try {
+		switch (currentTab) {
+		case 1: {
+			for (int i = 0; i < currentuser->get_incomesize(); ++i) {
+				if (currentuser->incomeItems[i]->getName() == editComboBox->Text) {
+					//load the data into panels
+					currentuser->incomeItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
+					currentuser->incomeItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
+				}
+			}
+		}
+			  break;
+		case 2: {
+			for (int i = 0; i < currentuser->get_billsize(); ++i) {
+				if (currentuser->billItems[i]->getName() == editComboBox->Text) {
+					//load the data into panels
+					currentuser->billItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
+					currentuser->billItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
+				}
+			}
+		}
+			  break;
+		case 3:
+			for (int i = 0; i < currentuser->get_debtsize(); ++i) {
+				if (currentuser->debtItems[i]->getName() == editComboBox->Text) {
+					//load the data into panels
+					currentuser->debtItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
+					currentuser->debtItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
+				}
+			}
+			break;
+		default:
+			MessageBox::Show("Internal error when updating changes. Please try again");
+			break;
+		}
+		editpanel->Visible = false;
+		Title->Visible = false;
+		localReload();
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show("One or more of the tabs is missing information. Please fill it out before clicking 'Done' "+ex->Message);
+	}
+}
+private: System::Void editcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	editcyclecb->Visible = false;
+	editpercycletb->Visible = false;
+	editpanelAmnttb->Visible = false;
+	editpanel->Visible = false;
+	Title->Visible = false;
 }
 };
 }
