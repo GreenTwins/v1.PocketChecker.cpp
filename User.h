@@ -84,6 +84,7 @@ public:
 	List<Item^>^ incomeItems;
 	List<Item^>^ debtItems;
 	List<Item^>^ billItems;
+	List<Item^>^ changedItems;
 	void set_fullname(String^ firstName, String^ lastName) {
 		fullname = firstName + " " + lastName;
 	}
@@ -143,6 +144,9 @@ public:
 	}
 	int get_billsize() {
 		return billItems->Count;
+	}
+	void updatedItems(Item^ update) {
+		changedItems->Add(update);
 	}
 
 	/*

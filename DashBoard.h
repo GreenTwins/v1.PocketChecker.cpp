@@ -117,6 +117,15 @@ namespace v1PocketCheckercpp {
 	private: System::Windows::Forms::TextBox^ editpercycletb;
 	private: System::Windows::Forms::ComboBox^ editcyclecb;
 	private: System::Windows::Forms::Button^ editDonebtn;
+	private: System::Windows::Forms::Panel^ SaveDatapanel;
+	private: System::Windows::Forms::Label^ CloseQuestionlbl;
+
+
+
+	private: System::Windows::Forms::Button^ SaveNobtn;
+private: System::Windows::Forms::Button^ saveYesbtn;
+
+
 
 
 
@@ -145,6 +154,7 @@ namespace v1PocketCheckercpp {
 			this->editComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
 			this->editEditbtn = (gcnew System::Windows::Forms::Button());
+			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
 			this->Dashboardlbl = (gcnew System::Windows::Forms::Label());
 			this->panelTitle = (gcnew System::Windows::Forms::Panel());
 			this->currentDTlbl = (gcnew System::Windows::Forms::Label());
@@ -172,6 +182,9 @@ namespace v1PocketCheckercpp {
 			this->RemovebtnIncome = (gcnew System::Windows::Forms::Button());
 			this->AddbtnIncome = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
+			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
+			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
 			this->planslbl = (gcnew System::Windows::Forms::Label());
 			this->currentSpendableShow = (gcnew System::Windows::Forms::Panel());
 			this->spendableamtlbl = (gcnew System::Windows::Forms::Label());
@@ -202,6 +215,7 @@ namespace v1PocketCheckercpp {
 			this->debtbtnspanel->SuspendLayout();
 			this->incomebtnspanel->SuspendLayout();
 			this->panel2->SuspendLayout();
+			this->SaveDatapanel->SuspendLayout();
 			this->currentSpendableShow->SuspendLayout();
 			this->currentBillShow->SuspendLayout();
 			this->currentIncomeShow->SuspendLayout();
@@ -215,6 +229,7 @@ namespace v1PocketCheckercpp {
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panelDesktop->Controls->Add(this->editpanel);
+			this->panelDesktop->Controls->Add(this->SaveNobtn);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
 			this->panelDesktop->Controls->Add(this->panelTitle);
 			this->panelDesktop->Controls->Add(this->Updateboard);
@@ -323,6 +338,16 @@ namespace v1PocketCheckercpp {
 			this->editEditbtn->Text = L"Edit";
 			this->editEditbtn->UseVisualStyleBackColor = true;
 			this->editEditbtn->Click += gcnew System::EventHandler(this, &DashBoard::editEditbtn_Click);
+			// 
+			// SaveNobtn
+			// 
+			this->SaveNobtn->Location = System::Drawing::Point(352, 298);
+			this->SaveNobtn->Name = L"SaveNobtn";
+			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
+			this->SaveNobtn->TabIndex = 2;
+			this->SaveNobtn->Text = L"No";
+			this->SaveNobtn->UseVisualStyleBackColor = true;
+			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
 			// 
 			// Dashboardlbl
 			// 
@@ -636,11 +661,43 @@ namespace v1PocketCheckercpp {
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::Color::White;
+			this->panel2->Controls->Add(this->SaveDatapanel);
 			this->panel2->Controls->Add(this->planslbl);
 			this->panel2->Location = System::Drawing::Point(41, 144);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(357, 226);
 			this->panel2->TabIndex = 4;
+			// 
+			// SaveDatapanel
+			// 
+			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
+			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
+			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
+			this->SaveDatapanel->Location = System::Drawing::Point(148, 85);
+			this->SaveDatapanel->Name = L"SaveDatapanel";
+			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
+			this->SaveDatapanel->TabIndex = 11;
+			this->SaveDatapanel->Visible = false;
+			// 
+			// CloseQuestionlbl
+			// 
+			this->CloseQuestionlbl->AutoSize = true;
+			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
+			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
+			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
+			this->CloseQuestionlbl->TabIndex = 4;
+			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
+			// 
+			// saveYesbtn
+			// 
+			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
+			this->saveYesbtn->Name = L"saveYesbtn";
+			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
+			this->saveYesbtn->TabIndex = 1;
+			this->saveYesbtn->Text = L"Yes";
+			this->saveYesbtn->UseVisualStyleBackColor = true;
+			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
 			// 
 			// planslbl
 			// 
@@ -914,6 +971,8 @@ namespace v1PocketCheckercpp {
 			this->incomebtnspanel->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			this->SaveDatapanel->ResumeLayout(false);
+			this->SaveDatapanel->PerformLayout();
 			this->currentSpendableShow->ResumeLayout(false);
 			this->currentSpendableShow->PerformLayout();
 			this->currentBillShow->ResumeLayout(false);
@@ -1162,7 +1221,8 @@ namespace v1PocketCheckercpp {
 
 	}
 	private: System::Void Closebtn_Click(System::Object^ sender, System::EventArgs^ e) {
-			Application::Exit();
+		SaveDatapanel->Visible = true;
+		
 	}
 	public: System::Void PopulateEditPanel(String^ destination,int reciever) {
 		editpanel->Visible = true;
@@ -1659,7 +1719,7 @@ private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArg
 					//load the data into panels
 					currentuser->incomeItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
 					currentuser->incomeItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
-					
+					currentuser->updatedItems(currentuser->incomeItems[i]);
 				}
 			}
 			
@@ -1672,7 +1732,7 @@ private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArg
 	
 					currentuser->billItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
 					currentuser->billItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
-					
+					currentuser->updatedItems(currentuser->billItems[i]);
 				}
 			}
 		}
@@ -1683,6 +1743,7 @@ private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArg
 					//load the data into panels
 					currentuser->debtItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
 					currentuser->debtItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
+					currentuser->updatedItems(currentuser->debtItems[i]);
 				}
 			}
 			break;
@@ -1709,6 +1770,34 @@ private: System::Void editcancelbtn_Click(System::Object^ sender, System::EventA
 	editpanelAmnttb->Visible = false;
 	editpanel->Visible = false;
 	Title->Visible = false;
+}
+
+private: System::Void SaveNobtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
+private: System::Void saveYesbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	//loop through users data
+	
+
+	try {
+		String^ connString = "Data Source=localhost\\sqlexpress;Integrated Security=True";
+		SqlConnection updateConn(connString);
+		updateConn.Open();
+		for (int i = 0; i < currentuser->changedItems->Count; ++i) {
+			String^ item = currentuser->changedItems[i]->getName();
+
+			String^ query = "UPDATE Vault SET itemName=@item";
+			SqlCommand dbConn(query, % updateConn);
+			dbConn.Parameters->AddWithValue("@item", item);
+
+		}
+		
+
+	}
+	catch (Exception^ ex) {
+
+	}
+	Application::Exit();
 }
 };
 }
