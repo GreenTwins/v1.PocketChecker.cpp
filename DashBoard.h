@@ -1402,7 +1402,7 @@ private: System::Void RemovebtnIncome_Click(System::Object^ sender, System::Even
 private: System::Void EditbtnIncome_Click(System::Object^ sender, System::EventArgs^ e) {
 	incomebtnspanel->Visible = false;
 	Updateboard->Location = Point(260, 150);
-	PopulateUpdateBoard(2, "Income", 1);
+	PopulateEditPanel("Income", 1);
 	Incomemorebtn->Text = "+";
 	numIncomemorebtnClick = 0;
 }
@@ -1446,7 +1446,7 @@ private: System::Void Removebtndebt_Click(System::Object^ sender, System::EventA
 private: System::Void Editbtndebt_Click(System::Object^ sender, System::EventArgs^ e) {
 	debtbtnspanel->Visible = false;
 	Updateboard->Location = Point(260, 150);
-	PopulateUpdateBoard(2, "Debt", 3);
+	PopulateEditPanel("Debt", 3);
 	weeksdebtamtbtn->Text = "+";
 	weeksdebtamtbtnclick = 0;
 }
@@ -1624,7 +1624,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->billItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->billItems[i]->getpayment()).ToString();
-
+				MessageBox::Show(editpanelAmnttb->Text);
 			}
 		}
 	}
@@ -1649,9 +1649,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 }
 private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	//load data back to local user but its NOT saved to the DB until the save button is hit
-	editcyclecb->Text = " ";
-	editpercycletb->Text = " ";
-	editpanelAmnttb->Text = " ";
+	
 	
 	try {
 		switch (currentTab) {
@@ -1661,16 +1659,20 @@ private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArg
 					//load the data into panels
 					currentuser->incomeItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
 					currentuser->incomeItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
+					
 				}
 			}
+			
 		}
 			  break;
 		case 2: {
 			for (int i = 0; i < currentuser->get_billsize(); ++i) {
 				if (currentuser->billItems[i]->getName() == editComboBox->Text) {
 					//load the data into panels
+	
 					currentuser->billItems[i]->set_totalamt(Convert::ToInt32(editpanelAmnttb->Text));
 					currentuser->billItems[i]->set_payment(Convert::ToInt32(editpercycletb->Text));
+					
 				}
 			}
 		}
@@ -1688,12 +1690,17 @@ private: System::Void editDonebtn_Click(System::Object^ sender, System::EventArg
 			MessageBox::Show("Internal error when updating changes. Please try again");
 			break;
 		}
+
+		
+		editcyclecb->Text = " ";
+		editpercycletb->Text = " ";
+		editpanelAmnttb->Text = " ";
 		editpanel->Visible = false;
 		Title->Visible = false;
 		localReload();
 	}
 	catch (Exception^ ex) {
-		MessageBox::Show("One or more of the tabs is missing information. Please fill it out before clicking 'Done' "+ex->Message);
+		//MessageBox::Show("One or more of the tabs is missing information. Please fill it out before clicking 'Done' "+ex->Message);
 	}
 }
 private: System::Void editcancelbtn_Click(System::Object^ sender, System::EventArgs^ e) {
