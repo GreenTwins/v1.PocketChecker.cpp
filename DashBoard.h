@@ -31,6 +31,7 @@ namespace v1PocketCheckercpp {
 			currentuser->incomeItems = gcnew List<Item^>();
 			currentuser->debtItems = gcnew List<Item^>();
 			currentuser->billItems = gcnew List<Item^>();
+			currentuser->changedItems = gcnew List<Item^>();
 			
 			grabUserID();//will only happen once
 			DashBoard_Load(user);
@@ -154,7 +155,6 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->editComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
 			this->editEditbtn = (gcnew System::Windows::Forms::Button());
-			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
 			this->Dashboardlbl = (gcnew System::Windows::Forms::Label());
 			this->panelTitle = (gcnew System::Windows::Forms::Panel());
 			this->currentDTlbl = (gcnew System::Windows::Forms::Label());
@@ -182,9 +182,6 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->RemovebtnIncome = (gcnew System::Windows::Forms::Button());
 			this->AddbtnIncome = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
-			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
-			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
 			this->planslbl = (gcnew System::Windows::Forms::Label());
 			this->currentSpendableShow = (gcnew System::Windows::Forms::Panel());
 			this->spendableamtlbl = (gcnew System::Windows::Forms::Label());
@@ -201,6 +198,10 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->weeksdebtamtbtn = (gcnew System::Windows::Forms::Button());
 			this->debtamtlbl = (gcnew System::Windows::Forms::Label());
 			this->weeksdbtlbl = (gcnew System::Windows::Forms::Label());
+			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
+			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
+			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
+			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
 			this->removePanel = (gcnew System::Windows::Forms::Panel());
 			this->RemovePromptlbl = (gcnew System::Windows::Forms::Label());
 			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
@@ -215,11 +216,11 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->debtbtnspanel->SuspendLayout();
 			this->incomebtnspanel->SuspendLayout();
 			this->panel2->SuspendLayout();
-			this->SaveDatapanel->SuspendLayout();
 			this->currentSpendableShow->SuspendLayout();
 			this->currentBillShow->SuspendLayout();
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
+			this->SaveDatapanel->SuspendLayout();
 			this->removePanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -229,7 +230,6 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panelDesktop->Controls->Add(this->editpanel);
-			this->panelDesktop->Controls->Add(this->SaveNobtn);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
 			this->panelDesktop->Controls->Add(this->panelTitle);
 			this->panelDesktop->Controls->Add(this->Updateboard);
@@ -338,16 +338,6 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->editEditbtn->Text = L"Edit";
 			this->editEditbtn->UseVisualStyleBackColor = true;
 			this->editEditbtn->Click += gcnew System::EventHandler(this, &DashBoard::editEditbtn_Click);
-			// 
-			// SaveNobtn
-			// 
-			this->SaveNobtn->Location = System::Drawing::Point(352, 298);
-			this->SaveNobtn->Name = L"SaveNobtn";
-			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
-			this->SaveNobtn->TabIndex = 2;
-			this->SaveNobtn->Text = L"No";
-			this->SaveNobtn->UseVisualStyleBackColor = true;
-			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
 			// 
 			// Dashboardlbl
 			// 
@@ -661,43 +651,11 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::Color::White;
-			this->panel2->Controls->Add(this->SaveDatapanel);
 			this->panel2->Controls->Add(this->planslbl);
 			this->panel2->Location = System::Drawing::Point(41, 144);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(357, 226);
 			this->panel2->TabIndex = 4;
-			// 
-			// SaveDatapanel
-			// 
-			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
-			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
-			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
-			this->SaveDatapanel->Location = System::Drawing::Point(148, 85);
-			this->SaveDatapanel->Name = L"SaveDatapanel";
-			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
-			this->SaveDatapanel->TabIndex = 11;
-			this->SaveDatapanel->Visible = false;
-			// 
-			// CloseQuestionlbl
-			// 
-			this->CloseQuestionlbl->AutoSize = true;
-			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
-			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
-			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
-			this->CloseQuestionlbl->TabIndex = 4;
-			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
-			// 
-			// saveYesbtn
-			// 
-			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
-			this->saveYesbtn->Name = L"saveYesbtn";
-			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
-			this->saveYesbtn->TabIndex = 1;
-			this->saveYesbtn->Text = L"Yes";
-			this->saveYesbtn->UseVisualStyleBackColor = true;
-			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
 			// 
 			// planslbl
 			// 
@@ -883,6 +841,48 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->weeksdbtlbl->TabIndex = 0;
 			this->weeksdbtlbl->Text = L"Weeks\' Debt";
 			// 
+			// SaveNobtn
+			// 
+			this->SaveNobtn->Location = System::Drawing::Point(155, 70);
+			this->SaveNobtn->Name = L"SaveNobtn";
+			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
+			this->SaveNobtn->TabIndex = 2;
+			this->SaveNobtn->Text = L"No";
+			this->SaveNobtn->UseVisualStyleBackColor = true;
+			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
+			// 
+			// SaveDatapanel
+			// 
+			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
+			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
+			this->SaveDatapanel->Controls->Add(this->SaveNobtn);
+			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
+			this->SaveDatapanel->Location = System::Drawing::Point(148, 85);
+			this->SaveDatapanel->Name = L"SaveDatapanel";
+			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
+			this->SaveDatapanel->TabIndex = 11;
+			this->SaveDatapanel->Visible = false;
+			// 
+			// CloseQuestionlbl
+			// 
+			this->CloseQuestionlbl->AutoSize = true;
+			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
+			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
+			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
+			this->CloseQuestionlbl->TabIndex = 4;
+			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
+			// 
+			// saveYesbtn
+			// 
+			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
+			this->saveYesbtn->Name = L"saveYesbtn";
+			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
+			this->saveYesbtn->TabIndex = 1;
+			this->saveYesbtn->Text = L"Yes";
+			this->saveYesbtn->UseVisualStyleBackColor = true;
+			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
+			// 
 			// removePanel
 			// 
 			this->removePanel->BackColor = System::Drawing::Color::White;
@@ -952,6 +952,7 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->BackColor = System::Drawing::Color::BlueViolet;
 			this->ClientSize = System::Drawing::Size(826, 444);
 			this->Controls->Add(this->Title);
+			this->Controls->Add(this->SaveDatapanel);
 			this->Controls->Add(this->removePanel);
 			this->Controls->Add(this->panelDesktop);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -971,8 +972,6 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->incomebtnspanel->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
-			this->SaveDatapanel->ResumeLayout(false);
-			this->SaveDatapanel->PerformLayout();
 			this->currentSpendableShow->ResumeLayout(false);
 			this->currentSpendableShow->PerformLayout();
 			this->currentBillShow->ResumeLayout(false);
@@ -981,6 +980,8 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->currentIncomeShow->PerformLayout();
 			this->currentDebtShow->ResumeLayout(false);
 			this->currentDebtShow->PerformLayout();
+			this->SaveDatapanel->ResumeLayout(false);
+			this->SaveDatapanel->PerformLayout();
 			this->removePanel->ResumeLayout(false);
 			this->removePanel->PerformLayout();
 			this->ResumeLayout(false);
@@ -1221,7 +1222,14 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 
 	}
 	private: System::Void Closebtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		SaveDatapanel->Visible = true;
+		if (currentuser->changedItems->Count > 0) {
+			SaveDatapanel->Visible = true;
+			SaveDatapanel->Location = Point(260, 160);
+		}
+		else {
+			Application::Exit();
+		}
+		
 		
 	}
 	public: System::Void PopulateEditPanel(String^ destination,int reciever) {
@@ -1684,7 +1692,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->billItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->billItems[i]->getpayment()).ToString();
-				MessageBox::Show(editpanelAmnttb->Text);
+				
 			}
 		}
 	}
@@ -1784,20 +1792,27 @@ private: System::Void saveYesbtn_Click(System::Object^ sender, System::EventArgs
 		SqlConnection updateConn(connString);
 		updateConn.Open();
 		for (int i = 0; i < currentuser->changedItems->Count; ++i) {
-			String^ item = currentuser->changedItems[i]->getName();
+			String^ itemN = currentuser->changedItems[i]->getName();
+			int amt = (currentuser->changedItems[i]->gettotal());
+			int payment = currentuser->changedItems[i]->getpayment();
 
-			String^ query = "UPDATE Vault SET itemName=@item";
+			String^ query = "UPDATE Vault SET itemtotalamount= @amt, itemcurrentpayment= @payment WHERE itemName=@itemN";
 			SqlCommand dbConn(query, % updateConn);
-			dbConn.Parameters->AddWithValue("@item", item);
+			dbConn.Parameters->AddWithValue("@itemN", itemN);
+			dbConn.Parameters->AddWithValue("@amt", amt);
+			dbConn.Parameters->AddWithValue("@payment", payment);
 
+			dbConn.ExecuteNonQuery();
 		}
-		
-
+		SaveDatapanel->Visible = false;
+		MessageBox::Show("Data saved!");
+		Application::Exit();
 	}
 	catch (Exception^ ex) {
-
+		MessageBox::Show(ex->Message);
 	}
-	Application::Exit();
+	
 }
+
 };
 }
