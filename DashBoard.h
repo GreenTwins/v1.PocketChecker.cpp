@@ -1137,6 +1137,7 @@ private: System::Windows::Forms::Label^ label1;
 						newItem->set_payment((int)reader["itemcurrentpayment"]);
 						//MessageBox::Show("" + newItem->getpayment());
 						newItem->set_frequency((int)reader["itempaymentoccurance"]);
+						newItem->set_dueDate(((int)reader["nextdueday"]),(((int)reader["nextdueday"])),(((int)reader["nextdueday"])));
 						//MessageBox::Show("" + newItem->getfrequency());
 						//container->Add(newItem);
 						if (newItem->get_type() == "I") {
@@ -1438,21 +1439,25 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 		newsqlConn.Open();
 
 		//MessageBox::Show(newsqlConn.State.ToString());
+		MessageBox::Show(next_date_month.ToString());
 
 		String^ sqlQuery = "INSERT INTO Vault" +
-			"(itemType, itemName, itemtotalamount, itemcurrentpayment, itempaymentoccurance, usersID)VALUES" +
-			"(@itemType, @itemName, @itemtotalamount, @itemcurrentpayment, @itempaymentoccurance, @usersID);"; //changing the above to match is what allowed the connection
+			"(itemType, itemName, itemtotalamount, itemcurrentpayment, itempaymentoccurance, nextduemonth,nextdueday,nextdueyear, usersID)VALUES" +
+			"(@itemType, @itemName, @itemtotalamount, @itemcurrentpayment, @itempaymentoccurance, @nextduemonth, @nextdueday, @nextdueyear, @usersID);"; //changing the above to match is what allowed the connection
 
 		//MessageBox::Show("query set to insert");
 
 		SqlCommand command(sqlQuery, % newsqlConn);
 
-
+	
 		command.Parameters->AddWithValue("@itemType", itemType);
 		command.Parameters->AddWithValue("@itemName", itemName);
 		command.Parameters->AddWithValue("@itemtotalamount", itemtotalamount);
 		command.Parameters->AddWithValue("@itemcurrentpayment", itemcurrentpayment);
 		command.Parameters->AddWithValue("@itempaymentoccurance", itempaymentoccurance);
+		command.Parameters->AddWithValue("@nextduemonth", next_date_month);
+		command.Parameters->AddWithValue("@nextdueday", next_date_day);
+		command.Parameters->AddWithValue("@nextdueyear", next_date_year);
 		command.Parameters->AddWithValue("@usersID", usersID);
 
 
@@ -1467,6 +1472,7 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 
 		newItem->set_frequency(itempaymentoccurance);
 		newItem->set_totalamt(itemtotalamount);
+		newItem->set_dueDate(next_date_day, next_date_month, next_date_year);
 		newItem->set_owner(usersID);
 
 		if (currentUpdateClicked == "Income") {

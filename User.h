@@ -14,6 +14,9 @@ private:
 	String^ date;
 	int frequency = 0;
 	int owner = 0;
+	int dueDate_day = 0;
+	int dueDate_month = 0;
+	int dueDate_year = 0;
 
 public:
 
@@ -28,6 +31,11 @@ public:
 	}
 	String^ get_type() {
 		return type;
+	}
+	void set_dueDate(int day, int month, int year) {
+		dueDate_day = day;
+	    dueDate_month = month;
+		dueDate_year = year;
 	}
 	void set_payment(int pay) {
 		payment = pay;
