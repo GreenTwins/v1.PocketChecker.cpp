@@ -15,6 +15,8 @@ namespace v1PocketCheckercpp {
 	using namespace System::Threading::Tasks;
 	using namespace System::Threading;
 	using namespace System::Windows;
+	using namespace System::Globalization;
+	using namespace System::Reflection;
 
 	/// <summary>
 	/// Summary for DashBoard
@@ -125,6 +127,9 @@ namespace v1PocketCheckercpp {
 
 	private: System::Windows::Forms::Button^ SaveNobtn;
 private: System::Windows::Forms::Button^ saveYesbtn;
+private: System::Windows::Forms::DateTimePicker^ enterCalander;
+private: System::Windows::Forms::Label^ label1;
+
 
 
 
@@ -208,6 +213,8 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
 			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
 			this->Title = (gcnew System::Windows::Forms::Label());
+			this->enterCalander = (gcnew System::Windows::Forms::DateTimePicker());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panelDesktop->SuspendLayout();
 			this->editpanel->SuspendLayout();
 			this->panelTitle->SuspendLayout();
@@ -446,6 +453,8 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			// 
 			this->Updateboard->BackColor = System::Drawing::Color::White;
 			this->Updateboard->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Updateboard->Controls->Add(this->label1);
+			this->Updateboard->Controls->Add(this->enterCalander);
 			this->Updateboard->Controls->Add(this->Updateboardtotalamttb);
 			this->Updateboard->Controls->Add(this->Updateboardamounttb);
 			this->Updateboard->Controls->Add(this->updateboardcycletb);
@@ -460,7 +469,7 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			// 
 			// Updateboardtotalamttb
 			// 
-			this->Updateboardtotalamttb->Location = System::Drawing::Point(223, 51);
+			this->Updateboardtotalamttb->Location = System::Drawing::Point(230, 51);
 			this->Updateboardtotalamttb->Name = L"Updateboardtotalamttb";
 			this->Updateboardtotalamttb->Size = System::Drawing::Size(97, 20);
 			this->Updateboardtotalamttb->TabIndex = 9;
@@ -470,7 +479,7 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			// 
 			// Updateboardamounttb
 			// 
-			this->Updateboardamounttb->Location = System::Drawing::Point(27, 90);
+			this->Updateboardamounttb->Location = System::Drawing::Point(6, 90);
 			this->Updateboardamounttb->Name = L"Updateboardamounttb";
 			this->Updateboardamounttb->Size = System::Drawing::Size(97, 20);
 			this->Updateboardamounttb->TabIndex = 8;
@@ -482,7 +491,7 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			// 
 			this->updateboardcycletb->FormattingEnabled = true;
 			this->updateboardcycletb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
-			this->updateboardcycletb->Location = System::Drawing::Point(223, 90);
+			this->updateboardcycletb->Location = System::Drawing::Point(230, 90);
 			this->updateboardcycletb->Name = L"updateboardcycletb";
 			this->updateboardcycletb->Size = System::Drawing::Size(97, 21);
 			this->updateboardcycletb->TabIndex = 7;
@@ -491,7 +500,7 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			// 
 			// Updateboardnametb
 			// 
-			this->Updateboardnametb->Location = System::Drawing::Point(27, 51);
+			this->Updateboardnametb->Location = System::Drawing::Point(6, 51);
 			this->Updateboardnametb->Name = L"Updateboardnametb";
 			this->Updateboardnametb->Size = System::Drawing::Size(97, 20);
 			this->Updateboardnametb->TabIndex = 6;
@@ -945,6 +954,22 @@ private: System::Windows::Forms::Button^ saveYesbtn;
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
+			// enterCalander
+			// 
+			this->enterCalander->Location = System::Drawing::Point(82, 128);
+			this->enterCalander->Name = L"enterCalander";
+			this->enterCalander->Size = System::Drawing::Size(200, 20);
+			this->enterCalander->TabIndex = 10;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(3, 134);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(77, 13);
+			this->label1->TabIndex = 11;
+			this->label1->Text = L"Next due date:";
+			// 
 			// DashBoard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1341,17 +1366,54 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 	int itemtotalamount = (Convert::ToInt32(Updateboardtotalamttb->Text));
 	int itemcurrentpayment = (Convert::ToInt32(Updateboardamounttb->Text));
 	String^ itemType = " ";
+	int next_date_day;
+	int next_date_month;
+	
+	int next_date_tracker;
 
+	System::DateTime selectedDate = enterCalander->Value;
+	int month = selectedDate.Month;
+	int day = selectedDate.Day;
+	int next_date_year = selectedDate.Year;
+
+	System::DateTime lastdayofMonth(selectedDate.Year, month, DateTime::DaysInMonth(selectedDate.Year, month));
+	enterCalander->MaxDate = lastdayofMonth;
+	
+	
+	
 	if (frequency == "Monthly") {
 		itempaymentoccurance = 1;
+		next_date_tracker = 30;
 	}
 	else if (frequency == "Weekly") {
 		itempaymentoccurance = 4;
+		next_date_tracker = 7;
 	}
 	else {
 		itempaymentoccurance = 2;
+		next_date_tracker = 14;
 	}
-
+	try {
+		if ((day + next_date_tracker) > enterCalander->MaxDate.Day) {
+			//we are into the next month
+			next_date_day = (day + next_date_tracker) - 30;
+			next_date_month = month + 1;
+			if (next_date_month > 12) {
+				next_date_month = 1;
+				next_date_year = selectedDate.Year + 1;
+			}
+		}
+		else {
+			next_date_day = day + next_date_tracker;
+			next_date_month = month;
+			//next_date_year = selectedDate.Year;
+		}
+	}
+	catch (Exception^ e) {
+		MessageBox::Show(e->Message);
+	}
+	
+	//MessageBox::Show("Afterwards the next time is: " + next_date_month + "/" + next_date_day + "/" + next_date_year);
 	if (currentUpdateClicked == "Income") {
 		itemType = "I";
 	}
