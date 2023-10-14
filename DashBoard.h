@@ -129,6 +129,29 @@ namespace v1PocketCheckercpp {
 private: System::Windows::Forms::Button^ saveYesbtn;
 private: System::Windows::Forms::DateTimePicker^ enterCalander;
 private: System::Windows::Forms::Label^ label1;
+private: System::Windows::Forms::DateTimePicker^ editCalendar;
+private: System::Windows::Forms::DataGridView^ PlanHolder;
+
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+private: System::Windows::Forms::Button^ PlanAddbtn;
+private: System::Windows::Forms::Panel^ PlanMakerPanel;
+
+private: System::Windows::Forms::RadioButton^ reducedbt;
+private: System::Windows::Forms::RadioButton^ savemon;
+private: System::Windows::Forms::MaskedTextBox^ howmuchtb;
+private: System::Windows::Forms::MaskedTextBox^ completebydatetb;
+private: System::Windows::Forms::Label^ howmuchlbl;
+private: System::Windows::Forms::Label^ enddatelbl;
+private: System::Windows::Forms::Button^ cancelplanbtn;
+private: System::Windows::Forms::Button^ createplanbtn;
+
+
+
+
+
+
+
+
 
 
 
@@ -152,6 +175,7 @@ private: System::Windows::Forms::Label^ label1;
 		{
 			this->panelDesktop = (gcnew System::Windows::Forms::Panel());
 			this->editpanel = (gcnew System::Windows::Forms::Panel());
+			this->editCalendar = (gcnew System::Windows::Forms::DateTimePicker());
 			this->editDonebtn = (gcnew System::Windows::Forms::Button());
 			this->editcyclecb = (gcnew System::Windows::Forms::ComboBox());
 			this->editpercycletb = (gcnew System::Windows::Forms::TextBox());
@@ -160,6 +184,15 @@ private: System::Windows::Forms::Label^ label1;
 			this->editComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
 			this->editEditbtn = (gcnew System::Windows::Forms::Button());
+			this->removePanel = (gcnew System::Windows::Forms::Panel());
+			this->RemovePromptlbl = (gcnew System::Windows::Forms::Label());
+			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
+			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
+			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
+			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
+			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
+			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
 			this->Dashboardlbl = (gcnew System::Windows::Forms::Label());
 			this->panelTitle = (gcnew System::Windows::Forms::Panel());
 			this->currentDTlbl = (gcnew System::Windows::Forms::Label());
@@ -168,6 +201,8 @@ private: System::Windows::Forms::Label^ label1;
 			this->Closebtn = (gcnew System::Windows::Forms::Button());
 			this->userDashlbl = (gcnew System::Windows::Forms::Label());
 			this->Updateboard = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->enterCalander = (gcnew System::Windows::Forms::DateTimePicker());
 			this->Updateboardtotalamttb = (gcnew System::Windows::Forms::TextBox());
 			this->Updateboardamounttb = (gcnew System::Windows::Forms::TextBox());
 			this->updateboardcycletb = (gcnew System::Windows::Forms::ComboBox());
@@ -187,6 +222,18 @@ private: System::Windows::Forms::Label^ label1;
 			this->RemovebtnIncome = (gcnew System::Windows::Forms::Button());
 			this->AddbtnIncome = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->PlanMakerPanel = (gcnew System::Windows::Forms::Panel());
+			this->cancelplanbtn = (gcnew System::Windows::Forms::Button());
+			this->createplanbtn = (gcnew System::Windows::Forms::Button());
+			this->enddatelbl = (gcnew System::Windows::Forms::Label());
+			this->howmuchlbl = (gcnew System::Windows::Forms::Label());
+			this->completebydatetb = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->howmuchtb = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->reducedbt = (gcnew System::Windows::Forms::RadioButton());
+			this->savemon = (gcnew System::Windows::Forms::RadioButton());
+			this->PlanAddbtn = (gcnew System::Windows::Forms::Button());
+			this->PlanHolder = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->planslbl = (gcnew System::Windows::Forms::Label());
 			this->currentSpendableShow = (gcnew System::Windows::Forms::Panel());
 			this->spendableamtlbl = (gcnew System::Windows::Forms::Label());
@@ -203,32 +250,23 @@ private: System::Windows::Forms::Label^ label1;
 			this->weeksdebtamtbtn = (gcnew System::Windows::Forms::Button());
 			this->debtamtlbl = (gcnew System::Windows::Forms::Label());
 			this->weeksdbtlbl = (gcnew System::Windows::Forms::Label());
-			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
-			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
-			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
-			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
-			this->removePanel = (gcnew System::Windows::Forms::Panel());
-			this->RemovePromptlbl = (gcnew System::Windows::Forms::Label());
-			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
-			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
-			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
 			this->Title = (gcnew System::Windows::Forms::Label());
-			this->enterCalander = (gcnew System::Windows::Forms::DateTimePicker());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panelDesktop->SuspendLayout();
 			this->editpanel->SuspendLayout();
+			this->removePanel->SuspendLayout();
+			this->SaveDatapanel->SuspendLayout();
 			this->panelTitle->SuspendLayout();
 			this->Updateboard->SuspendLayout();
 			this->billbtnspanel->SuspendLayout();
 			this->debtbtnspanel->SuspendLayout();
 			this->incomebtnspanel->SuspendLayout();
 			this->panel2->SuspendLayout();
+			this->PlanMakerPanel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PlanHolder))->BeginInit();
 			this->currentSpendableShow->SuspendLayout();
 			this->currentBillShow->SuspendLayout();
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
-			this->SaveDatapanel->SuspendLayout();
-			this->removePanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelDesktop
@@ -237,6 +275,8 @@ private: System::Windows::Forms::Label^ label1;
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panelDesktop->Controls->Add(this->editpanel);
+			this->panelDesktop->Controls->Add(this->removePanel);
+			this->panelDesktop->Controls->Add(this->SaveDatapanel);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
 			this->panelDesktop->Controls->Add(this->panelTitle);
 			this->panelDesktop->Controls->Add(this->Updateboard);
@@ -258,6 +298,7 @@ private: System::Windows::Forms::Label^ label1;
 			// 
 			this->editpanel->BackColor = System::Drawing::Color::White;
 			this->editpanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->editpanel->Controls->Add(this->editCalendar);
 			this->editpanel->Controls->Add(this->editDonebtn);
 			this->editpanel->Controls->Add(this->editcyclecb);
 			this->editpanel->Controls->Add(this->editpercycletb);
@@ -266,11 +307,19 @@ private: System::Windows::Forms::Label^ label1;
 			this->editpanel->Controls->Add(this->editComboBox);
 			this->editpanel->Controls->Add(this->editcancelbtn);
 			this->editpanel->Controls->Add(this->editEditbtn);
-			this->editpanel->Location = System::Drawing::Point(375, 38);
+			this->editpanel->Location = System::Drawing::Point(474, 419);
 			this->editpanel->Name = L"editpanel";
 			this->editpanel->Size = System::Drawing::Size(338, 189);
 			this->editpanel->TabIndex = 10;
 			this->editpanel->Visible = false;
+			// 
+			// editCalendar
+			// 
+			this->editCalendar->Location = System::Drawing::Point(133, 116);
+			this->editCalendar->Name = L"editCalendar";
+			this->editCalendar->Size = System::Drawing::Size(200, 20);
+			this->editCalendar->TabIndex = 12;
+			this->editCalendar->Visible = false;
 			// 
 			// editDonebtn
 			// 
@@ -287,7 +336,7 @@ private: System::Windows::Forms::Label^ label1;
 			// 
 			this->editcyclecb->FormattingEnabled = true;
 			this->editcyclecb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
-			this->editcyclecb->Location = System::Drawing::Point(219, 116);
+			this->editcyclecb->Location = System::Drawing::Point(236, 83);
 			this->editcyclecb->Name = L"editcyclecb";
 			this->editcyclecb->Size = System::Drawing::Size(97, 21);
 			this->editcyclecb->TabIndex = 10;
@@ -303,9 +352,9 @@ private: System::Windows::Forms::Label^ label1;
 			// 
 			// editpanelAmnttb
 			// 
-			this->editpanelAmnttb->Location = System::Drawing::Point(219, 83);
+			this->editpanelAmnttb->Location = System::Drawing::Point(145, 83);
 			this->editpanelAmnttb->Name = L"editpanelAmnttb";
-			this->editpanelAmnttb->Size = System::Drawing::Size(97, 20);
+			this->editpanelAmnttb->Size = System::Drawing::Size(69, 20);
 			this->editpanelAmnttb->TabIndex = 7;
 			this->editpanelAmnttb->Visible = false;
 			// 
@@ -323,7 +372,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->editComboBox->FormattingEnabled = true;
 			this->editComboBox->Location = System::Drawing::Point(13, 82);
 			this->editComboBox->Name = L"editComboBox";
-			this->editComboBox->Size = System::Drawing::Size(121, 21);
+			this->editComboBox->Size = System::Drawing::Size(112, 21);
 			this->editComboBox->TabIndex = 3;
 			// 
 			// editcancelbtn
@@ -345,6 +394,99 @@ private: System::Windows::Forms::Label^ label1;
 			this->editEditbtn->Text = L"Edit";
 			this->editEditbtn->UseVisualStyleBackColor = true;
 			this->editEditbtn->Click += gcnew System::EventHandler(this, &DashBoard::editEditbtn_Click);
+			// 
+			// removePanel
+			// 
+			this->removePanel->BackColor = System::Drawing::Color::White;
+			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->removePanel->Controls->Add(this->RemovePromptlbl);
+			this->removePanel->Controls->Add(this->removeComboBox);
+			this->removePanel->Controls->Add(this->removeDonebtn);
+			this->removePanel->Controls->Add(this->removeRemovebtn);
+			this->removePanel->Location = System::Drawing::Point(117, 419);
+			this->removePanel->Name = L"removePanel";
+			this->removePanel->Size = System::Drawing::Size(338, 189);
+			this->removePanel->TabIndex = 9;
+			this->removePanel->Visible = false;
+			// 
+			// RemovePromptlbl
+			// 
+			this->RemovePromptlbl->AutoSize = true;
+			this->RemovePromptlbl->Location = System::Drawing::Point(112, 66);
+			this->RemovePromptlbl->Name = L"RemovePromptlbl";
+			this->RemovePromptlbl->Size = System::Drawing::Size(150, 13);
+			this->RemovePromptlbl->TabIndex = 4;
+			this->RemovePromptlbl->Text = L"What do you want to remove\?";
+			// 
+			// removeComboBox
+			// 
+			this->removeComboBox->FormattingEnabled = true;
+			this->removeComboBox->Location = System::Drawing::Point(119, 82);
+			this->removeComboBox->Name = L"removeComboBox";
+			this->removeComboBox->Size = System::Drawing::Size(121, 21);
+			this->removeComboBox->TabIndex = 3;
+			// 
+			// removeDonebtn
+			// 
+			this->removeDonebtn->Location = System::Drawing::Point(189, 164);
+			this->removeDonebtn->Name = L"removeDonebtn";
+			this->removeDonebtn->Size = System::Drawing::Size(52, 20);
+			this->removeDonebtn->TabIndex = 2;
+			this->removeDonebtn->Text = L"Done";
+			this->removeDonebtn->UseVisualStyleBackColor = true;
+			this->removeDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeDonebtn_Click);
+			// 
+			// removeRemovebtn
+			// 
+			this->removeRemovebtn->Location = System::Drawing::Point(119, 164);
+			this->removeRemovebtn->Name = L"removeRemovebtn";
+			this->removeRemovebtn->Size = System::Drawing::Size(58, 20);
+			this->removeRemovebtn->TabIndex = 1;
+			this->removeRemovebtn->Text = L"Remove";
+			this->removeRemovebtn->UseVisualStyleBackColor = true;
+			this->removeRemovebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeRemovebtn_Click);
+			// 
+			// SaveDatapanel
+			// 
+			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
+			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
+			this->SaveDatapanel->Controls->Add(this->SaveNobtn);
+			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
+			this->SaveDatapanel->Location = System::Drawing::Point(816, 56);
+			this->SaveDatapanel->Name = L"SaveDatapanel";
+			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
+			this->SaveDatapanel->TabIndex = 11;
+			this->SaveDatapanel->Visible = false;
+			// 
+			// CloseQuestionlbl
+			// 
+			this->CloseQuestionlbl->AutoSize = true;
+			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
+			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
+			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
+			this->CloseQuestionlbl->TabIndex = 4;
+			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
+			// 
+			// SaveNobtn
+			// 
+			this->SaveNobtn->Location = System::Drawing::Point(155, 70);
+			this->SaveNobtn->Name = L"SaveNobtn";
+			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
+			this->SaveNobtn->TabIndex = 2;
+			this->SaveNobtn->Text = L"No";
+			this->SaveNobtn->UseVisualStyleBackColor = true;
+			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
+			// 
+			// saveYesbtn
+			// 
+			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
+			this->saveYesbtn->Name = L"saveYesbtn";
+			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
+			this->saveYesbtn->TabIndex = 1;
+			this->saveYesbtn->Text = L"Yes";
+			this->saveYesbtn->UseVisualStyleBackColor = true;
+			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
 			// 
 			// Dashboardlbl
 			// 
@@ -461,11 +603,27 @@ private: System::Windows::Forms::Label^ label1;
 			this->Updateboard->Controls->Add(this->Updateboardnametb);
 			this->Updateboard->Controls->Add(this->Updatecancelbtn);
 			this->Updateboard->Controls->Add(this->Updateenterbtn);
-			this->Updateboard->Location = System::Drawing::Point(445, 233);
+			this->Updateboard->Location = System::Drawing::Point(816, 254);
 			this->Updateboard->Name = L"Updateboard";
 			this->Updateboard->Size = System::Drawing::Size(338, 189);
 			this->Updateboard->TabIndex = 8;
 			this->Updateboard->Visible = false;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(3, 134);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(77, 13);
+			this->label1->TabIndex = 11;
+			this->label1->Text = L"Next due date:";
+			// 
+			// enterCalander
+			// 
+			this->enterCalander->Location = System::Drawing::Point(82, 128);
+			this->enterCalander->Name = L"enterCalander";
+			this->enterCalander->Size = System::Drawing::Size(200, 20);
+			this->enterCalander->TabIndex = 10;
 			// 
 			// Updateboardtotalamttb
 			// 
@@ -660,18 +818,147 @@ private: System::Windows::Forms::Label^ label1;
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::Color::White;
+			this->panel2->Controls->Add(this->PlanAddbtn);
+			this->panel2->Controls->Add(this->PlanHolder);
 			this->panel2->Controls->Add(this->planslbl);
-			this->panel2->Location = System::Drawing::Point(41, 144);
+			this->panel2->Location = System::Drawing::Point(201, 161);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(357, 226);
+			this->panel2->Size = System::Drawing::Size(440, 252);
 			this->panel2->TabIndex = 4;
+			// 
+			// PlanMakerPanel
+			// 
+			this->PlanMakerPanel->BackColor = System::Drawing::Color::White;
+			this->PlanMakerPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->PlanMakerPanel->Controls->Add(this->cancelplanbtn);
+			this->PlanMakerPanel->Controls->Add(this->createplanbtn);
+			this->PlanMakerPanel->Controls->Add(this->enddatelbl);
+			this->PlanMakerPanel->Controls->Add(this->howmuchlbl);
+			this->PlanMakerPanel->Controls->Add(this->completebydatetb);
+			this->PlanMakerPanel->Controls->Add(this->howmuchtb);
+			this->PlanMakerPanel->Controls->Add(this->reducedbt);
+			this->PlanMakerPanel->Controls->Add(this->savemon);
+			this->PlanMakerPanel->Location = System::Drawing::Point(0, 0);
+			this->PlanMakerPanel->Name = L"PlanMakerPanel";
+			this->PlanMakerPanel->Size = System::Drawing::Size(258, 152);
+			this->PlanMakerPanel->TabIndex = 12;
+			this->PlanMakerPanel->Visible = false;
+			// 
+			// cancelplanbtn
+			// 
+			this->cancelplanbtn->Location = System::Drawing::Point(99, 124);
+			this->cancelplanbtn->Name = L"cancelplanbtn";
+			this->cancelplanbtn->Size = System::Drawing::Size(52, 23);
+			this->cancelplanbtn->TabIndex = 7;
+			this->cancelplanbtn->Text = L"Cancel";
+			this->cancelplanbtn->UseVisualStyleBackColor = true;
+			this->cancelplanbtn->Click += gcnew System::EventHandler(this, &DashBoard::cancelplanbtn_Click);
+			// 
+			// createplanbtn
+			// 
+			this->createplanbtn->Location = System::Drawing::Point(8, 124);
+			this->createplanbtn->Name = L"createplanbtn";
+			this->createplanbtn->Size = System::Drawing::Size(52, 23);
+			this->createplanbtn->TabIndex = 6;
+			this->createplanbtn->Text = L"Add";
+			this->createplanbtn->UseVisualStyleBackColor = true;
+			this->createplanbtn->Visible = false;
+			this->createplanbtn->Click += gcnew System::EventHandler(this, &DashBoard::createplanbtn_Click);
+			// 
+			// enddatelbl
+			// 
+			this->enddatelbl->AutoSize = true;
+			this->enddatelbl->Location = System::Drawing::Point(145, 54);
+			this->enddatelbl->Name = L"enddatelbl";
+			this->enddatelbl->Size = System::Drawing::Size(88, 13);
+			this->enddatelbl->TabIndex = 5;
+			this->enddatelbl->Text = L"Desired end date";
+			this->enddatelbl->Visible = false;
+			// 
+			// howmuchlbl
+			// 
+			this->howmuchlbl->AutoSize = true;
+			this->howmuchlbl->Location = System::Drawing::Point(22, 54);
+			this->howmuchlbl->Name = L"howmuchlbl";
+			this->howmuchlbl->Size = System::Drawing::Size(64, 13);
+			this->howmuchlbl->TabIndex = 4;
+			this->howmuchlbl->Text = L"How much\?";
+			this->howmuchlbl->Visible = false;
+			// 
+			// completebydatetb
+			// 
+			this->completebydatetb->Location = System::Drawing::Point(144, 70);
+			this->completebydatetb->Mask = L"00/00/0000";
+			this->completebydatetb->Name = L"completebydatetb";
+			this->completebydatetb->Size = System::Drawing::Size(100, 20);
+			this->completebydatetb->TabIndex = 3;
+			this->completebydatetb->ValidatingType = System::DateTime::typeid;
+			this->completebydatetb->Visible = false;
+			// 
+			// howmuchtb
+			// 
+			this->howmuchtb->Location = System::Drawing::Point(8, 70);
+			this->howmuchtb->Mask = L"00000";
+			this->howmuchtb->Name = L"howmuchtb";
+			this->howmuchtb->Size = System::Drawing::Size(100, 20);
+			this->howmuchtb->TabIndex = 2;
+			this->howmuchtb->ValidatingType = System::Int32::typeid;
+			this->howmuchtb->Visible = false;
+			// 
+			// reducedbt
+			// 
+			this->reducedbt->AutoSize = true;
+			this->reducedbt->Location = System::Drawing::Point(146, 22);
+			this->reducedbt->Name = L"reducedbt";
+			this->reducedbt->Size = System::Drawing::Size(87, 17);
+			this->reducedbt->TabIndex = 1;
+			this->reducedbt->TabStop = true;
+			this->reducedbt->Text = L"Reduce debt";
+			this->reducedbt->UseVisualStyleBackColor = true;
+			// 
+			// savemon
+			// 
+			this->savemon->AutoSize = true;
+			this->savemon->Location = System::Drawing::Point(11, 22);
+			this->savemon->Name = L"savemon";
+			this->savemon->Size = System::Drawing::Size(84, 17);
+			this->savemon->TabIndex = 0;
+			this->savemon->TabStop = true;
+			this->savemon->Text = L"Save money";
+			this->savemon->UseVisualStyleBackColor = true;
+			this->savemon->CheckedChanged += gcnew System::EventHandler(this, &DashBoard::savemon_CheckedChanged);
+			// 
+			// PlanAddbtn
+			// 
+			this->PlanAddbtn->Location = System::Drawing::Point(53, 218);
+			this->PlanAddbtn->Name = L"PlanAddbtn";
+			this->PlanAddbtn->Size = System::Drawing::Size(75, 23);
+			this->PlanAddbtn->TabIndex = 2;
+			this->PlanAddbtn->Text = L"Add Plan";
+			this->PlanAddbtn->UseVisualStyleBackColor = true;
+			this->PlanAddbtn->Click += gcnew System::EventHandler(this, &DashBoard::PlanAddbtn_Click);
+			// 
+			// PlanHolder
+			// 
+			this->PlanHolder->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->PlanHolder->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->Column1 });
+			this->PlanHolder->Location = System::Drawing::Point(15, 45);
+			this->PlanHolder->Name = L"PlanHolder";
+			this->PlanHolder->Size = System::Drawing::Size(156, 160);
+			this->PlanHolder->TabIndex = 1;
+			this->PlanHolder->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashBoard::PlanHolder_CellContentClick);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Plan Name";
+			this->Column1->Name = L"Column1";
 			// 
 			// planslbl
 			// 
 			this->planslbl->AutoSize = true;
 			this->planslbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->planslbl->Location = System::Drawing::Point(12, 11);
+			this->planslbl->Location = System::Drawing::Point(36, 17);
 			this->planslbl->Name = L"planslbl";
 			this->planslbl->Size = System::Drawing::Size(99, 16);
 			this->planslbl->TabIndex = 0;
@@ -850,99 +1137,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->weeksdbtlbl->TabIndex = 0;
 			this->weeksdbtlbl->Text = L"Weeks\' Debt";
 			// 
-			// SaveNobtn
-			// 
-			this->SaveNobtn->Location = System::Drawing::Point(155, 70);
-			this->SaveNobtn->Name = L"SaveNobtn";
-			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
-			this->SaveNobtn->TabIndex = 2;
-			this->SaveNobtn->Text = L"No";
-			this->SaveNobtn->UseVisualStyleBackColor = true;
-			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
-			// 
-			// SaveDatapanel
-			// 
-			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
-			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
-			this->SaveDatapanel->Controls->Add(this->SaveNobtn);
-			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
-			this->SaveDatapanel->Location = System::Drawing::Point(148, 85);
-			this->SaveDatapanel->Name = L"SaveDatapanel";
-			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
-			this->SaveDatapanel->TabIndex = 11;
-			this->SaveDatapanel->Visible = false;
-			// 
-			// CloseQuestionlbl
-			// 
-			this->CloseQuestionlbl->AutoSize = true;
-			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
-			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
-			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
-			this->CloseQuestionlbl->TabIndex = 4;
-			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
-			// 
-			// saveYesbtn
-			// 
-			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
-			this->saveYesbtn->Name = L"saveYesbtn";
-			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
-			this->saveYesbtn->TabIndex = 1;
-			this->saveYesbtn->Text = L"Yes";
-			this->saveYesbtn->UseVisualStyleBackColor = true;
-			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
-			// 
-			// removePanel
-			// 
-			this->removePanel->BackColor = System::Drawing::Color::White;
-			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->removePanel->Controls->Add(this->RemovePromptlbl);
-			this->removePanel->Controls->Add(this->removeComboBox);
-			this->removePanel->Controls->Add(this->removeDonebtn);
-			this->removePanel->Controls->Add(this->removeRemovebtn);
-			this->removePanel->Location = System::Drawing::Point(0, 0);
-			this->removePanel->Name = L"removePanel";
-			this->removePanel->Size = System::Drawing::Size(338, 189);
-			this->removePanel->TabIndex = 9;
-			this->removePanel->Visible = false;
-			// 
-			// RemovePromptlbl
-			// 
-			this->RemovePromptlbl->AutoSize = true;
-			this->RemovePromptlbl->Location = System::Drawing::Point(112, 66);
-			this->RemovePromptlbl->Name = L"RemovePromptlbl";
-			this->RemovePromptlbl->Size = System::Drawing::Size(150, 13);
-			this->RemovePromptlbl->TabIndex = 4;
-			this->RemovePromptlbl->Text = L"What do you want to remove\?";
-			// 
-			// removeComboBox
-			// 
-			this->removeComboBox->FormattingEnabled = true;
-			this->removeComboBox->Location = System::Drawing::Point(119, 82);
-			this->removeComboBox->Name = L"removeComboBox";
-			this->removeComboBox->Size = System::Drawing::Size(121, 21);
-			this->removeComboBox->TabIndex = 3;
-			// 
-			// removeDonebtn
-			// 
-			this->removeDonebtn->Location = System::Drawing::Point(189, 164);
-			this->removeDonebtn->Name = L"removeDonebtn";
-			this->removeDonebtn->Size = System::Drawing::Size(52, 20);
-			this->removeDonebtn->TabIndex = 2;
-			this->removeDonebtn->Text = L"Done";
-			this->removeDonebtn->UseVisualStyleBackColor = true;
-			this->removeDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeDonebtn_Click);
-			// 
-			// removeRemovebtn
-			// 
-			this->removeRemovebtn->Location = System::Drawing::Point(119, 164);
-			this->removeRemovebtn->Name = L"removeRemovebtn";
-			this->removeRemovebtn->Size = System::Drawing::Size(58, 20);
-			this->removeRemovebtn->TabIndex = 1;
-			this->removeRemovebtn->Text = L"Remove";
-			this->removeRemovebtn->UseVisualStyleBackColor = true;
-			this->removeRemovebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeRemovebtn_Click);
-			// 
 			// Title
 			// 
 			this->Title->AutoSize = true;
@@ -954,22 +1148,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// enterCalander
-			// 
-			this->enterCalander->Location = System::Drawing::Point(82, 128);
-			this->enterCalander->Name = L"enterCalander";
-			this->enterCalander->Size = System::Drawing::Size(200, 20);
-			this->enterCalander->TabIndex = 10;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(3, 134);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(77, 13);
-			this->label1->TabIndex = 11;
-			this->label1->Text = L"Next due date:";
-			// 
 			// DashBoard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -977,8 +1155,7 @@ private: System::Windows::Forms::Label^ label1;
 			this->BackColor = System::Drawing::Color::BlueViolet;
 			this->ClientSize = System::Drawing::Size(826, 444);
 			this->Controls->Add(this->Title);
-			this->Controls->Add(this->SaveDatapanel);
-			this->Controls->Add(this->removePanel);
+			this->Controls->Add(this->PlanMakerPanel);
 			this->Controls->Add(this->panelDesktop);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"DashBoard";
@@ -988,6 +1165,10 @@ private: System::Windows::Forms::Label^ label1;
 			this->panelDesktop->PerformLayout();
 			this->editpanel->ResumeLayout(false);
 			this->editpanel->PerformLayout();
+			this->removePanel->ResumeLayout(false);
+			this->removePanel->PerformLayout();
+			this->SaveDatapanel->ResumeLayout(false);
+			this->SaveDatapanel->PerformLayout();
 			this->panelTitle->ResumeLayout(false);
 			this->panelTitle->PerformLayout();
 			this->Updateboard->ResumeLayout(false);
@@ -997,6 +1178,9 @@ private: System::Windows::Forms::Label^ label1;
 			this->incomebtnspanel->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			this->PlanMakerPanel->ResumeLayout(false);
+			this->PlanMakerPanel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PlanHolder))->EndInit();
 			this->currentSpendableShow->ResumeLayout(false);
 			this->currentSpendableShow->PerformLayout();
 			this->currentBillShow->ResumeLayout(false);
@@ -1005,10 +1189,6 @@ private: System::Windows::Forms::Label^ label1;
 			this->currentIncomeShow->PerformLayout();
 			this->currentDebtShow->ResumeLayout(false);
 			this->currentDebtShow->PerformLayout();
-			this->SaveDatapanel->ResumeLayout(false);
-			this->SaveDatapanel->PerformLayout();
-			this->removePanel->ResumeLayout(false);
-			this->removePanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1357,8 +1537,13 @@ public:
 	 }
 
 	   //--------BUTTON CLICK EVENTS-----------//
-
-
+	int month;
+	int day;
+	int next_date_day;
+	int next_date_month;
+	int next_date_year;
+	int next_date_tracker;
+	
 private: System::Void Updateenterbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	int itempaymentoccurance;
 	int usersID;
@@ -1367,15 +1552,12 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 	int itemtotalamount = (Convert::ToInt32(Updateboardtotalamttb->Text));
 	int itemcurrentpayment = (Convert::ToInt32(Updateboardamounttb->Text));
 	String^ itemType = " ";
-	int next_date_day;
-	int next_date_month;
 	
-	int next_date_tracker;
 
 	System::DateTime selectedDate = enterCalander->Value;
-	int month = selectedDate.Month;
-	int day = selectedDate.Day;
-	int next_date_year = selectedDate.Year;
+	month = selectedDate.Month;
+	day = selectedDate.Day;
+	next_date_year = selectedDate.Year;
 
 	System::DateTime lastdayofMonth(selectedDate.Year, month, DateTime::DaysInMonth(selectedDate.Year, month));
 	enterCalander->MaxDate = lastdayofMonth;
@@ -1739,6 +1921,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 	editpercycletb->Visible = true;
 	editpanelAmnttb->Visible = true;
 	editDonebtn->Visible = true;
+	editCalendar->Visible = true;
 
 	switch (currentTab) {
 	case 1:
@@ -1748,7 +1931,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->incomeItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->incomeItems[i]->getpayment()).ToString();
-				
+				editCalendar->Value = currentuser->incomeItems[i]->get_dueDate();
 				}
 			}
 		}
@@ -1760,7 +1943,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->billItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->billItems[i]->getpayment()).ToString();
-				
+				editCalendar->Value = currentuser->billItems[i]->get_dueDate();
 			}
 		}
 	}
@@ -1772,7 +1955,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->debtItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->debtItems[i]->getpayment()).ToString();
-
+				editCalendar->Value = currentuser->debtItems[i]->get_dueDate();
 			}
 		}
 	}
@@ -1882,5 +2065,50 @@ private: System::Void saveYesbtn_Click(System::Object^ sender, System::EventArgs
 	
 }
 
+private: System::Void PlanAddbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	PlanMakerPanel->Visible = true;
+	PlanMakerPanel->Location = Point(260, 160);
+}
+private: System::Void savemon_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	howmuchtb->Visible = true;
+	howmuchlbl->Visible = true;
+	enddatelbl->Visible = true;
+	completebydatetb->Visible = true;
+	createplanbtn->Visible = true;
+	createplanbtn->Location = Point(57, 124);
+	cancelplanbtn->Location = Point(144, 124);
+	    
+}
+private: System::Void PlanHolder_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+public: Void ClearPlanMakingData() {
+	savemon->Checked = false;
+	reducedbt->Checked = false;
+	howmuchtb->Text = " ";
+	completebydatetb->Text = " ";
+	cancelplanbtn->Location = Point(99, 124);
+	PlanMakerPanel->Visible = false;
+}
+private: System::Void cancelplanbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	//make everything invisible
+	ClearPlanMakingData();
+}
+private: System::Void createplanbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ action;
+	try {
+		if (savemon->Checked) {
+			action = "Save " + howmuchtb->Text;
+		}
+		else {
+			action = "Reduce ";
+		}
+		PlanHolder->Rows->Add(action);
+		
+	}
+	catch (Exception^ e) {
+		MessageBox::Show(e->Message);
+	}
+	ClearPlanMakingData();
+}
 };
 }

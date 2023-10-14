@@ -3,6 +3,8 @@
 using namespace std;
 using namespace System;
 using namespace System::Collections::Generic;
+using namespace System::Globalization;
+using namespace System::Reflection;
 
 public ref class Item {
 private:
@@ -36,6 +38,9 @@ public:
 		dueDate_day = day;
 	    dueDate_month = month;
 		dueDate_year = year;
+	}
+	DateTime get_dueDate() {
+		return Convert::ToDateTime(dueDate_month + "/" + dueDate_day + "/" + dueDate_year);
 	}
 	void set_payment(int pay) {
 		payment = pay;
