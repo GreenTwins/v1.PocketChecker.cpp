@@ -132,7 +132,7 @@ private: System::Windows::Forms::Label^ label1;
 private: System::Windows::Forms::DateTimePicker^ editCalendar;
 private: System::Windows::Forms::DataGridView^ PlanHolder;
 
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+
 private: System::Windows::Forms::Button^ PlanAddbtn;
 private: System::Windows::Forms::Panel^ PlanMakerPanel;
 
@@ -144,6 +144,9 @@ private: System::Windows::Forms::Label^ howmuchlbl;
 private: System::Windows::Forms::Label^ enddatelbl;
 private: System::Windows::Forms::Button^ cancelplanbtn;
 private: System::Windows::Forms::Button^ createplanbtn;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 
 
 
@@ -222,18 +225,8 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->RemovebtnIncome = (gcnew System::Windows::Forms::Button());
 			this->AddbtnIncome = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->PlanMakerPanel = (gcnew System::Windows::Forms::Panel());
-			this->cancelplanbtn = (gcnew System::Windows::Forms::Button());
-			this->createplanbtn = (gcnew System::Windows::Forms::Button());
-			this->enddatelbl = (gcnew System::Windows::Forms::Label());
-			this->howmuchlbl = (gcnew System::Windows::Forms::Label());
-			this->completebydatetb = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->howmuchtb = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->reducedbt = (gcnew System::Windows::Forms::RadioButton());
-			this->savemon = (gcnew System::Windows::Forms::RadioButton());
 			this->PlanAddbtn = (gcnew System::Windows::Forms::Button());
 			this->PlanHolder = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->planslbl = (gcnew System::Windows::Forms::Label());
 			this->currentSpendableShow = (gcnew System::Windows::Forms::Panel());
 			this->spendableamtlbl = (gcnew System::Windows::Forms::Label());
@@ -250,7 +243,19 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->weeksdebtamtbtn = (gcnew System::Windows::Forms::Button());
 			this->debtamtlbl = (gcnew System::Windows::Forms::Label());
 			this->weeksdbtlbl = (gcnew System::Windows::Forms::Label());
+			this->PlanMakerPanel = (gcnew System::Windows::Forms::Panel());
+			this->cancelplanbtn = (gcnew System::Windows::Forms::Button());
+			this->createplanbtn = (gcnew System::Windows::Forms::Button());
+			this->enddatelbl = (gcnew System::Windows::Forms::Label());
+			this->howmuchlbl = (gcnew System::Windows::Forms::Label());
+			this->completebydatetb = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->howmuchtb = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->reducedbt = (gcnew System::Windows::Forms::RadioButton());
+			this->savemon = (gcnew System::Windows::Forms::RadioButton());
 			this->Title = (gcnew System::Windows::Forms::Label());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panelDesktop->SuspendLayout();
 			this->editpanel->SuspendLayout();
 			this->removePanel->SuspendLayout();
@@ -261,12 +266,12 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->debtbtnspanel->SuspendLayout();
 			this->incomebtnspanel->SuspendLayout();
 			this->panel2->SuspendLayout();
-			this->PlanMakerPanel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PlanHolder))->BeginInit();
 			this->currentSpendableShow->SuspendLayout();
 			this->currentBillShow->SuspendLayout();
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
+			this->PlanMakerPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelDesktop
@@ -826,108 +831,6 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->panel2->Size = System::Drawing::Size(440, 252);
 			this->panel2->TabIndex = 4;
 			// 
-			// PlanMakerPanel
-			// 
-			this->PlanMakerPanel->BackColor = System::Drawing::Color::White;
-			this->PlanMakerPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->PlanMakerPanel->Controls->Add(this->cancelplanbtn);
-			this->PlanMakerPanel->Controls->Add(this->createplanbtn);
-			this->PlanMakerPanel->Controls->Add(this->enddatelbl);
-			this->PlanMakerPanel->Controls->Add(this->howmuchlbl);
-			this->PlanMakerPanel->Controls->Add(this->completebydatetb);
-			this->PlanMakerPanel->Controls->Add(this->howmuchtb);
-			this->PlanMakerPanel->Controls->Add(this->reducedbt);
-			this->PlanMakerPanel->Controls->Add(this->savemon);
-			this->PlanMakerPanel->Location = System::Drawing::Point(0, 0);
-			this->PlanMakerPanel->Name = L"PlanMakerPanel";
-			this->PlanMakerPanel->Size = System::Drawing::Size(258, 152);
-			this->PlanMakerPanel->TabIndex = 12;
-			this->PlanMakerPanel->Visible = false;
-			// 
-			// cancelplanbtn
-			// 
-			this->cancelplanbtn->Location = System::Drawing::Point(99, 124);
-			this->cancelplanbtn->Name = L"cancelplanbtn";
-			this->cancelplanbtn->Size = System::Drawing::Size(52, 23);
-			this->cancelplanbtn->TabIndex = 7;
-			this->cancelplanbtn->Text = L"Cancel";
-			this->cancelplanbtn->UseVisualStyleBackColor = true;
-			this->cancelplanbtn->Click += gcnew System::EventHandler(this, &DashBoard::cancelplanbtn_Click);
-			// 
-			// createplanbtn
-			// 
-			this->createplanbtn->Location = System::Drawing::Point(8, 124);
-			this->createplanbtn->Name = L"createplanbtn";
-			this->createplanbtn->Size = System::Drawing::Size(52, 23);
-			this->createplanbtn->TabIndex = 6;
-			this->createplanbtn->Text = L"Add";
-			this->createplanbtn->UseVisualStyleBackColor = true;
-			this->createplanbtn->Visible = false;
-			this->createplanbtn->Click += gcnew System::EventHandler(this, &DashBoard::createplanbtn_Click);
-			// 
-			// enddatelbl
-			// 
-			this->enddatelbl->AutoSize = true;
-			this->enddatelbl->Location = System::Drawing::Point(145, 54);
-			this->enddatelbl->Name = L"enddatelbl";
-			this->enddatelbl->Size = System::Drawing::Size(88, 13);
-			this->enddatelbl->TabIndex = 5;
-			this->enddatelbl->Text = L"Desired end date";
-			this->enddatelbl->Visible = false;
-			// 
-			// howmuchlbl
-			// 
-			this->howmuchlbl->AutoSize = true;
-			this->howmuchlbl->Location = System::Drawing::Point(22, 54);
-			this->howmuchlbl->Name = L"howmuchlbl";
-			this->howmuchlbl->Size = System::Drawing::Size(64, 13);
-			this->howmuchlbl->TabIndex = 4;
-			this->howmuchlbl->Text = L"How much\?";
-			this->howmuchlbl->Visible = false;
-			// 
-			// completebydatetb
-			// 
-			this->completebydatetb->Location = System::Drawing::Point(144, 70);
-			this->completebydatetb->Mask = L"00/00/0000";
-			this->completebydatetb->Name = L"completebydatetb";
-			this->completebydatetb->Size = System::Drawing::Size(100, 20);
-			this->completebydatetb->TabIndex = 3;
-			this->completebydatetb->ValidatingType = System::DateTime::typeid;
-			this->completebydatetb->Visible = false;
-			// 
-			// howmuchtb
-			// 
-			this->howmuchtb->Location = System::Drawing::Point(8, 70);
-			this->howmuchtb->Mask = L"00000";
-			this->howmuchtb->Name = L"howmuchtb";
-			this->howmuchtb->Size = System::Drawing::Size(100, 20);
-			this->howmuchtb->TabIndex = 2;
-			this->howmuchtb->ValidatingType = System::Int32::typeid;
-			this->howmuchtb->Visible = false;
-			// 
-			// reducedbt
-			// 
-			this->reducedbt->AutoSize = true;
-			this->reducedbt->Location = System::Drawing::Point(146, 22);
-			this->reducedbt->Name = L"reducedbt";
-			this->reducedbt->Size = System::Drawing::Size(87, 17);
-			this->reducedbt->TabIndex = 1;
-			this->reducedbt->TabStop = true;
-			this->reducedbt->Text = L"Reduce debt";
-			this->reducedbt->UseVisualStyleBackColor = true;
-			// 
-			// savemon
-			// 
-			this->savemon->AutoSize = true;
-			this->savemon->Location = System::Drawing::Point(11, 22);
-			this->savemon->Name = L"savemon";
-			this->savemon->Size = System::Drawing::Size(84, 17);
-			this->savemon->TabIndex = 0;
-			this->savemon->TabStop = true;
-			this->savemon->Text = L"Save money";
-			this->savemon->UseVisualStyleBackColor = true;
-			this->savemon->CheckedChanged += gcnew System::EventHandler(this, &DashBoard::savemon_CheckedChanged);
-			// 
 			// PlanAddbtn
 			// 
 			this->PlanAddbtn->Location = System::Drawing::Point(53, 218);
@@ -941,17 +844,15 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			// PlanHolder
 			// 
 			this->PlanHolder->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->PlanHolder->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->Column1 });
+			this->PlanHolder->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Column1, this->Column2,
+					this->Column3
+			});
 			this->PlanHolder->Location = System::Drawing::Point(15, 45);
 			this->PlanHolder->Name = L"PlanHolder";
-			this->PlanHolder->Size = System::Drawing::Size(156, 160);
+			this->PlanHolder->Size = System::Drawing::Size(343, 160);
 			this->PlanHolder->TabIndex = 1;
 			this->PlanHolder->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashBoard::PlanHolder_CellContentClick);
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Plan Name";
-			this->Column1->Name = L"Column1";
 			// 
 			// planslbl
 			// 
@@ -1137,6 +1038,108 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->weeksdbtlbl->TabIndex = 0;
 			this->weeksdbtlbl->Text = L"Weeks\' Debt";
 			// 
+			// PlanMakerPanel
+			// 
+			this->PlanMakerPanel->BackColor = System::Drawing::Color::White;
+			this->PlanMakerPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->PlanMakerPanel->Controls->Add(this->cancelplanbtn);
+			this->PlanMakerPanel->Controls->Add(this->createplanbtn);
+			this->PlanMakerPanel->Controls->Add(this->enddatelbl);
+			this->PlanMakerPanel->Controls->Add(this->howmuchlbl);
+			this->PlanMakerPanel->Controls->Add(this->completebydatetb);
+			this->PlanMakerPanel->Controls->Add(this->howmuchtb);
+			this->PlanMakerPanel->Controls->Add(this->reducedbt);
+			this->PlanMakerPanel->Controls->Add(this->savemon);
+			this->PlanMakerPanel->Location = System::Drawing::Point(0, 0);
+			this->PlanMakerPanel->Name = L"PlanMakerPanel";
+			this->PlanMakerPanel->Size = System::Drawing::Size(258, 152);
+			this->PlanMakerPanel->TabIndex = 12;
+			this->PlanMakerPanel->Visible = false;
+			// 
+			// cancelplanbtn
+			// 
+			this->cancelplanbtn->Location = System::Drawing::Point(99, 124);
+			this->cancelplanbtn->Name = L"cancelplanbtn";
+			this->cancelplanbtn->Size = System::Drawing::Size(52, 23);
+			this->cancelplanbtn->TabIndex = 7;
+			this->cancelplanbtn->Text = L"Cancel";
+			this->cancelplanbtn->UseVisualStyleBackColor = true;
+			this->cancelplanbtn->Click += gcnew System::EventHandler(this, &DashBoard::cancelplanbtn_Click);
+			// 
+			// createplanbtn
+			// 
+			this->createplanbtn->Location = System::Drawing::Point(8, 124);
+			this->createplanbtn->Name = L"createplanbtn";
+			this->createplanbtn->Size = System::Drawing::Size(52, 23);
+			this->createplanbtn->TabIndex = 6;
+			this->createplanbtn->Text = L"Add";
+			this->createplanbtn->UseVisualStyleBackColor = true;
+			this->createplanbtn->Visible = false;
+			this->createplanbtn->Click += gcnew System::EventHandler(this, &DashBoard::createplanbtn_Click);
+			// 
+			// enddatelbl
+			// 
+			this->enddatelbl->AutoSize = true;
+			this->enddatelbl->Location = System::Drawing::Point(145, 54);
+			this->enddatelbl->Name = L"enddatelbl";
+			this->enddatelbl->Size = System::Drawing::Size(88, 13);
+			this->enddatelbl->TabIndex = 5;
+			this->enddatelbl->Text = L"Desired end date";
+			this->enddatelbl->Visible = false;
+			// 
+			// howmuchlbl
+			// 
+			this->howmuchlbl->AutoSize = true;
+			this->howmuchlbl->Location = System::Drawing::Point(22, 54);
+			this->howmuchlbl->Name = L"howmuchlbl";
+			this->howmuchlbl->Size = System::Drawing::Size(64, 13);
+			this->howmuchlbl->TabIndex = 4;
+			this->howmuchlbl->Text = L"How much\?";
+			this->howmuchlbl->Visible = false;
+			// 
+			// completebydatetb
+			// 
+			this->completebydatetb->Location = System::Drawing::Point(144, 70);
+			this->completebydatetb->Mask = L"00/00/0000";
+			this->completebydatetb->Name = L"completebydatetb";
+			this->completebydatetb->Size = System::Drawing::Size(100, 20);
+			this->completebydatetb->TabIndex = 3;
+			this->completebydatetb->ValidatingType = System::DateTime::typeid;
+			this->completebydatetb->Visible = false;
+			// 
+			// howmuchtb
+			// 
+			this->howmuchtb->Location = System::Drawing::Point(8, 70);
+			this->howmuchtb->Mask = L"00000";
+			this->howmuchtb->Name = L"howmuchtb";
+			this->howmuchtb->Size = System::Drawing::Size(100, 20);
+			this->howmuchtb->TabIndex = 2;
+			this->howmuchtb->ValidatingType = System::Int32::typeid;
+			this->howmuchtb->Visible = false;
+			// 
+			// reducedbt
+			// 
+			this->reducedbt->AutoSize = true;
+			this->reducedbt->Location = System::Drawing::Point(146, 22);
+			this->reducedbt->Name = L"reducedbt";
+			this->reducedbt->Size = System::Drawing::Size(87, 17);
+			this->reducedbt->TabIndex = 1;
+			this->reducedbt->TabStop = true;
+			this->reducedbt->Text = L"Reduce debt";
+			this->reducedbt->UseVisualStyleBackColor = true;
+			// 
+			// savemon
+			// 
+			this->savemon->AutoSize = true;
+			this->savemon->Location = System::Drawing::Point(11, 22);
+			this->savemon->Name = L"savemon";
+			this->savemon->Size = System::Drawing::Size(84, 17);
+			this->savemon->TabIndex = 0;
+			this->savemon->TabStop = true;
+			this->savemon->Text = L"Save money";
+			this->savemon->UseVisualStyleBackColor = true;
+			this->savemon->CheckedChanged += gcnew System::EventHandler(this, &DashBoard::savemon_CheckedChanged);
+			// 
 			// Title
 			// 
 			this->Title->AutoSize = true;
@@ -1147,6 +1150,21 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->Title->Size = System::Drawing::Size(0, 20);
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Plan Name";
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Est. Time";
+			this->Column2->Name = L"Column2";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Progress";
+			this->Column3->Name = L"Column3";
 			// 
 			// DashBoard
 			// 
@@ -1178,8 +1196,6 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->incomebtnspanel->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
-			this->PlanMakerPanel->ResumeLayout(false);
-			this->PlanMakerPanel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PlanHolder))->EndInit();
 			this->currentSpendableShow->ResumeLayout(false);
 			this->currentSpendableShow->PerformLayout();
@@ -1189,6 +1205,8 @@ private: System::Windows::Forms::Button^ createplanbtn;
 			this->currentIncomeShow->PerformLayout();
 			this->currentDebtShow->ResumeLayout(false);
 			this->currentDebtShow->PerformLayout();
+			this->PlanMakerPanel->ResumeLayout(false);
+			this->PlanMakerPanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1367,6 +1385,9 @@ private: System::Windows::Forms::Button^ createplanbtn;
 		
 		String^ currDate = mth + "/" + day + "/" + yr;
 		int ID = 0;
+		//gotta find a way to get the beginning of the week and the end of the week
+
+
 		userDashlbl->Text = "Welcome back " +
 			currentuser->getfullName();
 
@@ -1419,6 +1440,8 @@ private: System::Windows::Forms::Button^ createplanbtn;
 		else {
 			billtotal = 0.00;
 		}
+
+
 
 		spendable = ((incometotal) - (billtotal + debttotal));
 		incomeamtlbl->Text = "$ " + incometotal;
