@@ -21,6 +21,13 @@ private:
 	int dueDate_year = 0;
 
 public:
+	DateTime get_dueDate() {
+		return DateTime(dueDate_year, dueDate_month, dueDate_day);
+	}
+	bool isDue(DateTime today) {
+		DateTime dueDate = get_dueDate();
+		return dueDate <= today;
+	}
 
 	void set_name(String^ Name) {
 		name = Name;
@@ -98,6 +105,30 @@ public:
 	List<Item^>^ debtItems;
 	List<Item^>^ billItems;
 	List<Item^>^ changedItems;
+
+	List<Item^>^ getDueItems(DateTime today) {
+		List<Item^>^ dueItems = gcnew List<Item^>();
+
+		for each (Item ^ item in incomeItems) {
+			if (item->isDue(today)) {
+				dueItems->Add(item);
+			}
+		}
+
+		for each (Item ^ item in debtItems) {
+			if (item->isDue(today)) {
+				dueItems->Add(item);
+			}
+		}
+
+		for each (Item ^ item in billItems) {
+			if (item->isDue(today)) {
+				dueItems->Add(item);
+			}
+		}
+
+		return dueItems;
+	}
 	void set_fullname(String^ firstName, String^ lastName) {
 		fullname = firstName + " " + lastName;
 	}
