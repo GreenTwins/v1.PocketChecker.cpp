@@ -1335,7 +1335,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 						newItem->set_payment((int)reader["itemcurrentpayment"]);
 						//MessageBox::Show("" + newItem->getpayment());
 						newItem->set_frequency((int)reader["itempaymentoccurance"]);
-						newItem->set_dueDate(((int)reader["nextdueday"]),(((int)reader["nextdueday"])),(((int)reader["nextdueday"])));
+						newItem->set_dueDate(((int)reader["nextdueday"]),(((int)reader["nextduemonth"])),(((int)reader["nextdueyear"])));
 						//MessageBox::Show("" + newItem->getfrequency());
 						//container->Add(newItem);
 						if (newItem->get_type() == "I") {
@@ -1361,12 +1361,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 						//MessageBox::Show("didnt get userID. Terminating Program");
 						this->Close();
 					}
+					//MessageBox::Show(newItem->get_dueDate() + "");
 				}
 				
 			}
 			
 		catch (Exception^ ex) {
-			MessageBox::Show("" + ex->Message);
+			MessageBox::Show("Data Load: " + ex->Message);
 		}
 		//MessageBox::Show("Completed the load");
 		
@@ -1377,17 +1378,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 		float billtotal = 0;
 		float spendable = 0;
 		
-		DateTime^ dt = gcnew DateTime();
-
-		String^ mth = dt->Now.Month.ToString();
-		String^ day = dt->Now.Day.ToString();
-		String^ yr = dt->Now.Year.ToString();
-		
-		String^ currDate = mth + "/" + day + "/" + yr;
+		DateTime dt;
+		String^ currDate = dt.Now.ToShortDateString();
 		int ID = 0;
 		//gotta find a way to get the beginning of the week and the end of the week
-
-
+		
+		
+		
 		userDashlbl->Text = "Welcome back " +
 			currentuser->getfullName();
 
@@ -1449,6 +1446,31 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 		debtamtlbl->Text = "$ " + debttotal;
 		spendableamtlbl->Text = "$ " + spendable;
 
+
+		List<Item^>^ itemsDue = gcnew List<Item^>();
+		//this whole thing gets the end of the week and moves the needle to the monday following
+		DateTime today = DateTime::Now;
+		DateTime endofWeek = GetEndofWeek(today, today.DayOfWeek);
+		MessageBox::Show(today + "");
+		//MessageBox::Show(currentuser->incomeItems[0]->get_dueDate().ToString());
+		//for (int i = today.Day; i < endofWeek.Day; ++i) {
+			itemsDue = currentuser->getDueItems(today);
+		//	today.AddDays(1);
+		//}
+		MessageBox::Show(itemsDue->Count + "");
+		for (int i = 0; i < itemsDue->Count; ++i) {
+			MessageBox::Show(itemsDue[i]->getName());
+		}
+		//DateTime beginofWeek = endofWeek.AddDays(1); //this will be monday or the beginning of the new week
+		//MessageBox::Show(endofWeek.Day.ToString());
+		//MessageBox::Show(beginofWeek.Day.ToString());
+	}
+	public: DateTime GetEndofWeek(DateTime today, DayOfWeek currentDay) {
+		int diff = Convert::ToInt32(DayOfWeek::Sunday) - Convert::ToInt32(currentDay);
+		if (diff < 0) {
+			diff += 7;
+		}
+		return today.AddDays(diff);
 	}
 	private: System::Void Closebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (currentuser->changedItems->Count > 0) {
@@ -1554,10 +1576,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 		}
 
 	   //--------BACKGROUND THREADS------------//
-public:
-	void gatherItemsThread() {
-		Thread ^t1 = Thread::CurrentThread;
-	 }
 
 	   //--------BUTTON CLICK EVENTS-----------//
 	int month;

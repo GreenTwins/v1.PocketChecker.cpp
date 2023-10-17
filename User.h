@@ -21,12 +21,22 @@ private:
 	int dueDate_year = 0;
 
 public:
-	DateTime get_dueDate() {
-		return DateTime(dueDate_year, dueDate_month, dueDate_day);
+	DateTime get_paydueDate() {
+		try {
+			if (dueDate_year < 1 || dueDate_month < 1 || dueDate_month >12 || dueDate_day < 1 || dueDate_day > 31) {
+				throw gcnew Exception("Invalid year, month or day");
+			}
+			return DateTime(this->dueDate_year, this->dueDate_month, this->dueDate_day);
+		}
+		catch (Exception^ e) {
+			Console::WriteLine(e->Message);
+			return DateTime::MinValue;
+		}
+		
 	}
 	bool isDue(DateTime today) {
-		DateTime dueDate = get_dueDate();
-		return dueDate <= today;
+		DateTime dueDate = get_paydueDate();
+		return dueDate == today;
 	}
 
 	void set_name(String^ Name) {
