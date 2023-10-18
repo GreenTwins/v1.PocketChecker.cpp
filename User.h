@@ -30,13 +30,13 @@ public:
 		}
 		catch (Exception^ e) {
 			Console::WriteLine(e->Message);
-			return DateTime::MinValue;
+			//return DateTime::MinValue;
 		}
 		
 	}
 	bool isDue(DateTime today) {
 		DateTime dueDate = get_paydueDate();
-		return dueDate == today;
+		return dueDate >= today;
 	}
 
 	void set_name(String^ Name) {
@@ -115,9 +115,11 @@ public:
 	List<Item^>^ debtItems;
 	List<Item^>^ billItems;
 	List<Item^>^ changedItems;
+	List<Item^>^ dueItems;
 
-	List<Item^>^ getDueItems(DateTime today) {
-		List<Item^>^ dueItems = gcnew List<Item^>();
+	
+	void getDueItems(DateTime today) {
+		dueItems->Clear();
 
 		for each (Item ^ item in incomeItems) {
 			if (item->isDue(today)) {
@@ -137,7 +139,7 @@ public:
 			}
 		}
 
-		return dueItems;
+		
 	}
 	void set_fullname(String^ firstName, String^ lastName) {
 		fullname = firstName + " " + lastName;

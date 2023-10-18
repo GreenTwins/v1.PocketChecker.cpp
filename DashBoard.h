@@ -34,6 +34,7 @@ namespace v1PocketCheckercpp {
 			currentuser->debtItems = gcnew List<Item^>();
 			currentuser->billItems = gcnew List<Item^>();
 			currentuser->changedItems = gcnew List<Item^>();
+			currentuser->dueItems = gcnew List<Item^>();
 			
 			grabUserID();//will only happen once
 			DashBoard_Load(user);
@@ -1440,31 +1441,71 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 
 
 
-		spendable = ((incometotal) - (billtotal + debttotal));
+		spendable = getWeeklySpendable();
 		incomeamtlbl->Text = "$ " + incometotal;
 		billamt->Text = "$ " + billtotal;
 		debtamtlbl->Text = "$ " + debttotal;
 		spendableamtlbl->Text = "$ " + spendable;
 
 
-		List<Item^>^ itemsDue = gcnew List<Item^>();
+
 		//this whole thing gets the end of the week and moves the needle to the monday following
+		
+	}
+	public: float getWeeklySpendable() {
+		DateTime today = DateTime::Now;
+		int weeklyincome = 0;
+		int weeklybills = 0;
+		int weeklydebt = 0;
+		try {
+			today = GetEndofWeek(today, today.DayOfWeek); //skip to sunday and validate backwards
+				for each (Item ^ it in currentuser->incomeItems) {
+					if (it->isDue(today)) {
+						weeklyincome += it->getpayment();
+					}
+				}
+				MessageBox::Show(weeklyincome + " ");
+				for each (Item ^ it in currentuser->billItems) {
+					if (it->isDue(today)) {
+						weeklybills += it->getpayment();
+					}
+				}
+				MessageBox::Show(weeklybills + " ");
+				for each (Item ^ it in currentuser->debtItems) {
+					if (it->isDue(today)) {
+						weeklydebt += it->getpayment();
+					}
+				}
+				MessageBox::Show(weeklydebt + " ");
+		}
+		catch (Exception^ e) {
+			MessageBox::Show(e->Message);
+		}
+		return (weeklyincome - (weeklybills + weeklydebt));
+	}
+	public: Void collectWeekData() {//include params soon
 		DateTime today = DateTime::Now;
 		DateTime endofWeek = GetEndofWeek(today, today.DayOfWeek);
-		MessageBox::Show(today + "");
-		//MessageBox::Show(currentuser->incomeItems[0]->get_dueDate().ToString());
-		//for (int i = today.Day; i < endofWeek.Day; ++i) {
-			itemsDue = currentuser->getDueItems(today);
-		//	today.AddDays(1);
-		//}
-		MessageBox::Show(itemsDue->Count + "");
-		for (int i = 0; i < itemsDue->Count; ++i) {
-			MessageBox::Show(itemsDue[i]->getName());
+
+		try {
+			while (today.DayOfWeek != DayOfWeek::Sunday) {//this will get the data for the week
+				currentuser->getDueItems(today);
+				today = today.AddDays(1);
+			}
+			//MessageBox::Show(currentuser->dueItems->Count.ToString());
+			/*for (int i = 0; i < currentuser->dueItems->Count; ++i) {
+				MessageBox::Show(currentuser->dueItems[i]->getName());
+			}*/
 		}
+		catch (Exception^ ex) {
+			MessageBox::Show(ex->Message);
+		}
+
 		//DateTime beginofWeek = endofWeek.AddDays(1); //this will be monday or the beginning of the new week
 		//MessageBox::Show(endofWeek.Day.ToString());
 		//MessageBox::Show(beginofWeek.Day.ToString());
 	}
+
 	public: DateTime GetEndofWeek(DateTime today, DayOfWeek currentDay) {
 		int diff = Convert::ToInt32(DayOfWeek::Sunday) - Convert::ToInt32(currentDay);
 		if (diff < 0) {

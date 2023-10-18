@@ -2,27 +2,28 @@
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(66,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(72,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(78,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2063,20): warning C4101: 'ex': unreferenced local variable
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2088,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2089,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  LoginForm.cpp
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(66,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(72,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(78,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  RegisterForm.cpp
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(66,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(72,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(78,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\RegisterForm.h(340,21): warning C4101: 'ex': unreferenced local variable
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1464,37): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1470,36): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1476,35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1484,24): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2104,20): warning C4101: 'ex': unreferenced local variable
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2129,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2130,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   programLogic.cpp
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(66,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(72,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(78,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\RegisterForm.h(340,21): warning C4101: 'ex': unreferenced local variable
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2063,20): warning C4101: 'ex': unreferenced local variable
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2088,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2089,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1464,37): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1470,36): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1476,35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(1484,24): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2104,20): warning C4101: 'ex': unreferenced local variable
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2129,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\DashBoard.h(2130,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\programLogic.cpp(9,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
   Generating Code...
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(36): warning C4715: 'Item::get_paydueDate': not all control paths return a value
+C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\v1.PocketChecker.cpp\User.h(36): warning C4715: 'Item::get_paydueDate': not all control paths return a value
   DashBoard.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   v1.PocketChecker.cpp.vcxproj -> C:\Users\aaron\source\CPP\PocketChecker\newDemo\v1.PocketChecker.cpp\x64\Debug\v1.PocketChecker.cpp.exe
