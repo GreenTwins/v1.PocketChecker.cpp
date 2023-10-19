@@ -30,11 +30,11 @@ namespace v1PocketCheckercpp {
 			//
 			//TODO: Add the constructor code here
 			currentuser = user;
-			currentuser->incomeItems = gcnew List<Item^>();
+			/*currentuser->incomeItems = gcnew List<Item^>();
 			currentuser->debtItems = gcnew List<Item^>();
 			currentuser->billItems = gcnew List<Item^>();
 			currentuser->changedItems = gcnew List<Item^>();
-			currentuser->dueItems = gcnew List<Item^>();
+			currentuser->dueItems = gcnew List<Item^>();*/
 			
 			grabUserID();//will only happen once
 			DashBoard_Load(user);
@@ -178,25 +178,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 		void InitializeComponent(void)
 		{
 			this->panelDesktop = (gcnew System::Windows::Forms::Panel());
-			this->editpanel = (gcnew System::Windows::Forms::Panel());
-			this->editCalendar = (gcnew System::Windows::Forms::DateTimePicker());
-			this->editDonebtn = (gcnew System::Windows::Forms::Button());
-			this->editcyclecb = (gcnew System::Windows::Forms::ComboBox());
-			this->editpercycletb = (gcnew System::Windows::Forms::TextBox());
-			this->editpanelAmnttb = (gcnew System::Windows::Forms::TextBox());
-			this->editpromptlbl = (gcnew System::Windows::Forms::Label());
-			this->editComboBox = (gcnew System::Windows::Forms::ComboBox());
-			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
-			this->editEditbtn = (gcnew System::Windows::Forms::Button());
-			this->removePanel = (gcnew System::Windows::Forms::Panel());
-			this->RemovePromptlbl = (gcnew System::Windows::Forms::Label());
-			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
-			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
-			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
-			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
-			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
-			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
-			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
 			this->Dashboardlbl = (gcnew System::Windows::Forms::Label());
 			this->panelTitle = (gcnew System::Windows::Forms::Panel());
 			this->currentDTlbl = (gcnew System::Windows::Forms::Label());
@@ -204,15 +185,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Closebtn = (gcnew System::Windows::Forms::Button());
 			this->userDashlbl = (gcnew System::Windows::Forms::Label());
-			this->Updateboard = (gcnew System::Windows::Forms::Panel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->enterCalander = (gcnew System::Windows::Forms::DateTimePicker());
-			this->Updateboardtotalamttb = (gcnew System::Windows::Forms::TextBox());
-			this->Updateboardamounttb = (gcnew System::Windows::Forms::TextBox());
-			this->updateboardcycletb = (gcnew System::Windows::Forms::ComboBox());
-			this->Updateboardnametb = (gcnew System::Windows::Forms::TextBox());
-			this->Updatecancelbtn = (gcnew System::Windows::Forms::Button());
-			this->Updateenterbtn = (gcnew System::Windows::Forms::Button());
 			this->billbtnspanel = (gcnew System::Windows::Forms::Panel());
 			this->Editbtnbill = (gcnew System::Windows::Forms::Button());
 			this->Removebtnbill = (gcnew System::Windows::Forms::Button());
@@ -228,6 +200,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->PlanAddbtn = (gcnew System::Windows::Forms::Button());
 			this->PlanHolder = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->planslbl = (gcnew System::Windows::Forms::Label());
 			this->currentSpendableShow = (gcnew System::Windows::Forms::Panel());
 			this->spendableamtlbl = (gcnew System::Windows::Forms::Label());
@@ -244,6 +219,34 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->weeksdebtamtbtn = (gcnew System::Windows::Forms::Button());
 			this->debtamtlbl = (gcnew System::Windows::Forms::Label());
 			this->weeksdbtlbl = (gcnew System::Windows::Forms::Label());
+			this->removePanel = (gcnew System::Windows::Forms::Panel());
+			this->RemovePromptlbl = (gcnew System::Windows::Forms::Label());
+			this->removeComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->removeDonebtn = (gcnew System::Windows::Forms::Button());
+			this->removeRemovebtn = (gcnew System::Windows::Forms::Button());
+			this->SaveDatapanel = (gcnew System::Windows::Forms::Panel());
+			this->CloseQuestionlbl = (gcnew System::Windows::Forms::Label());
+			this->SaveNobtn = (gcnew System::Windows::Forms::Button());
+			this->saveYesbtn = (gcnew System::Windows::Forms::Button());
+			this->Updateboard = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->enterCalander = (gcnew System::Windows::Forms::DateTimePicker());
+			this->Updateboardtotalamttb = (gcnew System::Windows::Forms::TextBox());
+			this->Updateboardamounttb = (gcnew System::Windows::Forms::TextBox());
+			this->updateboardcycletb = (gcnew System::Windows::Forms::ComboBox());
+			this->Updateboardnametb = (gcnew System::Windows::Forms::TextBox());
+			this->Updatecancelbtn = (gcnew System::Windows::Forms::Button());
+			this->Updateenterbtn = (gcnew System::Windows::Forms::Button());
+			this->editpanel = (gcnew System::Windows::Forms::Panel());
+			this->editCalendar = (gcnew System::Windows::Forms::DateTimePicker());
+			this->editDonebtn = (gcnew System::Windows::Forms::Button());
+			this->editcyclecb = (gcnew System::Windows::Forms::ComboBox());
+			this->editpercycletb = (gcnew System::Windows::Forms::TextBox());
+			this->editpanelAmnttb = (gcnew System::Windows::Forms::TextBox());
+			this->editpromptlbl = (gcnew System::Windows::Forms::Label());
+			this->editComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->editcancelbtn = (gcnew System::Windows::Forms::Button());
+			this->editEditbtn = (gcnew System::Windows::Forms::Button());
 			this->PlanMakerPanel = (gcnew System::Windows::Forms::Panel());
 			this->cancelplanbtn = (gcnew System::Windows::Forms::Button());
 			this->createplanbtn = (gcnew System::Windows::Forms::Button());
@@ -254,15 +257,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->reducedbt = (gcnew System::Windows::Forms::RadioButton());
 			this->savemon = (gcnew System::Windows::Forms::RadioButton());
 			this->Title = (gcnew System::Windows::Forms::Label());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panelDesktop->SuspendLayout();
-			this->editpanel->SuspendLayout();
-			this->removePanel->SuspendLayout();
-			this->SaveDatapanel->SuspendLayout();
 			this->panelTitle->SuspendLayout();
-			this->Updateboard->SuspendLayout();
 			this->billbtnspanel->SuspendLayout();
 			this->debtbtnspanel->SuspendLayout();
 			this->incomebtnspanel->SuspendLayout();
@@ -272,6 +268,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->currentBillShow->SuspendLayout();
 			this->currentIncomeShow->SuspendLayout();
 			this->currentDebtShow->SuspendLayout();
+			this->removePanel->SuspendLayout();
+			this->SaveDatapanel->SuspendLayout();
+			this->Updateboard->SuspendLayout();
+			this->editpanel->SuspendLayout();
 			this->PlanMakerPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -280,12 +280,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->panelDesktop->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(231)),
 				static_cast<System::Int32>(static_cast<System::Byte>(233)));
 			this->panelDesktop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panelDesktop->Controls->Add(this->editpanel);
-			this->panelDesktop->Controls->Add(this->removePanel);
-			this->panelDesktop->Controls->Add(this->SaveDatapanel);
 			this->panelDesktop->Controls->Add(this->Dashboardlbl);
+			this->panelDesktop->Controls->Add(this->editpanel);
 			this->panelDesktop->Controls->Add(this->panelTitle);
-			this->panelDesktop->Controls->Add(this->Updateboard);
 			this->panelDesktop->Controls->Add(this->billbtnspanel);
 			this->panelDesktop->Controls->Add(this->debtbtnspanel);
 			this->panelDesktop->Controls->Add(this->incomebtnspanel);
@@ -299,200 +296,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->panelDesktop->Name = L"panelDesktop";
 			this->panelDesktop->Size = System::Drawing::Size(826, 444);
 			this->panelDesktop->TabIndex = 3;
-			// 
-			// editpanel
-			// 
-			this->editpanel->BackColor = System::Drawing::Color::White;
-			this->editpanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->editpanel->Controls->Add(this->editCalendar);
-			this->editpanel->Controls->Add(this->editDonebtn);
-			this->editpanel->Controls->Add(this->editcyclecb);
-			this->editpanel->Controls->Add(this->editpercycletb);
-			this->editpanel->Controls->Add(this->editpanelAmnttb);
-			this->editpanel->Controls->Add(this->editpromptlbl);
-			this->editpanel->Controls->Add(this->editComboBox);
-			this->editpanel->Controls->Add(this->editcancelbtn);
-			this->editpanel->Controls->Add(this->editEditbtn);
-			this->editpanel->Location = System::Drawing::Point(474, 419);
-			this->editpanel->Name = L"editpanel";
-			this->editpanel->Size = System::Drawing::Size(338, 189);
-			this->editpanel->TabIndex = 10;
-			this->editpanel->Visible = false;
-			// 
-			// editCalendar
-			// 
-			this->editCalendar->Location = System::Drawing::Point(133, 116);
-			this->editCalendar->Name = L"editCalendar";
-			this->editCalendar->Size = System::Drawing::Size(200, 20);
-			this->editCalendar->TabIndex = 12;
-			this->editCalendar->Visible = false;
-			// 
-			// editDonebtn
-			// 
-			this->editDonebtn->Location = System::Drawing::Point(221, 164);
-			this->editDonebtn->Name = L"editDonebtn";
-			this->editDonebtn->Size = System::Drawing::Size(58, 20);
-			this->editDonebtn->TabIndex = 11;
-			this->editDonebtn->Text = L"Done";
-			this->editDonebtn->UseVisualStyleBackColor = true;
-			this->editDonebtn->Visible = false;
-			this->editDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::editDonebtn_Click);
-			// 
-			// editcyclecb
-			// 
-			this->editcyclecb->FormattingEnabled = true;
-			this->editcyclecb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
-			this->editcyclecb->Location = System::Drawing::Point(236, 83);
-			this->editcyclecb->Name = L"editcyclecb";
-			this->editcyclecb->Size = System::Drawing::Size(97, 21);
-			this->editcyclecb->TabIndex = 10;
-			this->editcyclecb->Visible = false;
-			// 
-			// editpercycletb
-			// 
-			this->editpercycletb->Location = System::Drawing::Point(13, 116);
-			this->editpercycletb->Name = L"editpercycletb";
-			this->editpercycletb->Size = System::Drawing::Size(97, 20);
-			this->editpercycletb->TabIndex = 9;
-			this->editpercycletb->Visible = false;
-			// 
-			// editpanelAmnttb
-			// 
-			this->editpanelAmnttb->Location = System::Drawing::Point(145, 83);
-			this->editpanelAmnttb->Name = L"editpanelAmnttb";
-			this->editpanelAmnttb->Size = System::Drawing::Size(69, 20);
-			this->editpanelAmnttb->TabIndex = 7;
-			this->editpanelAmnttb->Visible = false;
-			// 
-			// editpromptlbl
-			// 
-			this->editpromptlbl->AutoSize = true;
-			this->editpromptlbl->Location = System::Drawing::Point(8, 62);
-			this->editpromptlbl->Name = L"editpromptlbl";
-			this->editpromptlbl->Size = System::Drawing::Size(132, 13);
-			this->editpromptlbl->TabIndex = 4;
-			this->editpromptlbl->Text = L"What do you want to edit\?";
-			// 
-			// editComboBox
-			// 
-			this->editComboBox->FormattingEnabled = true;
-			this->editComboBox->Location = System::Drawing::Point(13, 82);
-			this->editComboBox->Name = L"editComboBox";
-			this->editComboBox->Size = System::Drawing::Size(112, 21);
-			this->editComboBox->TabIndex = 3;
-			// 
-			// editcancelbtn
-			// 
-			this->editcancelbtn->Location = System::Drawing::Point(152, 164);
-			this->editcancelbtn->Name = L"editcancelbtn";
-			this->editcancelbtn->Size = System::Drawing::Size(52, 20);
-			this->editcancelbtn->TabIndex = 2;
-			this->editcancelbtn->Text = L"Cancel";
-			this->editcancelbtn->UseVisualStyleBackColor = true;
-			this->editcancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::editcancelbtn_Click);
-			// 
-			// editEditbtn
-			// 
-			this->editEditbtn->Location = System::Drawing::Point(76, 164);
-			this->editEditbtn->Name = L"editEditbtn";
-			this->editEditbtn->Size = System::Drawing::Size(58, 20);
-			this->editEditbtn->TabIndex = 1;
-			this->editEditbtn->Text = L"Edit";
-			this->editEditbtn->UseVisualStyleBackColor = true;
-			this->editEditbtn->Click += gcnew System::EventHandler(this, &DashBoard::editEditbtn_Click);
-			// 
-			// removePanel
-			// 
-			this->removePanel->BackColor = System::Drawing::Color::White;
-			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->removePanel->Controls->Add(this->RemovePromptlbl);
-			this->removePanel->Controls->Add(this->removeComboBox);
-			this->removePanel->Controls->Add(this->removeDonebtn);
-			this->removePanel->Controls->Add(this->removeRemovebtn);
-			this->removePanel->Location = System::Drawing::Point(117, 419);
-			this->removePanel->Name = L"removePanel";
-			this->removePanel->Size = System::Drawing::Size(338, 189);
-			this->removePanel->TabIndex = 9;
-			this->removePanel->Visible = false;
-			// 
-			// RemovePromptlbl
-			// 
-			this->RemovePromptlbl->AutoSize = true;
-			this->RemovePromptlbl->Location = System::Drawing::Point(112, 66);
-			this->RemovePromptlbl->Name = L"RemovePromptlbl";
-			this->RemovePromptlbl->Size = System::Drawing::Size(150, 13);
-			this->RemovePromptlbl->TabIndex = 4;
-			this->RemovePromptlbl->Text = L"What do you want to remove\?";
-			// 
-			// removeComboBox
-			// 
-			this->removeComboBox->FormattingEnabled = true;
-			this->removeComboBox->Location = System::Drawing::Point(119, 82);
-			this->removeComboBox->Name = L"removeComboBox";
-			this->removeComboBox->Size = System::Drawing::Size(121, 21);
-			this->removeComboBox->TabIndex = 3;
-			// 
-			// removeDonebtn
-			// 
-			this->removeDonebtn->Location = System::Drawing::Point(189, 164);
-			this->removeDonebtn->Name = L"removeDonebtn";
-			this->removeDonebtn->Size = System::Drawing::Size(52, 20);
-			this->removeDonebtn->TabIndex = 2;
-			this->removeDonebtn->Text = L"Done";
-			this->removeDonebtn->UseVisualStyleBackColor = true;
-			this->removeDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeDonebtn_Click);
-			// 
-			// removeRemovebtn
-			// 
-			this->removeRemovebtn->Location = System::Drawing::Point(119, 164);
-			this->removeRemovebtn->Name = L"removeRemovebtn";
-			this->removeRemovebtn->Size = System::Drawing::Size(58, 20);
-			this->removeRemovebtn->TabIndex = 1;
-			this->removeRemovebtn->Text = L"Remove";
-			this->removeRemovebtn->UseVisualStyleBackColor = true;
-			this->removeRemovebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeRemovebtn_Click);
-			// 
-			// SaveDatapanel
-			// 
-			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
-			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
-			this->SaveDatapanel->Controls->Add(this->SaveNobtn);
-			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
-			this->SaveDatapanel->Location = System::Drawing::Point(816, 56);
-			this->SaveDatapanel->Name = L"SaveDatapanel";
-			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
-			this->SaveDatapanel->TabIndex = 11;
-			this->SaveDatapanel->Visible = false;
-			// 
-			// CloseQuestionlbl
-			// 
-			this->CloseQuestionlbl->AutoSize = true;
-			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
-			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
-			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
-			this->CloseQuestionlbl->TabIndex = 4;
-			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
-			// 
-			// SaveNobtn
-			// 
-			this->SaveNobtn->Location = System::Drawing::Point(155, 70);
-			this->SaveNobtn->Name = L"SaveNobtn";
-			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
-			this->SaveNobtn->TabIndex = 2;
-			this->SaveNobtn->Text = L"No";
-			this->SaveNobtn->UseVisualStyleBackColor = true;
-			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
-			// 
-			// saveYesbtn
-			// 
-			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
-			this->saveYesbtn->Name = L"saveYesbtn";
-			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
-			this->saveYesbtn->TabIndex = 1;
-			this->saveYesbtn->Text = L"Yes";
-			this->saveYesbtn->UseVisualStyleBackColor = true;
-			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
 			// 
 			// Dashboardlbl
 			// 
@@ -596,101 +399,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->userDashlbl->Name = L"userDashlbl";
 			this->userDashlbl->Size = System::Drawing::Size(0, 13);
 			this->userDashlbl->TabIndex = 0;
-			// 
-			// Updateboard
-			// 
-			this->Updateboard->BackColor = System::Drawing::Color::White;
-			this->Updateboard->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->Updateboard->Controls->Add(this->label1);
-			this->Updateboard->Controls->Add(this->enterCalander);
-			this->Updateboard->Controls->Add(this->Updateboardtotalamttb);
-			this->Updateboard->Controls->Add(this->Updateboardamounttb);
-			this->Updateboard->Controls->Add(this->updateboardcycletb);
-			this->Updateboard->Controls->Add(this->Updateboardnametb);
-			this->Updateboard->Controls->Add(this->Updatecancelbtn);
-			this->Updateboard->Controls->Add(this->Updateenterbtn);
-			this->Updateboard->Location = System::Drawing::Point(816, 254);
-			this->Updateboard->Name = L"Updateboard";
-			this->Updateboard->Size = System::Drawing::Size(338, 189);
-			this->Updateboard->TabIndex = 8;
-			this->Updateboard->Visible = false;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(3, 134);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(77, 13);
-			this->label1->TabIndex = 11;
-			this->label1->Text = L"Next due date:";
-			// 
-			// enterCalander
-			// 
-			this->enterCalander->Location = System::Drawing::Point(82, 128);
-			this->enterCalander->Name = L"enterCalander";
-			this->enterCalander->Size = System::Drawing::Size(200, 20);
-			this->enterCalander->TabIndex = 10;
-			// 
-			// Updateboardtotalamttb
-			// 
-			this->Updateboardtotalamttb->Location = System::Drawing::Point(230, 51);
-			this->Updateboardtotalamttb->Name = L"Updateboardtotalamttb";
-			this->Updateboardtotalamttb->Size = System::Drawing::Size(97, 20);
-			this->Updateboardtotalamttb->TabIndex = 9;
-			this->Updateboardtotalamttb->Text = L"Total Amount";
-			this->Updateboardtotalamttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardtotalamttb_Click);
-			this->Updateboardtotalamttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardtotalamttb_KeyDown);
-			// 
-			// Updateboardamounttb
-			// 
-			this->Updateboardamounttb->Location = System::Drawing::Point(6, 90);
-			this->Updateboardamounttb->Name = L"Updateboardamounttb";
-			this->Updateboardamounttb->Size = System::Drawing::Size(97, 20);
-			this->Updateboardamounttb->TabIndex = 8;
-			this->Updateboardamounttb->Text = L"Amount per Cycle";
-			this->Updateboardamounttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardamounttb_Click);
-			this->Updateboardamounttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardamounttb_KeyDown);
-			// 
-			// updateboardcycletb
-			// 
-			this->updateboardcycletb->FormattingEnabled = true;
-			this->updateboardcycletb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
-			this->updateboardcycletb->Location = System::Drawing::Point(230, 90);
-			this->updateboardcycletb->Name = L"updateboardcycletb";
-			this->updateboardcycletb->Size = System::Drawing::Size(97, 21);
-			this->updateboardcycletb->TabIndex = 7;
-			this->updateboardcycletb->Text = L"Pick Cycle";
-			this->updateboardcycletb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::updateboardcycletb_KeyDown);
-			// 
-			// Updateboardnametb
-			// 
-			this->Updateboardnametb->Location = System::Drawing::Point(6, 51);
-			this->Updateboardnametb->Name = L"Updateboardnametb";
-			this->Updateboardnametb->Size = System::Drawing::Size(97, 20);
-			this->Updateboardnametb->TabIndex = 6;
-			this->Updateboardnametb->Text = L"Name";
-			this->Updateboardnametb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardnametb_Click);
-			this->Updateboardnametb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardnametb_KeyDown);
-			// 
-			// Updatecancelbtn
-			// 
-			this->Updatecancelbtn->Location = System::Drawing::Point(189, 164);
-			this->Updatecancelbtn->Name = L"Updatecancelbtn";
-			this->Updatecancelbtn->Size = System::Drawing::Size(52, 20);
-			this->Updatecancelbtn->TabIndex = 2;
-			this->Updatecancelbtn->Text = L"Cancel";
-			this->Updatecancelbtn->UseVisualStyleBackColor = true;
-			this->Updatecancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updatecancelbtn_Click);
-			// 
-			// Updateenterbtn
-			// 
-			this->Updateenterbtn->Location = System::Drawing::Point(119, 164);
-			this->Updateenterbtn->Name = L"Updateenterbtn";
-			this->Updateenterbtn->Size = System::Drawing::Size(52, 20);
-			this->Updateenterbtn->TabIndex = 1;
-			this->Updateenterbtn->Text = L"Enter";
-			this->Updateenterbtn->UseVisualStyleBackColor = true;
-			this->Updateenterbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updateenterbtn_Click);
 			// 
 			// billbtnspanel
 			// 
@@ -854,6 +562,21 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->PlanHolder->Size = System::Drawing::Size(343, 160);
 			this->PlanHolder->TabIndex = 1;
 			this->PlanHolder->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashBoard::PlanHolder_CellContentClick);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Plan Name";
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Est. Time";
+			this->Column2->Name = L"Column2";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Progress";
+			this->Column3->Name = L"Column3";
 			// 
 			// planslbl
 			// 
@@ -1039,6 +762,295 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->weeksdbtlbl->TabIndex = 0;
 			this->weeksdbtlbl->Text = L"Weeks\' Debt";
 			// 
+			// removePanel
+			// 
+			this->removePanel->BackColor = System::Drawing::Color::White;
+			this->removePanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->removePanel->Controls->Add(this->RemovePromptlbl);
+			this->removePanel->Controls->Add(this->removeComboBox);
+			this->removePanel->Controls->Add(this->removeDonebtn);
+			this->removePanel->Controls->Add(this->removeRemovebtn);
+			this->removePanel->Location = System::Drawing::Point(0, 0);
+			this->removePanel->Name = L"removePanel";
+			this->removePanel->Size = System::Drawing::Size(338, 189);
+			this->removePanel->TabIndex = 9;
+			this->removePanel->Visible = false;
+			// 
+			// RemovePromptlbl
+			// 
+			this->RemovePromptlbl->AutoSize = true;
+			this->RemovePromptlbl->Location = System::Drawing::Point(112, 66);
+			this->RemovePromptlbl->Name = L"RemovePromptlbl";
+			this->RemovePromptlbl->Size = System::Drawing::Size(150, 13);
+			this->RemovePromptlbl->TabIndex = 4;
+			this->RemovePromptlbl->Text = L"What do you want to remove\?";
+			// 
+			// removeComboBox
+			// 
+			this->removeComboBox->FormattingEnabled = true;
+			this->removeComboBox->Location = System::Drawing::Point(119, 82);
+			this->removeComboBox->Name = L"removeComboBox";
+			this->removeComboBox->Size = System::Drawing::Size(121, 21);
+			this->removeComboBox->TabIndex = 3;
+			// 
+			// removeDonebtn
+			// 
+			this->removeDonebtn->Location = System::Drawing::Point(189, 164);
+			this->removeDonebtn->Name = L"removeDonebtn";
+			this->removeDonebtn->Size = System::Drawing::Size(52, 20);
+			this->removeDonebtn->TabIndex = 2;
+			this->removeDonebtn->Text = L"Done";
+			this->removeDonebtn->UseVisualStyleBackColor = true;
+			this->removeDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeDonebtn_Click);
+			// 
+			// removeRemovebtn
+			// 
+			this->removeRemovebtn->Location = System::Drawing::Point(119, 164);
+			this->removeRemovebtn->Name = L"removeRemovebtn";
+			this->removeRemovebtn->Size = System::Drawing::Size(58, 20);
+			this->removeRemovebtn->TabIndex = 1;
+			this->removeRemovebtn->Text = L"Remove";
+			this->removeRemovebtn->UseVisualStyleBackColor = true;
+			this->removeRemovebtn->Click += gcnew System::EventHandler(this, &DashBoard::removeRemovebtn_Click);
+			// 
+			// SaveDatapanel
+			// 
+			this->SaveDatapanel->BackColor = System::Drawing::Color::White;
+			this->SaveDatapanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->SaveDatapanel->Controls->Add(this->CloseQuestionlbl);
+			this->SaveDatapanel->Controls->Add(this->SaveNobtn);
+			this->SaveDatapanel->Controls->Add(this->saveYesbtn);
+			this->SaveDatapanel->Location = System::Drawing::Point(816, 56);
+			this->SaveDatapanel->Name = L"SaveDatapanel";
+			this->SaveDatapanel->Size = System::Drawing::Size(236, 115);
+			this->SaveDatapanel->TabIndex = 11;
+			this->SaveDatapanel->Visible = false;
+			// 
+			// CloseQuestionlbl
+			// 
+			this->CloseQuestionlbl->AutoSize = true;
+			this->CloseQuestionlbl->Location = System::Drawing::Point(3, 32);
+			this->CloseQuestionlbl->Name = L"CloseQuestionlbl";
+			this->CloseQuestionlbl->Size = System::Drawing::Size(224, 13);
+			this->CloseQuestionlbl->TabIndex = 4;
+			this->CloseQuestionlbl->Text = L"Do you want to save this data before quitting\?";
+			// 
+			// SaveNobtn
+			// 
+			this->SaveNobtn->Location = System::Drawing::Point(155, 70);
+			this->SaveNobtn->Name = L"SaveNobtn";
+			this->SaveNobtn->Size = System::Drawing::Size(52, 20);
+			this->SaveNobtn->TabIndex = 2;
+			this->SaveNobtn->Text = L"No";
+			this->SaveNobtn->UseVisualStyleBackColor = true;
+			this->SaveNobtn->Click += gcnew System::EventHandler(this, &DashBoard::SaveNobtn_Click);
+			// 
+			// saveYesbtn
+			// 
+			this->saveYesbtn->Location = System::Drawing::Point(21, 68);
+			this->saveYesbtn->Name = L"saveYesbtn";
+			this->saveYesbtn->Size = System::Drawing::Size(58, 20);
+			this->saveYesbtn->TabIndex = 1;
+			this->saveYesbtn->Text = L"Yes";
+			this->saveYesbtn->UseVisualStyleBackColor = true;
+			this->saveYesbtn->Click += gcnew System::EventHandler(this, &DashBoard::saveYesbtn_Click);
+			// 
+			// Updateboard
+			// 
+			this->Updateboard->BackColor = System::Drawing::Color::White;
+			this->Updateboard->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Updateboard->Controls->Add(this->label1);
+			this->Updateboard->Controls->Add(this->enterCalander);
+			this->Updateboard->Controls->Add(this->Updateboardtotalamttb);
+			this->Updateboard->Controls->Add(this->Updateboardamounttb);
+			this->Updateboard->Controls->Add(this->updateboardcycletb);
+			this->Updateboard->Controls->Add(this->Updateboardnametb);
+			this->Updateboard->Controls->Add(this->Updatecancelbtn);
+			this->Updateboard->Controls->Add(this->Updateenterbtn);
+			this->Updateboard->Location = System::Drawing::Point(816, 254);
+			this->Updateboard->Name = L"Updateboard";
+			this->Updateboard->Size = System::Drawing::Size(338, 189);
+			this->Updateboard->TabIndex = 8;
+			this->Updateboard->Visible = false;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(3, 134);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(77, 13);
+			this->label1->TabIndex = 11;
+			this->label1->Text = L"Next due date:";
+			// 
+			// enterCalander
+			// 
+			this->enterCalander->Location = System::Drawing::Point(82, 128);
+			this->enterCalander->Name = L"enterCalander";
+			this->enterCalander->Size = System::Drawing::Size(200, 20);
+			this->enterCalander->TabIndex = 10;
+			// 
+			// Updateboardtotalamttb
+			// 
+			this->Updateboardtotalamttb->Location = System::Drawing::Point(230, 51);
+			this->Updateboardtotalamttb->Name = L"Updateboardtotalamttb";
+			this->Updateboardtotalamttb->Size = System::Drawing::Size(97, 20);
+			this->Updateboardtotalamttb->TabIndex = 9;
+			this->Updateboardtotalamttb->Text = L"Total Amount";
+			this->Updateboardtotalamttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardtotalamttb_Click);
+			this->Updateboardtotalamttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardtotalamttb_KeyDown);
+			// 
+			// Updateboardamounttb
+			// 
+			this->Updateboardamounttb->Location = System::Drawing::Point(6, 90);
+			this->Updateboardamounttb->Name = L"Updateboardamounttb";
+			this->Updateboardamounttb->Size = System::Drawing::Size(97, 20);
+			this->Updateboardamounttb->TabIndex = 8;
+			this->Updateboardamounttb->Text = L"Amount per Cycle";
+			this->Updateboardamounttb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardamounttb_Click);
+			this->Updateboardamounttb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardamounttb_KeyDown);
+			// 
+			// updateboardcycletb
+			// 
+			this->updateboardcycletb->FormattingEnabled = true;
+			this->updateboardcycletb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
+			this->updateboardcycletb->Location = System::Drawing::Point(230, 90);
+			this->updateboardcycletb->Name = L"updateboardcycletb";
+			this->updateboardcycletb->Size = System::Drawing::Size(97, 21);
+			this->updateboardcycletb->TabIndex = 7;
+			this->updateboardcycletb->Text = L"Pick Cycle";
+			this->updateboardcycletb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::updateboardcycletb_KeyDown);
+			// 
+			// Updateboardnametb
+			// 
+			this->Updateboardnametb->Location = System::Drawing::Point(6, 51);
+			this->Updateboardnametb->Name = L"Updateboardnametb";
+			this->Updateboardnametb->Size = System::Drawing::Size(97, 20);
+			this->Updateboardnametb->TabIndex = 6;
+			this->Updateboardnametb->Text = L"Name";
+			this->Updateboardnametb->Click += gcnew System::EventHandler(this, &DashBoard::Updateboardnametb_Click);
+			this->Updateboardnametb->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &DashBoard::Updateboardnametb_KeyDown);
+			// 
+			// Updatecancelbtn
+			// 
+			this->Updatecancelbtn->Location = System::Drawing::Point(189, 164);
+			this->Updatecancelbtn->Name = L"Updatecancelbtn";
+			this->Updatecancelbtn->Size = System::Drawing::Size(52, 20);
+			this->Updatecancelbtn->TabIndex = 2;
+			this->Updatecancelbtn->Text = L"Cancel";
+			this->Updatecancelbtn->UseVisualStyleBackColor = true;
+			this->Updatecancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updatecancelbtn_Click);
+			// 
+			// Updateenterbtn
+			// 
+			this->Updateenterbtn->Location = System::Drawing::Point(119, 164);
+			this->Updateenterbtn->Name = L"Updateenterbtn";
+			this->Updateenterbtn->Size = System::Drawing::Size(52, 20);
+			this->Updateenterbtn->TabIndex = 1;
+			this->Updateenterbtn->Text = L"Enter";
+			this->Updateenterbtn->UseVisualStyleBackColor = true;
+			this->Updateenterbtn->Click += gcnew System::EventHandler(this, &DashBoard::Updateenterbtn_Click);
+			// 
+			// editpanel
+			// 
+			this->editpanel->BackColor = System::Drawing::Color::White;
+			this->editpanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->editpanel->Controls->Add(this->editCalendar);
+			this->editpanel->Controls->Add(this->editDonebtn);
+			this->editpanel->Controls->Add(this->editcyclecb);
+			this->editpanel->Controls->Add(this->editpercycletb);
+			this->editpanel->Controls->Add(this->editpanelAmnttb);
+			this->editpanel->Controls->Add(this->editpromptlbl);
+			this->editpanel->Controls->Add(this->editComboBox);
+			this->editpanel->Controls->Add(this->editcancelbtn);
+			this->editpanel->Controls->Add(this->editEditbtn);
+			this->editpanel->Location = System::Drawing::Point(24, 194);
+			this->editpanel->Name = L"editpanel";
+			this->editpanel->Size = System::Drawing::Size(338, 189);
+			this->editpanel->TabIndex = 10;
+			this->editpanel->Visible = false;
+			// 
+			// editCalendar
+			// 
+			this->editCalendar->Location = System::Drawing::Point(133, 116);
+			this->editCalendar->Name = L"editCalendar";
+			this->editCalendar->Size = System::Drawing::Size(200, 20);
+			this->editCalendar->TabIndex = 12;
+			this->editCalendar->Visible = false;
+			// 
+			// editDonebtn
+			// 
+			this->editDonebtn->Location = System::Drawing::Point(221, 164);
+			this->editDonebtn->Name = L"editDonebtn";
+			this->editDonebtn->Size = System::Drawing::Size(58, 20);
+			this->editDonebtn->TabIndex = 11;
+			this->editDonebtn->Text = L"Done";
+			this->editDonebtn->UseVisualStyleBackColor = true;
+			this->editDonebtn->Visible = false;
+			this->editDonebtn->Click += gcnew System::EventHandler(this, &DashBoard::editDonebtn_Click);
+			// 
+			// editcyclecb
+			// 
+			this->editcyclecb->FormattingEnabled = true;
+			this->editcyclecb->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Monthly", L"Bi-Weekly", L"Weekly" });
+			this->editcyclecb->Location = System::Drawing::Point(236, 83);
+			this->editcyclecb->Name = L"editcyclecb";
+			this->editcyclecb->Size = System::Drawing::Size(97, 21);
+			this->editcyclecb->TabIndex = 10;
+			this->editcyclecb->Visible = false;
+			// 
+			// editpercycletb
+			// 
+			this->editpercycletb->Location = System::Drawing::Point(13, 116);
+			this->editpercycletb->Name = L"editpercycletb";
+			this->editpercycletb->Size = System::Drawing::Size(97, 20);
+			this->editpercycletb->TabIndex = 9;
+			this->editpercycletb->Visible = false;
+			// 
+			// editpanelAmnttb
+			// 
+			this->editpanelAmnttb->Location = System::Drawing::Point(145, 83);
+			this->editpanelAmnttb->Name = L"editpanelAmnttb";
+			this->editpanelAmnttb->Size = System::Drawing::Size(69, 20);
+			this->editpanelAmnttb->TabIndex = 7;
+			this->editpanelAmnttb->Visible = false;
+			// 
+			// editpromptlbl
+			// 
+			this->editpromptlbl->AutoSize = true;
+			this->editpromptlbl->Location = System::Drawing::Point(8, 62);
+			this->editpromptlbl->Name = L"editpromptlbl";
+			this->editpromptlbl->Size = System::Drawing::Size(132, 13);
+			this->editpromptlbl->TabIndex = 4;
+			this->editpromptlbl->Text = L"What do you want to edit\?";
+			// 
+			// editComboBox
+			// 
+			this->editComboBox->FormattingEnabled = true;
+			this->editComboBox->Location = System::Drawing::Point(13, 82);
+			this->editComboBox->Name = L"editComboBox";
+			this->editComboBox->Size = System::Drawing::Size(112, 21);
+			this->editComboBox->TabIndex = 3;
+			// 
+			// editcancelbtn
+			// 
+			this->editcancelbtn->Location = System::Drawing::Point(152, 164);
+			this->editcancelbtn->Name = L"editcancelbtn";
+			this->editcancelbtn->Size = System::Drawing::Size(52, 20);
+			this->editcancelbtn->TabIndex = 2;
+			this->editcancelbtn->Text = L"Cancel";
+			this->editcancelbtn->UseVisualStyleBackColor = true;
+			this->editcancelbtn->Click += gcnew System::EventHandler(this, &DashBoard::editcancelbtn_Click);
+			// 
+			// editEditbtn
+			// 
+			this->editEditbtn->Location = System::Drawing::Point(76, 164);
+			this->editEditbtn->Name = L"editEditbtn";
+			this->editEditbtn->Size = System::Drawing::Size(58, 20);
+			this->editEditbtn->TabIndex = 1;
+			this->editEditbtn->Text = L"Edit";
+			this->editEditbtn->UseVisualStyleBackColor = true;
+			this->editEditbtn->Click += gcnew System::EventHandler(this, &DashBoard::editEditbtn_Click);
+			// 
 			// PlanMakerPanel
 			// 
 			this->PlanMakerPanel->BackColor = System::Drawing::Color::White;
@@ -1152,21 +1164,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->Title->TabIndex = 10;
 			this->Title->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Plan Name";
-			this->Column1->Name = L"Column1";
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Est. Time";
-			this->Column2->Name = L"Column2";
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Progress";
-			this->Column3->Name = L"Column3";
-			// 
 			// DashBoard
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1174,6 +1171,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->BackColor = System::Drawing::Color::BlueViolet;
 			this->ClientSize = System::Drawing::Size(826, 444);
 			this->Controls->Add(this->Title);
+			this->Controls->Add(this->SaveDatapanel);
+			this->Controls->Add(this->removePanel);
+			this->Controls->Add(this->Updateboard);
 			this->Controls->Add(this->PlanMakerPanel);
 			this->Controls->Add(this->panelDesktop);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -1182,16 +1182,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->Text = L"DashBoard";
 			this->panelDesktop->ResumeLayout(false);
 			this->panelDesktop->PerformLayout();
-			this->editpanel->ResumeLayout(false);
-			this->editpanel->PerformLayout();
-			this->removePanel->ResumeLayout(false);
-			this->removePanel->PerformLayout();
-			this->SaveDatapanel->ResumeLayout(false);
-			this->SaveDatapanel->PerformLayout();
 			this->panelTitle->ResumeLayout(false);
 			this->panelTitle->PerformLayout();
-			this->Updateboard->ResumeLayout(false);
-			this->Updateboard->PerformLayout();
 			this->billbtnspanel->ResumeLayout(false);
 			this->debtbtnspanel->ResumeLayout(false);
 			this->incomebtnspanel->ResumeLayout(false);
@@ -1206,6 +1198,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->currentIncomeShow->PerformLayout();
 			this->currentDebtShow->ResumeLayout(false);
 			this->currentDebtShow->PerformLayout();
+			this->removePanel->ResumeLayout(false);
+			this->removePanel->PerformLayout();
+			this->SaveDatapanel->ResumeLayout(false);
+			this->SaveDatapanel->PerformLayout();
+			this->Updateboard->ResumeLayout(false);
+			this->Updateboard->PerformLayout();
+			this->editpanel->ResumeLayout(false);
+			this->editpanel->PerformLayout();
 			this->PlanMakerPanel->ResumeLayout(false);
 			this->PlanMakerPanel->PerformLayout();
 			this->ResumeLayout(false);
@@ -1319,7 +1319,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 				SqlDataReader^ reader = newdBConn.ExecuteReader();
 
 				int currentDataReadNum = 0;
-				//MessageBox::Show("Num of items:" + numofItems);
+				MessageBox::Show("Num of items:" + numofItems);
 				while (currentDataReadNum < numofItems) {
 					if (reader->Read()) {
 						//MessageBox::Show("Started the read");
@@ -1362,16 +1362,18 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 						//MessageBox::Show("didnt get userID. Terminating Program");
 						this->Close();
 					}
-					//MessageBox::Show(newItem->get_dueDate() + "");
+					
 				}
-				
+				delete connString;
+				delete Query;
+				delete reader;
 			}
 			
 		catch (Exception^ ex) {
 			MessageBox::Show("Data Load: " + ex->Message);
 		}
 		//MessageBox::Show("Completed the load");
-		
+
 	}
 	private: System::Void DashBoard_Load(User^ user) {
 		float incometotal = 0;
@@ -1401,87 +1403,120 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			
 		}
 		
-		if (currentuser->get_incomesize() > 0) {
-			//MessageBox::Show("We have income");
-			//MessageBox::Show(currentuser->get_incomesize() + " :size");
-			for (int i = 0; i < currentuser->get_incomesize(); i++) {
-				incometotal += currentuser->incomeItems[i]->getpayment();
-			}
-			//MessageBox::Show(incometotal + " inc total");
-		}
-		else {
-			incometotal = 0.00;
-		}
-		//debt
-		if (currentuser->get_debtsize() >0) {
-			//MessageBox::Show("We have debt");
-			//MessageBox::Show(currentuser->get_debtsize() + " :size");
-			for (int i = 0; i < currentuser->get_debtsize(); ++i) {
-				//MessageBox::Show("current i: " + i);
-				debttotal += currentuser->debtItems[i]->getpayment();
-			}
-			//MessageBox::Show(debttotal + " debt total");
-		}
-		else {
-			debttotal = 0.00;
-		}
+		//if (currentuser->get_incomesize() > 0) {
+		//	//MessageBox::Show("We have income");
+		//	//MessageBox::Show(currentuser->get_incomesize() + " :size");
+		//	for (int i = 0; i < currentuser->get_incomesize(); i++) {
+		//		incometotal += currentuser->incomeItems[i]->getpayment();
+		//	}
+		//	//MessageBox::Show(incometotal + " inc total");
+		//}
+		//else {
+		//	incometotal = 0.00;
+		//}
+		////debt
+		//if (currentuser->get_debtsize() >0) {
+		//	//MessageBox::Show("We have debt");
+		//	//MessageBox::Show(currentuser->get_debtsize() + " :size");
+		//	for (int i = 0; i < currentuser->get_debtsize(); ++i) {
+		//		//MessageBox::Show("current i: " + i);
+		//		debttotal += currentuser->debtItems[i]->getpayment();
+		//	}
+		//	//MessageBox::Show(debttotal + " debt total");
+		//}
+		//else {
+		//	debttotal = 0.00;
+		//}
 
-		//bill
-		if (currentuser->get_billsize() >0) {
-			//MessageBox::Show("We have bills");
-			//MessageBox::Show(currentuser->get_billsize() + " :size");
-			for (int i = 0; i < currentuser->billItems->Count; i++) {
-				billtotal += currentuser->billItems[i]->getpayment();
-			}
-			//MessageBox::Show(billtotal + " debt total");
-		}
-		else {
-			billtotal = 0.00;
-		}
+		////bill
+		//if (currentuser->get_billsize() >0) {
+		//	//MessageBox::Show("We have bills");
+		//	//MessageBox::Show(currentuser->get_billsize() + " :size");
+		//	for (int i = 0; i < currentuser->billItems->Count; i++) {
+		//		billtotal += currentuser->billItems[i]->getpayment();
+		//	}
+		//	//MessageBox::Show(billtotal + " debt total");
+		//}
+		//else {
+		//	billtotal = 0.00;
+		//}
 
-
-
-		spendable = getWeeklySpendable();
+		CheckupdateDueDate(dt.Now);
+		List<int>^ weekList = getWeeklySpendable();
+		
+		
+		//MessageBox::Show(currentuser->incomeItems[0]->get_paydueDate() + "");
+		//spendable = getWeeklySpendable();
+		incometotal = weekList[0];
+		billtotal = weekList[1];
+		debttotal = weekList[2];
+		spendable = incometotal - (billtotal + debttotal);
 		incomeamtlbl->Text = "$ " + incometotal;
 		billamt->Text = "$ " + billtotal;
 		debtamtlbl->Text = "$ " + debttotal;
 		spendableamtlbl->Text = "$ " + spendable;
 
-
+		
 
 		//this whole thing gets the end of the week and moves the needle to the monday following
 		
 	}
-	public: float getWeeklySpendable() {
+	public: float determineWeeksWorth(Item^ it) {
+		float amt = 0;
+		switch (it->getfrequency()) {
+		case 1:
+			amt = (it->getpayment()) / 4;
+			break;
+		case 2:
+			amt = (it->getpayment()) / 2;
+			break;
+		case 4:
+			amt = it->getpayment();
+			break;
+		default:
+			MessageBox::Show("Ran into error determining week");
+			break;
+		}
+		return amt;
+	}
+	public: List<int>^ getWeeklySpendable() {
 		DateTime today = DateTime::Now;
 		int weeklyincome = 0;
 		int weeklybills = 0;
 		int weeklydebt = 0;
+		List<int>^ weekPayList = gcnew List<int>();
 		try {
+			//MessageBox::Show(currentuser->incomeItems->Count + "");
 			today = GetEndofWeek(today, today.DayOfWeek); //skip to sunday and validate backwards
 				for each (Item ^ it in currentuser->incomeItems) {
 					if (it->isDue(today)) {
-						weeklyincome += it->getpayment();
+
+						weeklyincome += determineWeeksWorth(it);
+						//MessageBox::Show(weeklyincome + ": blah ");
 					}
 				}
-				MessageBox::Show(weeklyincome + " ");
+				weekPayList->Add(weeklyincome);
+				//MessageBox::Show(weeklyincome + ": Income ");
 				for each (Item ^ it in currentuser->billItems) {
 					if (it->isDue(today)) {
-						weeklybills += it->getpayment();
+						weeklybills += determineWeeksWorth(it);
 					}
 				}
-				MessageBox::Show(weeklybills + " ");
+				weekPayList->Add(weeklybills);
+				//MessageBox::Show(weeklybills + ": bills ");
 				for each (Item ^ it in currentuser->debtItems) {
 					if (it->isDue(today)) {
-						weeklydebt += it->getpayment();
+						weeklydebt += determineWeeksWorth(it);
 					}
 				}
-				MessageBox::Show(weeklydebt + " ");
+				weekPayList->Add(weeklydebt);
+				//MessageBox::Show(weeklydebt + ": debt ");
 		}
 		catch (Exception^ e) {
 			MessageBox::Show(e->Message);
 		}
-		return (weeklyincome - (weeklybills + weeklydebt));
+		//return (weeklyincome - (weeklybills + weeklydebt));
+		return weekPayList;
 	}
 	public: Void collectWeekData() {//include params soon
 		DateTime today = DateTime::Now;
@@ -1513,6 +1548,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 		}
 		return today.AddDays(diff);
 	}
+	
 	private: System::Void Closebtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (currentuser->changedItems->Count > 0) {
 			SaveDatapanel->Visible = true;
@@ -1625,9 +1661,81 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	int next_date_month;
 	int next_date_year;
 	int next_date_tracker;
-	
-private: System::Void Updateenterbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	int itempaymentoccurance;
+public: void convertFreqtoDate(int freq , DateTime selectedDate) {
+	switch (freq) {
+	case 1:
+		next_date_tracker = enterCalander->MaxDate.Day;
+		break;
+	case 2:
+		next_date_tracker = 14;
+		break;
+	case 4:
+		next_date_tracker = 7;
+		break;
+	default:
+		MessageBox::Show("Default freq hit. Error in freq passed to func");
+		break;
+	}
+	try {
+		
+
+		if ((selectedDate.Day + next_date_tracker) > enterCalander->MaxDate.Day) {
+			//we are into the next month
+			next_date_day = (selectedDate.Day + next_date_tracker) - 30;
+			next_date_month = month + 1;
+			if (next_date_month > 12) {
+				next_date_month = 1;
+				next_date_year = selectedDate.Year + 1;
+			}
+			//MessageBox::Show(next_date_month +"/"+ next_date_day + "/"+ next_date_year +" new month");
+		}
+		else {
+			next_date_day = selectedDate.Day + next_date_tracker;
+			next_date_month = selectedDate.Month;
+			next_date_year = selectedDate.Year;
+			//MessageBox::Show(next_date_month + "/" + next_date_day + "/" + next_date_year + " same month");
+		}
+	}
+	catch (Exception^ e) {
+		MessageBox::Show(e->Message);
+	}
+}
+public: void CheckupdateDueDate(DateTime today) {
+	DateTime^ temp = gcnew DateTime();
+	for each (Item ^ it in currentuser->incomeItems) {
+		temp = it->get_paydueDate();
+		if (temp->Day < today.Day) {//the day has passed lets update the timeframe and reduce total
+			convertFreqtoDate(it->getfrequency(), temp->Date);
+			
+			//MessageBox::Show(next_date_day + "");
+			it->set_dueDate(next_date_day, next_date_month, next_date_year);//moves dates up to next
+			//MessageBox::Show(it->get_paydueDate() + " it");
+		}
+		
+	}
+	
+	MessageBox::Show(currentuser->incomeItems[0]->get_paydueDate() + "");
+	for each (Item ^ it in currentuser->billItems) {
+		temp = it->get_paydueDate();
+		if (temp->Day < today.Day) {//the day has passed lets update the timeframe and reduce total
+			convertFreqtoDate(it->getfrequency(), temp->Date);
+			it->set_dueDate(next_date_day, next_date_month, next_date_year);//moves dates up to next
+			//MessageBox::Show(temp->Day + " Changing date since passed " + today.Day);
+		}
+	}
+	for each (Item ^ it in currentuser->debtItems) {
+		temp = it->get_paydueDate();
+		if (temp->Day < today.Day) {//the day has passed lets update the timeframe and reduce total
+			convertFreqtoDate(it->getfrequency(), temp->Date);
+			it->set_dueDate(next_date_day, next_date_month, next_date_year);//moves dates up to next
+			//MessageBox::Show(temp->Day + " Changing date since passed " + today.Day);
+		}
+	}
+	delete temp;
+}
+private: System::Void Updateenterbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	
 	int usersID;
 	String^ frequency = updateboardcycletb->Text;
 	String^ itemName = Updateboardnametb->Text;
@@ -1641,11 +1749,9 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 	day = selectedDate.Day;
 	next_date_year = selectedDate.Year;
 
-	System::DateTime lastdayofMonth(selectedDate.Year, month, DateTime::DaysInMonth(selectedDate.Year, month));
+	/*System::DateTime lastdayofMonth(selectedDate.Year, month, DateTime::DaysInMonth(selectedDate.Year, month));
 	enterCalander->MaxDate = lastdayofMonth;
-	
-	
-	
+	*/
 	if (frequency == "Monthly") {
 		itempaymentoccurance = 1;
 		next_date_tracker = 30;
@@ -1677,6 +1783,8 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 	catch (Exception^ e) {
 		MessageBox::Show(e->Message);
 	}
+	//convertFreqtoDate(frequency, selectedDate);
+	
 	
 	//MessageBox::Show("Afterwards the next time is: " + next_date_month + "/" + next_date_day + "/" + next_date_year);
 	if (currentUpdateClicked == "Income") {
@@ -1703,7 +1811,7 @@ private: System::Void Updateenterbtn_Click(System::Object^ sender, System::Event
 		newsqlConn.Open();
 
 		//MessageBox::Show(newsqlConn.State.ToString());
-		MessageBox::Show(next_date_month.ToString());
+		//MessageBox::Show(next_date_month.ToString());
 
 		String^ sqlQuery = "INSERT INTO Vault" +
 			"(itemType, itemName, itemtotalamount, itemcurrentpayment, itempaymentoccurance, nextduemonth,nextdueday,nextdueyear, usersID)VALUES" +
@@ -2013,7 +2121,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->incomeItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->incomeItems[i]->getpayment()).ToString();
-				editCalendar->Value = currentuser->incomeItems[i]->get_dueDate();
+				editCalendar->Value = currentuser->incomeItems[i]->get_paydueDate();
 				}
 			}
 		}
@@ -2037,7 +2145,7 @@ private: System::Void editEditbtn_Click(System::Object^ sender, System::EventArg
 				//load the data into panels
 				editpanelAmnttb->Text = (currentuser->debtItems[i]->gettotal()).ToString();
 				editpercycletb->Text = (currentuser->debtItems[i]->getpayment()).ToString();
-				editCalendar->Value = currentuser->debtItems[i]->get_dueDate();
+				editCalendar->Value = currentuser->debtItems[i]->get_paydueDate();
 			}
 		}
 	}

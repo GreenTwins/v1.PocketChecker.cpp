@@ -23,10 +23,10 @@ private:
 public:
 	DateTime get_paydueDate() {
 		try {
-			if (dueDate_year < 1 || dueDate_month < 1 || dueDate_month >12 || dueDate_day < 1 || dueDate_day > 31) {
+			if (dueDate_year <= 1 || dueDate_month < 1 || dueDate_month >12 || dueDate_day < 1 || dueDate_day > 31) {
 				throw gcnew Exception("Invalid year, month or day");
 			}
-			return DateTime(this->dueDate_year, this->dueDate_month, this->dueDate_day);
+			return DateTime(dueDate_year, dueDate_month, dueDate_day);
 		}
 		catch (Exception^ e) {
 			Console::WriteLine(e->Message);
@@ -117,7 +117,32 @@ public:
 	List<Item^>^ changedItems;
 	List<Item^>^ dueItems;
 
-	
+	User() {
+		incomeItems = gcnew List<Item^>();
+		debtItems= gcnew List<Item^>();
+		billItems= gcnew List<Item^>();
+		changedItems= gcnew List<Item^>();
+		dueItems= gcnew List<Item^>();
+		fullname = nullptr;
+		firstname = nullptr;
+		lastname = nullptr;
+		email = nullptr;
+		username = nullptr;
+		password = nullptr;
+	}
+	~User() {
+		delete incomeItems;
+		delete debtItems;
+		delete billItems;
+		delete changedItems;
+		delete dueItems;
+		delete fullname;
+		delete firstname;
+		delete lastname;
+		delete email;
+		delete username;
+		delete password;
+	}
 	void getDueItems(DateTime today) {
 		dueItems->Clear();
 
